@@ -1,0 +1,270 @@
+%%
+%% intro.tex
+%% 
+%% Made by Alex Nelson
+%% Login   <alex@black-cherry>
+%% 
+%% Started on  Fri Jul 27 15:14:26 2012 Alex Nelson
+%% Last update Sat Jul 28 11:14:12 2012 Alex Nelson
+%%
+
+\N{Nature of Physics} As with any science, physics works via
+paradigms. A paradigm is a collection of conceptual tools (e.g.,
+equations and models) used to analyze and explain phenomena, make
+predictions, and set up models. 
+
+We will investigate the Newtonian paradigm. Later, after
+investigating electromagnetism, we will see this paradigm
+fails. Consequently we will introduce the Special Relativity
+paradigm. Note that both of these are classical paradigms (as
+opposed to \emph{quantum} paradigms, where we work with Hilbert
+spaces, etc.). We recover the Newtonian paradigm from Special
+Relativity when we take velocities $v$ to be slow compared to
+the speed of light, $v\ll c$.
+
+Each paradigm provides explanations through ``theories''. This
+connects the conceptual toolkit to experiment. Each paradigm has
+a \define{Range of Validity}: Newton's paradigm works for slow
+objects, when $v\ll c$. For speeds approaching light, we lose
+accuracy and need to work with special relativity.
+
+\N{Problem-Solving} Pure mathematics works via
+``Definition--theorem--proof'', but applied mathematics and
+sciences focuses on \emph{examples}, working out problems. We
+consider the structure of a worked problem (or an example)
+consisting of four steps used in problem--solving:
+\begin{enumerate}
+\item\textbf{Identify the relevant concepts:} Bring in the
+  relevant physical concepts. Also identify the \emph{target variable},
+  the quantity we're trying to solve. Are we looking for a
+  numeric value or an algebraic expression?
+\item\textbf{Set up the problem:} Draw a sketch if it
+  helps. Choose the equations based on the ``identify'' step,
+  decide how we'll use them. 
+\item\textbf{Execute the Solution:} Do the math, preferably doing
+  algebraic calculations first, then plug in the physical
+  quantities. 
+\item\textbf{Evaluate your answer:} Does it make sense? You can
+  double check using order of magnitude estimates. Also try to
+  think of more complicated problems.
+\end{enumerate}
+
+\N{Idealized Models}
+When we set up a model, we take simplified assumptions. Consider
+a baseball's trajectory. We simplify the problem modeling the
+ball as a \define{Point Particle}, i.e.~a point, instead of a
+sphere. We may neglect air resistance too. But when we
+\emph{evaluate} the model, we may introduce these factors. This
+iterative approach allows us to model complicated phenomena quite
+simply. 
+
+\N{Standards and Units}
+We measure phenomena experimentally, and use numbers  for
+measurements. Well, any number describing some physical phenomena
+we call a \define{Physical Quantity}. Some quantities are so
+fundamental we can only define them by describing how to measure
+them; these definitions are called \define{Operational Definition}.
+We measure distances with rulers, time intervals with clocks.
+
+So Goliath is 6 cubits (according to 1Sam17:4), and an even more
+powerful authority---Google---tells us 
+\begin{equation}
+\SI{1}{cubit}=\SI{45.72}{\centi\meter}.
+\end{equation}
+Thus we see Goliath is $\SI{2.7432}{\meter}$ tall. We have
+``meter'' be the \define{Unit} of this physical quantity
+(Goliath's height). Measurements need to be accurate, so
+scientists don't work with cubits or eons but the SI units (or
+international system of units). There are three fundamental
+quantities:
+
+\noindent\textbf{Time:\quad}\ignorespaces%
+We hit a Cesium atom in its ground state with radiation at the
+frequency necessary to energize the valence electron to the next
+energy state. We define one \define{Second} to be 9,192,631,770
+cycles of this radiation.
+\begin{center}
+\includegraphics{img/intro.0}
+\end{center}
+\textbf{Distance:\quad}\ignorespaces%
+We define one \define{Meter} to be the distance a photon travels
+in a vacuum in $\SI{1/299792458}{\second}$.  
+
+\noindent\textbf{Mass:\quad}\ignorespaces%
+We keep a particular cylinder of platinum--iridium alloy in
+Paris, and its mass we define as one \define{Kilogram}.
+
+\medbreak
+Note that these are the fundamental physical quantities. We use
+prefixes on the units to indicate different scales. Lets review a
+few different length scales:
+\begin{align*}
+\SI{1}{nanometer} &= \SI{1}{\nano\meter} = \SI[parse-numbers = false]{10^{-9}}{\meter}\mathrm{\ (a\
+few\ times\ bigger\ than\ largest\ atom)}\\
+\SI{1}{micrometers}&= \SI{1}{\micro\meter} = \SI[parse-numbers = false]{10^{-6}}{\meter}\mathrm{\
+(size\ of\ bacteria)}\\
+\SI{1}{millimeter}&=\SI{1}{\milli\meter} = \SI[parse-numbers = false]{10^{-3}}{\meter}\mathrm{\
+(diameter\ of\ ballpoint\ pen)}\\
+\SI{1}{centimeter}&=\SI{1}{\centi\meter} = \SI[parse-numbers = false]{10^{-2}}{\meter}\mathrm{\
+(diameter\ of\ pinky)}\\
+\SI{1}{kilometer} &=\SI{1}{\kilo\meter} = \SI[parse-numbers = false]{10^{3}}{\meter}\mathrm{\ (a\
+ten\ minute\ walk)}
+\end{align*}
+We will consider several different mass scales
+\begin{align*}
+\SI{1}{microgram} &= \SI{1}{\micro\gram} = \SI[parse-numbers = false]{10^{-9}}{\kilo\gram}\mathrm{\
+(mass\ of\ dust\ particle)}\\
+\SI{1}{milligram} &= \SI{1}{\milli\gram} = \SI[parse-numbers = false]{10^{-6}}{\kilo\gram}\mathrm{\
+(mass\ of\ grain\ of\ salt)}\\
+\SI{1}{gram} &= \SI{1}{\gram} = \SI[parse-numbers = false]{10^{-3}}{\kilo\gram}\mathrm{\ (mass\
+of\ paperclip)}
+\end{align*}
+
+
+\N{Unit Consistency and Conversion} Equations must be
+dimensionally consistent. We cannot add oranges to orangutans!
+For example: $d = rt$, so we have
+\begin{equation}
+\SI{12}{\meter} = 
+\left(3\frac{\si{\meter}}{\si{\highlight{red}\cancel\second}}\right)(4\si{\highlight{red}\cancel\second})
+\end{equation}
+Huzzah, we have consistency!
+
+Really, we should treat units as if they're algebraic
+quantities. We need to convert accordingly, so we avoid
+inconsistencies. 
+
+\N{Example}
+United States President Barack Obama was born August 4, 1961 at
+7:24 \textsc{pm}. How old is he on January 1, 2010 at noon?
+
+\textsc{Identify:}
+We need to compute $T$, the time interval from 4 August 1961 at
+7:24 \textsc{pm} until 1 January 2010 at noon.
+
+\textsc{Set Up:}
+We recall there are $365.25$ days per year, 24 hours per day, 60
+minutes per hour, and 60 seconds per minute. Furthermore, let
+\begin{subequations}
+\begin{align}
+T_{1}&=\mbox{time between 4 August 1961 at 7:24 \textsc{pm}}\nonumber\\
+&\quad\mbox{ and 5
+August 1961 at noon}\\
+T_{2}&=\mbox{time between 5 August 1961 and 1 January 2010}\\
+T &= T_{1}+T_{2}
+\end{align}
+\end{subequations}
+
+\textsc{Execute:}
+First we consider $\tau_{1}$ the time left on 4 August 1961 until
+midnight, so 
+\begin{equation}
+T_{1} = \tau_{1} + (12\si{hrs}).
+\end{equation}
+We see
+\begin{subequations}
+\begin{align}
+\tau_{1} &= (\mbox{12:00\thinspace\sc
+am})-(\mbox{7:24\thinspace\sc pm})\\
+&=(\SI{4}{\hour})+(\SI{36}{\minute})
+\end{align}
+\end{subequations}
+and thus
+\begin{subequations}
+\begin{align}
+T_{1} &= (\SI{16}{\hour})\left(\frac{\SI{60}{\minute}}{\si{\hour}}\right)+
+(\SI{36}{\minute})\\
+&=(\SI{640}{\minute})+(\SI{36}{\minute})\\
+&=\SI{676}{\minute}.
+\end{align}
+\end{subequations}
+Let $\tau_{2}$ be the time between 5 August 1961 at noon until 1
+January 1962 at noon, and $\tau_{3}$ be the time between 1
+January 1962 and 1 January 2010, so
+\begin{equation}
+T_{2} = \tau_2+\tau_3.
+\end{equation}
+We see that
+\begin{subequations}
+\begin{align}
+\tau_2 &= \SI{27}{days}+\SI{30}{days}+\SI{31}{days}+
+\SI{30}{days}+\SI{31}{days}\\
+&=\SI{149}{days}.
+\end{align}
+\end{subequations}
+Further
+\begin{subequations}
+\begin{align}
+\tau_3 &=
+(\SI{48}{years})\left(365.25\frac{\si{days}}{\si{year}}\right)\\
+&=\SI{17532}{days}
+\end{align}
+\end{subequations}
+thus
+\begin{equation}
+\begin{split}
+T_{2} &= \tau_2+\tau_3\\
+&=\SI{149}{days}+\SI{17532}{days}=\SI{17681}{days}.
+\end{split}
+\end{equation}
+Now we need to convert units, so we can add $T_1+T_2$, then
+change units to seconds. We see
+\begin{equation}
+\begin{split}
+T_{2} &= 
+(\SI{17681}{days})\left(24\frac{\si{hrs}}{\si{day}}\right)
+\left(60\frac{\si{\minute}}{\si{hr}}\right)\\
+&= \SI{25460640}{\minute}
+\end{split}
+\end{equation}
+thus
+\begin{equation}
+\begin{split}
+T &= T_1+T_2 = \SI{676}{\minute} + \SI{25460640}{\minute}\\
+&=\SI{25461316}{\minute}.
+\end{split}
+\end{equation}
+Now we convert units
+\begin{equation}
+\begin{split}
+T &= (\SI{25461316}{\minute})\left(60\frac{\si{sec}}{\si{\minute}}\right)\\
+&=\SI{1527678960}{sec}.
+\end{split}
+\end{equation}
+This is our answer.
+
+\textsc{Evaluate:}
+Does this make sense? Well, it should be a little less than 50
+years in seconds. We find
+\begin{equation}
+\!(50\si{years})
+\!\!\left(365.25\frac{\si{day}}{\si{year}}\right) 
+\!\!\left(24\frac{\si{hrs}}{\si{day}}\right)
+\!\!\left(60\frac{\si{min}}{\si{hr}}\right)
+\!\!\left(60\frac{\si{sec}}{\si{min}}\right)
+=1577880000\si{s}
+\end{equation}
+We see the difference is
+\begin{equation}
+(\SI{50}{years})-T\approx \SI{50000000}{\second}
+\end{equation}
+which is to be expected for an approximately correct $T$.
+
+\N{Uncertainty and Significant Figures}
+Measurements produce numbers with some \define{Uncertainty}
+or \define{Error}. The \define{Accuracy} of the measurement is
+how close it approximates the solution. We indicate uncertainty
+writing $y\pm x$ suggesting the final answer is unlikely to be
+outside of $y-x$ and $y+x$. For a measurement $123.456\pm0.00078$
+we sometimes use shorthand writing $123.456(78)$. 
+
+Scientific notation rewrites any number using powers of ten.
+For example
+\begin{equation}
+\SI{1577880000}{\second}
+=\SI[parse-numbers = false]{1.57788\times10^{9}}{\second}.
+\end{equation}
+Why use this notation? We keep track of significant figures
+easier with this notation. There are 7 significant digits.
+
+

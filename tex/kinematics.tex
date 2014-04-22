@@ -1,0 +1,368 @@
+\section{Kinematics}
+
+\N{Overview}
+When we consider \emph{how to describe the state of a system},
+we are discussing the system's \define{Kinematics}. For classical
+mechanics, we begin with a point-like particle which travels along a
+curve called its \define{Trajectory}. 
+
+At any moment, a point in the trajectory is the particle's
+\emph{position}. The first derivative (with respect to time) is the
+particle's \emph{velocity}. Its second derivative, its
+\emph{acceleration}. Kinematics for a point particle amounts to little
+more than the differential geometry of curves.
+
+\subsection{Acceleration Vector}
+
+\M We will consider the acceleration vector as the sum of two
+vectors. Namely the \define{Parallel Acceleration} $\vec{a}_{\parallel}$
+and the \define{Perpendicular Acceleration} $\vec{a}_{\perp}$. So we
+decompose acceleration as
+\begin{equation}
+\vec{a} = \vec{a}_{\parallel}+\vec{a}_{\perp}
+\end{equation}
+in general. We summarize the components in the diagram:
+\begin{center}
+\includegraphics{img/kinematics.0}
+\end{center}
+\noindent%
+The question we should ask ourselves is ``What happens to velocity (when
+considering nonzero acceleration)?''
+
+\N{Parallel Acceleration} 
+So consider a ``small interval'' from $t_{1}$ to $t_{2}=t_{1}+\Delta t$. 
+The change in velocity $\Delta\vec{v}=\vec{v}(t_{2})-\vec{v}(t_{1})$
+gives us an ``average velocity'' for the body. If the acceleration is
+parallel to the velocity, then $\Delta\vec{v}$ is in the same direction
+as $\vec{v}_{1}=\vec{v}(t_{1})$. And the velocity's direction remains the same
+(since $\Delta\vec{v}$ is in the same direction as $\vec{v}_{1}$). So
+the magnitude for the velocity \emph{changes} when the acceleration is
+\emph{parallel} to velocity.
+
+\N{Perpendicular Acceleration}
+Suppose we have in our interval $\Delta t$, the change in velocity
+$\Delta\vec{v}$ is ``very nearly'' perpendicular to $\vec{v}_{1}$. We
+doodle the situation thus:
+\begin{center}
+\includegraphics{img/kinematics.1}
+\end{center}
+\noindent%
+Again, we have $\Delta\vec{v}=\vec{v}_{2}-\vec{v}_{1}$, but in this case
+$\vec{v}_{1}$ and $\vec{v}_{2}$ differ in directions and have the
+\emph{same magnitude}. As we take $\Delta t\to0$, we see $\theta\to0$,
+and $\Delta\vec{v}$ becomes perpendicular to \emph{both} $\vec{v}_1$ and
+$\vec{v}_2$. So, in other words, the speed (magnitude of velocity)
+remains the same but the direction of the paths change.
+
+\N*{Summary}
+When the magnitude of velocity changes but the path remains the same,
+this is parallel acceleration. When the magnitude of velocity stays
+constant while the path changes, this is perpendicular
+acceleration. Furthermore
+\begin{equation}
+\sgn(\vec{v}\cdot\vec{a})=\begin{cases}
+-1 & \mbox{if speed is decreasing}\\
+0 & \mbox{if speed is constant}\\
++1 & \mbox{if speed is increasing}
+\end{cases}
+\end{equation}
+This is because
+\begin{equation}
+\begin{split}
+\frac{\D}{\D t}\|\vec{v}\|^{2}
+&=\frac{\D}{\D t}(\vec{v}\cdot\vec{v})\\
+&=2\vec{v}\cdot\frac{\D\vec{v}}{\D t}\\
+&=2\vec{v}\cdot\vec{a}
+\end{split}
+\end{equation}
+but by the product rule we also have this equal to
+\begin{equation}
+\frac{\D}{\D t}\|\vec{v}\|^{2}=2\|\vec{v}\|\cdot\frac{\D\|\vec{v}\|}{\D t}
+\end{equation}
+which has the same sign as $\D\|\vec{v}\|/\D t$ since
+$\|\vec{v}\|\geq0$. 
+
+\subsection{Projectile Motion}
+\N{Definition}
+A \define{Projectile} is any body that is given an initial velocity,
+then follows a trajectory determined entirely by gravitational
+acceleration and air resistance. The path taken by a projectile is
+called its \define{Trajectory}.
+
+\begin{rmk}
+We simplify this model by considering constant
+acceleration\footnote{Note this is the \emph{definition} of standard
+  gravity, as set forth by ISO 80000-3.}
+\begin{equation}
+g=\SI{9.80655}{\meter/\square\second} 
+\end{equation}
+and neglecting air resistance. This limits us, since we ignore the
+curvature of the Earth, but for a first pass, it's decent.
+\end{rmk}
+
+\M We set up coordinates so the horizontal coordinate $x$ experiences no
+acceleration, and the vertical component $y$ experiences $g$. So we have
+\begin{equation}
+\vec{a} = (0,\; -g).
+\end{equation}
+We need to specify the initial position $\vec{x}(t_{0})=(x_{0},\; y_{0})$
+for some initial time $t_{0}$ (usually taken to be zero). Then the
+velocity vector is
+\begin{equation}
+\vec{v}(t) = (v_{0}\cos(\alpha),\; v_{0}\sin(\alpha) - gt)
+\end{equation}
+where the object has its initial velocity given with magnitude $v_{0}$
+and angle relative to the horizontal $\alpha$. We can solve this using
+calculus, and get the position along the trajectory as
+\begin{equation}
+\vec{x}(t) = \left(x_{0} + v_{0}\cos(\alpha)t,\; y_{0} + v_{0}\sin(\alpha)t-\frac{1}{2}gt^{2}\right).
+\end{equation}
+This is the first step in the right direction.
+
+\N{Parabolic Motion}
+Lets take $(x_{0}, y_{0})=(0,0)$ --- the initial position is the origin
+of the coordinate system. We then have
+\begin{subequations}
+\begin{align}
+&\left\{
+\begin{array}{l}
+x(t) = v_{0}\cos(\alpha)t\\
+y(t) = v_{0}\sin(\alpha)t - gt^{2}/2
+\end{array}\right.\\
+&\left\{
+\begin{array}{l}
+v_{x}(t) = v_{0}\cos(\alpha)\\
+v_{y}(t) = v_{0}\sin(\alpha) - gt
+\end{array}\right.
+\end{align}
+\end{subequations}
+Observe then that
+\begin{equation}
+t = \frac{x(t)}{v_{0}\cos(\alpha)}.
+\end{equation}
+We plug this into $y(t)$ to find $y$ as a function of $x$:
+\begin{equation}
+\begin{split}
+y(x) 
+&=v_{0}\sin(\alpha)\left(\frac{x(t)}{v_{0}\cos(\alpha)}\right)
+   - \frac{1}{2}g\left(\frac{x(t)}{v_{0}\cos(\alpha)}\right)^{2}\\
+&=\tan(\alpha)x - \frac{g}{2{v_{0}}^{2}}\sec^{2}(\alpha)x^{2}\\
+&=Ax-Bx^{2}
+\end{split}
+\end{equation}
+where $A=\tan(\alpha)$ and $B=g\sec^{2}(\alpha)/2{v_{0}}^{2}$ are
+constants in time. Hence we get an honest parabola describing the
+trajectory.
+
+\begin{rmk}[Assumptions]
+Air resistance isn't always negligible. For example, we will consider
+the trajectory for a Napoleon 12-pounder canon. When we ignore air
+resistance, we predict the canonball shot will travel twice farther
+than its empirical distance.
+\end{rmk}
+
+\workedExamples{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\N{Example (Galileo and Tower of Pisa)}
+Suppose a student emulates Galileo and drops a coin\footnote{Galileo
+  supposedly dropped two canon balls of different composition, but
+  the guards won't let you take canonballs into the Tower of Pisa for
+  ``security reasons''.} from the
+leaning Tower of Pisa (at $\SI{56.0}{\meter}$ from the ground). How
+long until the coin hits the ground? 
+
+\N*{Solution}
+\textsc{Identify.} We need to use
+$x(t)=x_{0}+v_{0}t+\frac{1}{2}at^{2}$, assuming $a=-g$ is
+constant. 
+
+\textsc{Set-Up.}
+We first doodle the tower
+\begin{center}
+  \includegraphics{img/pisa.0}
+\end{center}
+We pick the origin at the top of the tower where the student
+drops the coin at time $t=0$. So $y_{0}=56.0$, $v_{0}=0$ since the
+coin is dropped, and $a=\SI{-9.8}{\meter\per\second\squared}$, and we
+want\footnote{This was also chosen because if this problem were
+  ``impossible to do by hand'', we can make the computer find the root
+  of a function easier than we could make it find a fixed point. Really,
+they're the same, but one works ``out of the box'' while the other
+requires us to fiddle around with algebra.} to find $t_{1}$ such that $y(t_{1})=0.0$.
+
+\textsc{Execute.}
+We have
+\begin{equation}
+\begin{split}
+y(t) &= y_{0} + v_{0}\sin(\alpha)t - \frac{1}{2}gt^{2}\\
+&=y_{0} - \frac{1}{2}gt^{2}
+\end{split}
+\end{equation}
+We see then that
+\begin{equation}
+y(t_{1}) = 0\implies t_{1}=\sqrt{\frac{2y_{0}}{g}}.
+\end{equation}
+We plug in our initial values to find
+\begin{equation}
+\begin{split}
+t_{1} &= \sqrt{\frac{2\cdot\SI{56.0}{\meter}}{\SI{9.8}{\meter\per\second\squared}}}\\
+&\approx \SI{3.4}{\second}
+\end{split}
+\end{equation}
+
+\textsc{Evaluate.}
+We see that the coin, after $\SI{3.0}{\second}$, travels a distance
+of approximately $\Delta y\approx \SI{45}{\meter}$. Why? Well,
+since $g/2\approx \SI{5}{\meter/\second\squared}$ and 
+$(\SI{3}{\second})^{2}=\SI{9}{\second\squared}$ gives us $\Delta y\approx(1/2)g\cdot(\SI{9.0}{\second\squared})\approx \SI{45}{\meter}$. So it's
+reasonable that it'd take about $\SI{3.4}{\second}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\N{Example}
+A book slides off a horizontal table top with a speed of
+$\SI{1.10}{\meter/\second}$. It strikes the floor in
+$\SI{0.35}{\second}$. Ignore air resistance.
+\begin{enumerate}
+\item Find the height of the table top above the floor.
+\item Find the horizontal distance from the table's edge to where it
+  hits the floor.
+\end{enumerate}
+
+\N*{Solution}
+\textsc{Identify and Set Up.}
+We first doodle the situation
+\begin{center}
+\includegraphics{img/kinematics.2}
+\end{center}
+Let $t_{1}=\SI{0.35}{\second}$ be the time it takes for the book to hit
+the ground. We see the book has initial height $h$, so $y(0)=h$ and
+$y(t_{1})=0$. The initial velocity vector is moving in the $x$-direction
+only, so $\vec{v}_{0}=\SI{1.10}{\meter\per\second}\hat{x}$. We abuse
+notation and write $v_{0}=\SI{1.10}{\meter\per\second}$ for the speed. We use
+projectile motion, so
+\begin{equation*}
+\begin{split}
+y &= y_{0} - \frac{1}{2}gt^{2}\\
+x &= x_{0} + v_{0}t.
+\end{split}
+\end{equation*}
+
+\textsc{Execute.} (1) Given the time it takes for the book to fall on the
+ground, we can algebraically solve for the height writing
+\begin{equation}
+y(t_{1})=0\implies y_{0}=\frac{1}{2}gt^{2}
+\end{equation}
+which numerically has the value
+\begin{equation}
+y_{0}\approx \SI{0.601}{\meter}.
+\end{equation}
+(2) We have the book's initial position be such that $x_{0}=0$. Then the
+horizontal displacement becomes
+\begin{equation}
+\begin{split}
+x(t_{1}) &= v_{0}t\\
+&= \SI{0.385}{\meter}
+\end{split}
+\end{equation}
+
+\textsc{Evaluate.}
+We see for subproblem (1) as $t\to0$ we expect $y_{0}\to0$, which
+happens with our algebraic solution. Furthermore, rearranging this
+algebraically gives us the correct expression for the time until a body
+hits the ground without any initial velocity:
+$\sqrt{2y_{0}/g}=t_{1}$. So this is algebraically correct, we could have
+only erred through arithmetic.
+
+Similarly, for subproblem (2), as $v_{0}\to0$ we should recover the
+previous problem's solution --- a free fall without any initial
+velocity. Indeed, $x(t)\to x_0$ in this limit, which suggests we're on
+the right track.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\N{Example (Napoleon 12-Pounder)}
+Wikipedia tells us\footnote{Accessed April 13, 2014 at 2:31PM (PST), \url{http://en.wikipedia.org/wiki/Canon_obusier_de_12}}
+that the Napoleon 12-pounder canon had a muzzle velocity of
+\SI{439}{\meter/\second} (i.e., the velocity which a canonball had
+measured when it left the muzzle). What is the range at \ang{5} elevation?
+
+\N*{Solution}
+\textsc{Identify and Setup.} We see this is a projectile motion
+problem. We're given $\alpha=\ang{5}$, and
+$v_{0}=\SI{439}{\meter/\second}$. We estimate the muzzle is
+$\SI{1}{\meter}$ from the ground. So we pick coordinates such that the
+horizontal axis is the $x$ coordinate, and the vertical axis is the $y$
+coordinate. The initial position would be
+\begin{equation}
+\vec{x}(0)=(0,\SI{1}{\meter}).
+\end{equation}
+We use the projectile equations
+\begin{equation*}
+\begin{split}
+x(t) &= x_{0} + v_{0}\cos(\alpha)t\\
+y(t) &= y_{0} + v_{0}\sin(\alpha)t - \frac{1}{2}gt^{2}
+\end{split}
+\end{equation*}
+This gives us enough to start plugging away.
+
+\textsc{Execute.}
+We want to consider the value of $x(t)$ at the time $t_{1}$ when the
+canonball has hit the ground $y(t_{1})=0$. We see that $y(t)=0$ when
+\begin{equation}
+t_{\mp} = \frac{1}{g}\left(v_{0}\sin(\alpha)
+         \mp\sqrt{v_{0}^{2}\sin^{2}(\alpha) + 2y_{0}g}\right)
+\end{equation}
+We're interested in the time $t>0$, so this gives us
+\begin{equation}
+t_{1} = \frac{1}{g}\left(v_{0}\sin(\alpha)
+         + \sqrt{v_{0}^{2}\sin^{2}(\alpha) + 2y_{0}g}\right)
+\end{equation}
+So, we see
+\begin{equation}
+x(t_{1}) = \frac{v_{0}\cos(\alpha)}{g}\left(v_{0}\sin(\alpha)
+         + \sqrt{v_{0}^{2}\sin^{2}(\alpha) + 2y_{0}g}\right)
+\end{equation}
+When we plug in our initial conditions, we get
+\begin{subequations}
+\begin{equation}
+t_{1}=\SI{7.83}{\second}
+\end{equation}
+and
+\begin{equation}
+x(t_{1})=\SI{3424}{\meter}.
+\end{equation}
+\end{subequations}
+
+\textsc{Evaluate.} Was this reasonable? Well, we see that for $t_{1}$,
+we can estimate it as
+\begin{equation}
+t_{1}\approx \frac{2v_{0}\sin(\alpha)}{10}
+\end{equation}
+since $g\approx 10$, $\cos(\alpha)\approx 1$, and the
+$\sqrt{v_{0}^{2}\sin^{2}(\alpha)+\dots}\approx 
+v_{0}\sin(\alpha)$. We see then that
+\begin{equation}
+t_{1}\approx \SI{7.6}{\second}.
+\end{equation}
+We plug this back into $x(t)$ to find
+\begin{equation}
+x(\SI{7.6}{\second})\approx v_{0}t = \SI{3336.4}{\meter}.
+\end{equation}
+This rough order-of-magnitude estimate confirms our calculations were
+correct\dots probably.
+
+\begin{rmk}
+Note the range for a Napoleon 12-pounder with the same given conditions
+is empirically around \SI{1480}{\meter}. We computed over twice
+that. Why? We ignored air resistance. For discussions, see
+Burko and Price~\cite{burko2003}, Euler~\cite{e77,e217,e226}, 
+Grimberg \emph{et al.}~\cite{grimberg2008}, and Hogg~\cite{hogg2007}. 
+\end{rmk}
+
+\subsection{Uniform Circular Motion}
+
+\subsection{Non-Uniform Circular Motion}
+
+\subsection{Relative Motion}

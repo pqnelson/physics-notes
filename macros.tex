@@ -1,0 +1,114 @@
+\makeatletter
+\usepackage[12hr,us]{datetime}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{textcomp}
+\usepackage{siunitx}
+\usepackage{ifpdf}
+\usepackage{cancel}
+\usepackage[final]{graphicx}
+\ifpdf
+\usepackage{microtype}
+\DeclareGraphicsRule{*}{mps}{*}{}
+\fi
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[hidelinks,plainpages=false]{hyperref}
+
+\numberwithin{equation}{chapter}
+
+% author info
+\def\homeurl{\url{http://code.google.com/p/notebk/}}
+\author{Alex Nelson%
+  \footnote{This is a page from \homeurl\hfil\break%
+    \indent\;\, Compiled:\enspace\today\ at \currenttime\ (PST)}\\%
+  \texttt{Email:\enspace\href{mailto:pqnelson@gmail.com}{pqnelson@gmail.com}}}
+
+% fonts for the sections
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]
+  {\large\sffamily} % format
+  {\chaptertitlename\ \thechapter} % label
+  {20pt} % sep
+  {\filleft\Large\bfseries} % before
+\titlespacing*{\chapter}
+  {0pt}{4pc}{2pc}
+\titleformat*{\section}{\large\bfseries\sffamily}
+\titleformat*{\subsection}{\large\bfseries\sffamily}
+\titleformat*{\subsubsection}{\bfseries\sffamily}
+
+% bibliography commands
+\@ifundefined{bysame}{
+  \def\bysame{\leavevmode \hbox to3em{\hrulefill }\thinspace}
+}{}
+
+% chunking commands
+\@ifundefined{@addpunct}{
+  \def\@addpunct#1{\ifnum\spacefactor>\@m \else#1\fi}
+  }{}
+
+\newcounter{chunk@ctr}
+\@addtoreset{chunk@ctr}{chapter}
+
+\newcommand\M{\medbreak\noindent%
+  \refstepcounter{chunk@ctr}%
+  \textbf{\thechunk@ctr\@addpunct{.}}\quad\ignorespaces}
+
+\def\N{\@ifstar
+        \NStar%
+        \NNoStar%
+}
+\def\NStar#1{\medbreak\noindent\textbf{#1\@addpunct{.}\quad}\ignorespaces}
+\def\NNoStar#1{\M\textbf{#1\@addpunct{.}\quad}\ignorespaces}
+
+% theorems and whatnot
+\theoremstyle{remark}
+\newtheorem{rmk}{Remark}[chunk@ctr]
+
+
+% arXiv links
+\def\arXiv{\@ifnextchar[{\@arXivWith}{\@arXivWithout}}
+\def\@arXivWith[#1]#2{\texttt{\href{http://arxiv.org/abs/#2}{arXiv:#2} [#1]}}
+\def\@arXivWithout#1{\texttt{\href{http://arxiv.org/abs/#1}{arXiv:#1}}}
+
+\def\doi#1{\texttt{\href{http://dx.doi.org/#1}{doi:#1}}}
+
+% dangerous bends
+\def\dbend{{\manual\char127}} % dangerous bend sign
+
+% Danger, Will Robinson!
+\newenvironment{danger}{\medbreak\noindent\hangindent=2pc\hangafter=-2%
+\clubpenalty=10000%
+\hbox to0pt{\hskip-\hangindent\dbend\hfill}\small\ignorespaces}%
+{\medbreak\par}
+
+% Danger! Danger!
+\newenvironment{ddanger}{\medbreak\noindent\hangindent=3pc\hangafter=-2%
+\clubpenalty=10000%
+\hbox to0pt{\hskip-\hangindent\dbend\kern2pt\dbend\hfill}\small\ignorespaces}%
+{\medbreak\par}
+
+\def\quoteAuthor#1(#2){\par\nobreak\smallskip\noindent\textup{--- #1\unskip\enspace(#2)}}
+\let\oldauthor\author
+%\def\quotes
+\newenvironment{quotes}{\footnotesize\baselineskip 10pt
+  \raggedleft\parfillskip \z@
+  \interlinepenalty 10000
+  %\leftskip \z@ plus 40pc minus \parindent
+  \sffamily\slshape\obeylines
+  \let\author\quoteAuthor}%
+  {\par\let\author\oldauthor}
+
+\def\define#1{``\textbf{#1}''}
+
+\def\workedExamples{\subsection*{\phantomsection\addcontentsline{toc}{subsection}{Worked Examples}Worked Examples}}
+
+% notation
+\newcommand{\D}{\mathrm{d}}
+\newcommand{\E}{\mathrm{e}}
+\let\eul=\E
+\newcommand{\I}{{\rm i}}
+\let\imag=\I
+
+\DeclareMathOperator{\sgn}{sgn}
+
+\makeatother
