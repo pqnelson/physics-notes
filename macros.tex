@@ -1,7 +1,7 @@
 \makeatletter
 \usepackage[12hr,us]{datetime}
 \usepackage{amsmath,amssymb,amsthm}
-\usepackage{textcomp}
+\usepackage{textcomp} % fixes odd symbols siunitx uses...
 \usepackage{siunitx}
 \usepackage{ifpdf}
 \usepackage{cancel}
@@ -49,6 +49,8 @@
 \newcounter{chunk@ctr}
 \@addtoreset{chunk@ctr}{chapter}
 
+\renewcommand\thechunk@ctr{\oldstylenums{\arabic{chunk@ctr}}}
+
 \newcommand\M{\medbreak\noindent%
   \refstepcounter{chunk@ctr}%
   \textbf{\thechunk@ctr\@addpunct{.}}\quad\ignorespaces}
@@ -64,7 +66,7 @@
 \theoremstyle{remark}
 \newtheorem{rmk}{Remark}[chunk@ctr]
 
-
+\renewcommand\thermk{\thechunk@ctr.\oldstylenums{\arabic{rmk}}}
 % arXiv links
 \def\arXiv{\@ifnextchar[{\@arXivWith}{\@arXivWithout}}
 \def\@arXivWith[#1]#2{\texttt{\href{http://arxiv.org/abs/#2}{arXiv:#2} [#1]}}
