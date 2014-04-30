@@ -39,7 +39,7 @@ as $\vec{v}_{1}=\vec{v}(t_{1})$. And the velocity's direction remains the same
 the magnitude for the velocity \emph{changes} when the acceleration is
 \emph{parallel} to velocity.
 
-\N{Perpendicular Acceleration}
+\N{Perpendicular Acceleration}\label{chunk:perpAcceleration}
 Suppose we have in our interval $\Delta t$, the change in velocity
 $\Delta\vec{v}$ is ``very nearly'' perpendicular to $\vec{v}_{1}$. We
 doodle the situation thus:
@@ -161,10 +161,20 @@ resistance, we predict the canonball shot will travel twice farther
 than its empirical distance.
 \end{rmk}
 
+\begin{rmk}[Historical Notes]
+Galileo appears to be the first to note parabolic motion in the second
+half of his \emph{Dialogues of the Two New Sciences} (1638). Not only
+that, Galileo investigated the motion of bodies under constant
+acceleration. Presumably this summarizes his earlier work dating back to
+1604. Although it sounds minor, this work was crucial in overturning the
+Aristotlean worldview that ``heavier'' objects fall faster than
+``lighter'' objects. 
+\end{rmk}
+
 \workedExamples{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\N{Example (Galileo and Tower of Pisa)}
+\N[Galileo and Tower of Pisa]{Example}
 Suppose a student emulates Galileo and drops a coin\footnote{Galileo
   supposedly dropped two canon balls of different composition, but
   the guards won't let you take canonballs into the Tower of Pisa for
@@ -219,8 +229,9 @@ $(\SI{3}{\second})^{2}=\SI{9}{\second\squared}$ gives us $\Delta y\approx(1/2)g\
 reasonable that it'd take about $\SI{3.4}{\second}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\N{Example}
+\makeatletter
+\N[{Young and Freedman~\cite[Exercise 3.9]{young}}]{Example}
+\makeatother
 A book slides off a horizontal table top with a speed of
 $\SI{1.10}{\meter/\second}$. It strikes the floor in
 $\SI{0.35}{\second}$. Ignore air resistance.
@@ -282,7 +293,7 @@ the right track.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\N{Example (Napoleon 12-Pounder)}
+\N[Napoleon 12-Pounder]{Example}
 Wikipedia tells us\footnote{Accessed April 13, 2014 at 2:31PM (PST), \url{http://en.wikipedia.org/wiki/Canon_obusier_de_12}}
 that the Napoleon 12-pounder canon had a muzzle velocity of
 \SI{439}{\meter/\second} (i.e., the velocity which a canonball had
@@ -357,11 +368,105 @@ correct\dots probably.
 Note the range for a Napoleon 12-pounder with the same given conditions
 is empirically around \SI{1480}{\meter}. We computed over twice
 that. Why? We ignored air resistance. For discussions, see
-Burko and Price~\cite{burko2003}, Euler~\cite{e77,e217,e226}, 
+Burko and Price~\cite{burko2003}, Euler~\cite{e77,e217,e226,e853}, 
 Grimberg \emph{et al.}~\cite{grimberg2008}, and Hogg~\cite{hogg2007}. 
 \end{rmk}
 
 \subsection{Uniform Circular Motion}
+
+\N{Definition}
+When a particle moves in a circular trajectory with constant speed, the
+motion is called \define{Uniform Circular Motion}.
+
+\M
+We draw a segment of the trajectory. The particle mvoes about
+$\mathcal{O}$ with radius $R$. We have the velocities $\vec{v}_{1}$ at
+$P_{1}$, and $\vec{v}_{2}$ at $P_{2}$ some time $\Delta t$ later. The
+distance $\Delta\vec{s}=\overrightarrow{P_{1}P_{2}}$. This forms a triangle, as
+doodled, with angle $\Delta\theta$:
+\begin{center}
+\includegraphics{img/kinematics.3}
+\end{center}
+With the velocity vectors, we parallel transport $\vec{v}_{1}$ to the
+base point of $\vec{v}_{2}$, thus constructing the following triangle:
+\begin{center}
+\includegraphics{img/kinematics.4}
+\end{center}
+We claim that $\Delta\varphi=\Delta\theta$ since $\vec{v}_{1}$ is
+tangent to the circle, as is $\vec{v}_{2}$ (so, up to a line parallel to
+$\vec{v}_{2}$ through $P_{1}$, extend $\overrightarrow{OP}_{1}$ to infinity
+and we see the geometric proof).
+
+\N*{Theorem} The triangles in both these figures are similar.
+
+\begin{proof}
+By the side-angle-side theorem, it follows immediately.
+\end{proof}
+
+\N{Derivation of Acceleration} 
+Since these two triangles are similar, we have
+\begin{equation}
+\frac{\|\Delta\vec{v}\|}{v_{1}}=\frac{\Delta s}{R}
+\end{equation}
+where dropping the arrow indicates we are considering magnitudes, this
+implies
+\begin{equation}
+\|\Delta\vec{v}\| = \frac{v_{1}}{R}\Delta s
+\end{equation}
+The average acceleration during this period is then
+\begin{equation}
+\begin{split}
+a_{\text{avg}}&=\frac{\|\Delta\vec{v}\|}{\Delta t}\\
+&=\frac{v_{1}}{R}\frac{\Delta s}{\Delta t}
+\end{split}
+\end{equation}
+The instantaneous acceleration we recover taking $P_{2}\to P_{1}$ (or,
+equivalently, as $\Delta t\to0$):
+\begin{equation}
+\begin{split}
+a_{\text{inst}} &= \lim_{\Delta t\to0}\frac{v_{1}}{R}\frac{\Delta s}{\Delta t}\\
+&=\frac{v_{1}}{R}\lim_{\Delta t\to0}\frac{\Delta s}{\Delta t}
+\end{split}
+\end{equation}
+Observe the limit $\Delta s/\Delta t\to v_{1}$ as $P_{2}\to P_{1}$. We
+let $P_{1}$ be arbitrary, so we can drop the subscript and conclude
+\begin{equation}
+a = \frac{v^{2}}{R}\quad\mbox{for uniform circular motion}.
+\end{equation}
+
+\N{Centripetal Acceleration}
+Because speed is constant, the acceleration vector is orthogonal to the
+velocity vector (\S\ref{chunk:perpAcceleration}). Which way does
+the acceleration vector point? The acceleration vector points towards
+the concave side of the trajectory, i.e., towards the center of the
+circle.
+
+In uniform circular motion, the magnitude $a$ of the (instantaneous)
+acceleration is equal to the square of the speed $v$ divided by the
+radius. Its direction is perpendicular to $\vec{v}$ and points towards
+the circle's origin.
+
+\N{Definitions}
+The acceleration vector for uniform circular motion always points
+towards the circle's center, and is called \define{Centripetal Acceleration} 
+where ``centripetal'' derives from the Latin for ``center
+[\emph{centrum}] seeking [\emph{-petus}]''.
+
+We express the magnitude of acceleration in terms of the \define{Period}
+$T$ of motion (time for one revolution about the circle). We see
+\begin{subequations}
+\begin{align}
+v &= \frac{2\pi R}{T}\\
+a &=\frac{4\pi^{2}R}{T^{2}}.
+\end{align}
+\end{subequations}
+
+\begin{rmk}[Historical Notes]
+The tradition to introduce uniform circular motion when discussing
+kinematics may be traced back to Proposition 4, Theorem 4 of Chapter 1,
+Book I in Isaac Newton's \emph{Principia}. Newton, too, coined the term
+``centripetal'' around 1687.
+\end{rmk}
 
 \subsection{Non-Uniform Circular Motion}
 

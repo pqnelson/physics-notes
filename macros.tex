@@ -10,6 +10,7 @@
 \usepackage{microtype}
 \DeclareGraphicsRule{*}{mps}{*}{}
 \fi
+\usepackage{corollaries}
 \usepackage[nottoc,numbib]{tocbibind}
 \usepackage[hidelinks,plainpages=false]{hyperref}
 
@@ -60,13 +61,17 @@
         \NNoStar%
 }
 \def\NStar#1{\medbreak\noindent\textbf{#1\@addpunct{.}\quad}\ignorespaces}
-\def\NNoStar#1{\M\textbf{#1\@addpunct{.}\quad}\ignorespaces}
+\def\NNoStar{\@ifnextchar[\NNoStarBracket\NNoStarNoBracket}
+
+\def\NNoStarBracket[#1]#2{\M\textbf{#2}\enspace(#1)\textbf{\@addpunct{.}\quad}\ignorespaces}
+\def\NNoStarNoBracket#1{\M\textbf{#1\@addpunct{.}\quad}\ignorespaces}
 
 % theorems and whatnot
 \theoremstyle{remark}
-\newtheorem{rmk}{Remark}[chunk@ctr]
+\newcorollary{rmk}{Remark}[chunk@ctr]
 
 \renewcommand\thermk{\thechunk@ctr.\oldstylenums{\arabic{rmk}}}
+
 % arXiv links
 \def\arXiv{\@ifnextchar[{\@arXivWith}{\@arXivWithout}}
 \def\@arXivWith[#1]#2{\texttt{\href{http://arxiv.org/abs/#2}{arXiv:#2} [#1]}}

@@ -102,5 +102,71 @@ beginfig(2)
   label.rt(btex $h$ etex, (2.5u, 1.5u));
 endfig;
 
+beginfig(3)
+  path p[];
+  p[0] = quartercircle scaled 12u;
+  z[0] = (0,0);
+  z[1] = point 0.1 of p0;
+  z[2] = point 1.5 of p0;
+  z[3] = direction(0.1) of p0;
+  z[4] = direction(1.5) of p0;
+  p1 = z1--z2;
+  p2 = z0--z1;
+  p3 = z0--z2;
+  draw p0;
+  draw p2;
+  draw p3;
+  draw p1 dashed evenly;
+
+  p4 = quartercircle scaled 2u cutbefore p2 cutafter p3;
+  draw p4;
+  
+  p5 = (z0--z3) scaled 2 shifted z1;
+  p6 = (z0--z4) scaled 2 shifted z2;
+  drawarrow p5 withcolor 0.35[white,black];
+  drawarrow p6 withcolor 0.35[white,black];
+
+  label(btex $\bullet$ etex, z0);
+  label(btex $\bullet$ etex, z1);
+  label(btex $\bullet$ etex, z2);
+  label.urt(btex $\Delta\theta$ etex, point 0.5 of p4);
+  label.bot(btex $R$ etex, point 0.7 of p2);
+  label.lft(btex $R$ etex, point 0.7 of p3);
+  label.rt(btex $P_{1}$ etex, z1);
+  label.top(btex $P_{2}$ etex, z2);
+  
+  label.rt(btex $\vec{v}_{1}$ etex, point 1.0 of p5);
+  label.top(btex $\vec{v}_{2}$ etex, point 1.0 of p6);
+
+  label.llft(btex $\Delta\vec{s}$ etex, point 0.5 of p1);
+  label.llft(btex ${{\cal O}}$ etex, z0);
+endfig;
+beginfig(4)
+  path p[];
+  numeric sf;
+  sf := 2;
+  p[0] = quartercircle scaled 12u;
+  z[0] = (0,0);
+  z[1] = point 0.1 of p0;
+  z[2] = point 1.5 of p0;
+  z[3] = direction(0.1) of p0;
+  z[4] = direction(1.5) of p0;
+  
+  p1 = (z0--z3) scaled sf; % v_1
+  p2 = (z0--z4) scaled sf; % v_2
+  p3 = (sf*z3)--(sf*z4);
+  drawarrow p1 withcolor 0.35[white,black];
+  drawarrow p2 withcolor 0.35[white,black];
+  drawarrow p3;
+  
+  p4 = halfcircle scaled u cutbefore p1 cutafter p2;
+  draw p4;
+  
+  label.rt(btex $\vec{v}_{1}$ etex, point 1.0 of p1);
+  label.bot(btex $\vec{v}_{2}$ etex, point 1.0 of p2);
+  label.ulft(btex $\Delta\vec{v}$ etex, point 0.5 of p3);
+  label.ulft(btex $\scriptstyle\Delta\varphi$ etex, point 0.5 of p4);
+  label(btex $\bullet$ etex, z0);
+endfig;
 
 end;

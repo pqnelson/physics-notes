@@ -1,0 +1,135 @@
+\ProvidesPackage{corollaries}[2013/08/24 version 1.2]
+
+% Package under the LaTeX Project Public License:
+%   http://www.latex-project.org/lppl/
+
+\newcommand{\DeclareNewCorollaryCommand}[2]{%
+% #1 = name of the command
+% #2 = command to be used
+  \expandafter\newcommand\csname new#1\endcsname{%
+     \@ifstar{\csname new#1@star\endcsname}
+             {\csname new#1@nostar\endcsname}}
+  \expandafter\def\csname new#1@star\endcsname##1##2{#2*{##1}{##2}}
+  \expandafter\def\csname new#1@nostar\endcsname##1{%
+    \DeclareCorollaryCounter{##1}%
+    \@ifnextchar[{\csname new#1@nostar@opt\endcsname{##1}}%
+                 {\csname new#1@nostar@nopt\endcsname{##1}}}
+  \expandafter\def\csname new#1@nostar@opt\endcsname##1[##2]##3{%
+    #2{##1}[##2]{##3}%
+  }
+  \expandafter\def\csname new#1@nostar@nopt\endcsname##1##2{%
+    \@ifnextchar[{\csname new#1@nostar@nopt@opt\endcsname{##1}{##2}}%
+                 {\csname new#1@nostar@nopt@nopt\endcsname{##1}{##2}}}
+  \expandafter\def\csname new#1@nostar@nopt@opt\endcsname##1##2[##3]{%
+    #2{##1}{##2}%
+    \@for\corollaries@mastertheorem:=##3\do{%
+      \corollaries@handle@master@counter{##1}%
+         {\corollaries@mastertheorem}%
+    }%
+  }
+  \expandafter\def\csname new#1@nostar@nopt@nopt\endcsname##1##2{%
+    #2{##1}{##2}%
+  }
+}
+
+\DeclareNewCorollaryCommand{corollary}{\newtheorem}
+\DeclareNewCorollaryCommand{framedcorollary}{\newframedtheorem}
+\DeclareNewCorollaryCommand{shadedcorollary}{\newshadedtheorem}
+\def\corollaries@handle@master@counter#1#2{%
+  \@addtoreset{#1}{#2}%
+  \AddToCorollaryReset{#1}{#2}%
+}%
+
+\newcommand{\DeclareCorollaryCounter}[1]{}% to check if command exists
+\DeclareRobustCommand{\DeclareCorollaryCounter}[1]{%
+  \newcounter{corollaries@unique@ID@#1}%
+}
+
+\def\corollaries@addto@cl#1#2#3{%
+  \edef\corollaries@temp{#3}%
+  \@ifundefined{corollaries@#1@cl@#2}%
+    {\expandafter\gdef\csname corollaries@#1@cl@#2\endcsname{}}%
+    {}%
+  \expandafter\gdef\csname
+    corollaries@#1@cl@#2\expandafter\expandafter\expandafter
+  \endcsname\expandafter\expandafter\expandafter{%
+    \csname corollaries@#1@cl@#2\expandafter\endcsname\csname corollaries@#1@elt\expandafter\endcsname\expandafter{\corollaries@temp}%
+  }
+}
+\def\corollaries@addto@m@cl#1#2{\corollaries@addto@cl{m}{#1}{#2}}
+\def\corollaries@addto@s@cl#1#2{\corollaries@addto@cl{s}{#1}{#2}}
+\newcommand{\AddToCorollaryReset}[2]{}% to check if command exists
+\DeclareRobustCommand{\AddToCorollaryReset}[2]{%
+  \corollaries@addto@m@cl{#1}{#2}%
+  \@for\corollaries@counter@name:=#2\do{%
+    \expandafter\corollaries@addto@s@cl\expandafter{%
+      \corollaries@counter@name}{#1}%
+    \@addtoreset{#1}{\corollaries@counter@name}%
+  }
+}
+
+\let\@latex@kernel@stepcounter\stepcounter
+
+\def\stepcounter#1{%
+  \@latex@kernel@stepcounter{#1}%
+  % Loop over the slave counters
+  \def\corollaries@s@elt##1{%
+  % #1  = master counter (e.g. theorem or proposition)
+  % ##1 = slave  counter (e.g. corollary)
+    \addtocounter{corollaries@unique@ID@##1}{1}%
+  }%
+  \@ifundefined{corollaries@s@cl@#1}
+    {}
+    {\csname corollaries@s@cl@#1\endcsname}%
+  \let\corollaries@s@elt\undefined
+  % this time, we only test whether there is a master counter (no loop)
+  \@ifundefined{corollaries@m@cl@#1}
+    {}
+    {\expandafter\ifx\csname corollaries%
+                             @\roman{corollaries@unique@ID@#1}%
+                             @nb@#1\endcsname\relax
+          \expandafter\gdef\csname corollaries%
+                             @\roman{corollaries@unique@ID@#1}%
+                             @nb@#1\endcsname{0}%
+     \else
+       \expandafter\xdef\csname corollaries%
+           @\roman{corollaries@unique@ID@#1}%
+           @nb@#1\endcsname
+          {\number\numexpr\csname
+                          corollaries%
+                          @\roman{corollaries@unique@ID@#1}%
+                          @nb@#1\endcsname+1\relax}%
+     \fi
+     \immediate\write\@auxout{%
+        \expandafter\gdef\string
+           \auxcorollaries @\roman{corollaries@unique@ID@#1}%
+                           @nb@#1{\csname corollaries%
+                                    @\roman{corollaries@unique@ID@#1}%
+                                    @nb@#1\endcsname}%
+     }%
+     \@ifundefined{auxcorollaries%
+                   @\roman{corollaries@unique@ID@#1}%
+                   @nb%
+                   @#1}{}{%
+     \expandafter\ifnum\csname auxcorollaries%
+                   @\roman{corollaries@unique@ID@#1}%
+                   @nb%
+                   @#1\endcsname=0
+       \expandafter\let
+         \csname corollaries@saved@the#1\expandafter\endcsname
+         \csname the#1\endcsname
+       \expandafter\protected\expandafter\def\csname the#1\expandafter\endcsname\expandafter{%
+         \expandafter\unskip
+         \expandafter\global\expandafter\let % note the global here
+%                         it would be better if it could be removed
+           \csname the#1\expandafter\endcsname
+           \csname corollaries@saved@the#1\endcsname
+       }%
+     \else
+       % nothing here
+     \fi
+     }%
+    }%
+}
+
+\endinput
