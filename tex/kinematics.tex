@@ -378,7 +378,7 @@ Grimberg \emph{et al.}~\cite{grimberg2008}, and Hogg~\cite{hogg2007}.
 When a particle moves in a circular trajectory with constant speed, the
 motion is called \define{Uniform Circular Motion}.
 
-\M
+\N{Derivation of Acceleration}
 We draw a segment of the trajectory. The particle mvoes about
 $\mathcal{O}$ with radius $R$. We have the velocities $\vec{v}_{1}$ at
 $P_{1}$, and $\vec{v}_{2}$ at $P_{2}$ some time $\Delta t$ later. The
@@ -393,17 +393,17 @@ base point of $\vec{v}_{2}$, thus constructing the following triangle:
 \includegraphics{img/kinematics.4}
 \end{center}
 We claim that $\Delta\varphi=\Delta\theta$ since $\vec{v}_{1}$ is
-tangent to the circle, as is $\vec{v}_{2}$ (so, up to a line parallel to
-$\vec{v}_{2}$ through $P_{1}$, extend $\overrightarrow{OP}_{1}$ to infinity
-and we see the geometric proof).
+tangent to the circle, as is $\vec{v}_{2}$ (extend
+$\overrightarrow{OP}_{2}$ to infinity, parallel transport $\vec{v}_{2}$
+along it, extend $\vec{v}_{1}$ to infinity, and parallel transport the
+vector $\vec{v}_{1}$ along that ray --- the rest is high school geometry).
 
-\N*{Theorem} The triangles in both these figures are similar.
+\N*{Lemma} The triangles in both these figures are similar.
 
 \begin{proof}
 By the side-angle-side theorem, it follows immediately.
 \end{proof}
 
-\N{Derivation of Acceleration} 
 Since these two triangles are similar, we have
 \begin{equation}
 \frac{\|\Delta\vec{v}\|}{v_{1}}=\frac{\Delta s}{R}
@@ -463,7 +463,7 @@ a &=\frac{4\pi^{2}R}{T^{2}}.
 
 \begin{rmk}[Historical Notes]
 The tradition to introduce uniform circular motion when discussing
-kinematics may be traced back to Proposition 4, Theorem 4 of Chapter 1,
+kinematics may be traced back to chapter 1, section 2 of
 Book I in Isaac Newton's \emph{Principia}. Newton, too, coined the term
 ``centripetal'' around 1687.
 \end{rmk}
