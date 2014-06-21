@@ -1,7 +1,15 @@
+# ignore the references
 /ref/*
 /ref
-/physics.aux
-/physics.log
-/physics.out
-/physics.pdf
-/physics.toc
+
+# ignore the images, but not the metapost source files
+/img/*
+!/img/*.mp
+
+# ignore the misc. LaTeX and MPost output
+*.aux
+*.log
+*.mpx
+*.out
+*.pdf
+*.toc
