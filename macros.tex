@@ -50,7 +50,9 @@
 \newcounter{chunk@ctr}
 \@addtoreset{chunk@ctr}{chapter}
 
-\renewcommand\thechunk@ctr{\oldstylenums{\arabic{chunk@ctr}}}
+\def\chunkprefix{\ifnum\value{chapter}>0 \oldstylenums{\arabic{chapter}}.\else{}\fi}
+
+\renewcommand\thechunk@ctr{\chunkprefix\oldstylenums{\arabic{chunk@ctr}}}
 
 \newcommand\M{\medbreak\noindent%
   \refstepcounter{chunk@ctr}%
