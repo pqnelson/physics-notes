@@ -1,3 +1,11 @@
+% be sure to compile as
+% $ mpost -tex=latex kinematics.mp
+verbatimtex
+\documentclass{book}
+\input{../macros}
+\begin{document}
+etex
+
 numeric u;
 u:=1pc;
 
@@ -168,5 +176,9 @@ beginfig(4)
   label.ulft(btex $\scriptstyle\Delta\varphi$ etex, point 0.5 of p4);
   label(btex $\bullet$ etex, z0);
 endfig;
+
+verbatimtex
+\end{document}
+etex
 
 end;
