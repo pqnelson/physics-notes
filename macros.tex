@@ -82,7 +82,9 @@
 \def\doi#1{\texttt{\href{http://dx.doi.org/#1}{doi:#1}}}
 
 % dangerous bends
-\def\dbend{{\manual\char127}} % dangerous bend sign
+\@ifundefined{dbend}{\font\manual=manfnt %
+  \def\dbend{{\manual\char127}} % dangerous bend sign
+  }{}
 
 % Danger, Will Robinson!
 \newenvironment{danger}{\medbreak\noindent\hangindent=2pc\hangafter=-2%
