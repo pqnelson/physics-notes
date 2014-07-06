@@ -267,4 +267,66 @@ For example
 Why use this notation? We keep track of significant figures
 easier with this notation. There are 7 significant digits.
 
+\section{Estimates}
 
+\begin{ddanger}
+The following section intends to give the \emph{intuition} behind some
+of these symbols. We should really note that $\sim$, $\propto$, and
+$\approx$ are all rough forms of equality, and we expect (in practice)
+they obey the same rules (i.e., we should be able to ``add things to
+both sides'', so $x\sim y$ then $a+x\sim a+y$ for any $a$, etc.). So
+just remember: what is written down here is meant 
+\emph{only as an heuristic, not a rigorous definition!}
+\end{ddanger}
+
+\N{Order of Magnitude}
+Usually, it is useful to estimate quantities based on orders of
+magnitude (that is, as $10^{x}$ for some integer $x$). We will write $q\sim r$
+if nonzero quantities $q$ and $r$ have the same order of magnitude. As a
+rule of thumb, this means that $|\log(q/r)|< 1$. So
+\begin{equation}\label{eq:defn-of-order-magnitude-sim}
+q\sim r\quad\mbox{if and only if}\quad |\log(q/r)|< 1
+\end{equation}
+provided $r\neq0$. If $r=0$ or $q=0$, then we have a special case, and
+consider $r\sim q$ if $|r|<10$ and $|q|<10$. Equivalently, we could say
+\begin{equation}\label{eq:alt-defn-of-sim}
+q\sim r\quad\mbox{if and only if}\quad \left|\log\left(\frac{\max(1,
+|q|)}{\max(1, |r|)}\right)\right| < 1,
+\end{equation}
+which is ungodly to write out or look at.
+
+\N*{Exercise} (For mathematicians) Is Eq \eqref{eq:defn-of-order-magnitude-sim}
+an equivalence relation?
+
+\N*{Exercise} According to Eq \eqref{eq:alt-defn-of-sim}, is
+$-3.14\times10^{30}\sim\pi\times10^{30}$? What about using Eq \eqref{eq:defn-of-order-magnitude-sim}?
+If so, how could we improve our heuristic definition?
+
+\N{``Small Compared to'' Relations}
+Physicists are notorious for writing situations like $v\ll c$ (for ``A
+body's velocity is far smaller than the speed of light'') or more
+generally $x\ll y$ for ``$x$ is much smaller than $y$''. This is never
+rigorously defined. Typically it is taken to mean
+\begin{equation}
+x\ll y\quad\mbox{if and only if}\quad \infty>|\log(y)-\log(x)|\geq2.
+\end{equation}
+The factor 2 is taken arbitrarily. We do not take this rigorously, but
+merely for intuition.
+
+We will also write $y\gg x$ if $x\ll y$.
+
+\N*{Exercise} Do the relation $\ll$ satisfy, for any $x,y,z\in\RR$
+\begin{enumerate}
+\item Does $y\ll z$ imply $x+y\ll x+z$?
+\item Given $0\ll x$ and $0\ll y$, does it follow that $0\ll xy$?
+\item Can we have $x\ll x$?
+\item If $x\ll y$ and $y\ll z$, is $x\ll z$?
+\item Could we have $x\ll y$ and $y\ll x$?
+\item If $x\ll y$, then is $y^{-1}\ll x^{-1}$?
+\end{enumerate}
+
+\N{Approximately Equal}
+We also have $x\approx y$ whenever $|y-x|\ll1$.
+Really, we say $x\approx y$ when $\varepsilon=|y-x|$ is ``acceptably
+small''. For some symbolic calculations, this could be working with
+``just the important parts''.
