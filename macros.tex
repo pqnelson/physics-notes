@@ -74,6 +74,8 @@
 
 \renewcommand\thermk{\thechunk@ctr.\oldstylenums{\arabic{rmk}}}
 
+\newenvironment{soln}{\begin{proof}[Solution]}{\end{proof}}
+
 % arXiv links
 \def\arXiv{\@ifnextchar[{\@arXivWith}{\@arXivWithout}}
 \def\@arXivWith[#1]#2{\texttt{\href{http://arxiv.org/abs/#2}{arXiv:#2} [#1]}}
