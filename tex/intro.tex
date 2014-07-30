@@ -271,26 +271,26 @@ easier with this notation. There are 7 significant digits.
 
 \begin{ddanger}
 The following section intends to give the \emph{intuition} behind some
-of these symbols. We should really note that $\sim$, $\propto$, and
+of these symbols. We should really note that $\orderOf$, $\propto$, and
 $\approx$ are all rough forms of equality, and we expect (in practice)
 they obey the same rules (i.e., we should be able to ``add things to
-both sides'', so $x\sim y$ then $a+x\sim a+y$ for any $a$, etc.). So
+both sides'', so $x\orderOf y$ then $a+x\orderOf a+y$ for any $a$, etc.). So
 just remember: what is written down here is meant 
 \emph{only as an heuristic, not a rigorous definition!}
 \end{ddanger}
 
 \N{Order of Magnitude}
 Usually, it is useful to estimate quantities based on orders of
-magnitude (that is, as $10^{x}$ for some integer $x$). We will write $q\sim r$
-if nonzero quantities $q$ and $r$ have the same order of magnitude. As a
-rule of thumb, this means that $|\log(q/r)|< 1$. So
+magnitude (that is, as $10^{x}$ for some integer $x$). We will write 
+$q\orderOf r$ if nonzero quantities $q$ and $r$ have the same order of
+magnitude. As a rule of thumb, this means that $|\log(q/r)|< 1$. So
 \begin{equation}\label{eq:defn-of-order-magnitude-sim}
-q\sim r\quad\mbox{if and only if}\quad |\log(q/r)|< 1
+q\orderOf r\quad\mbox{if and only if}\quad |\log(q/r)|< 1
 \end{equation}
 provided $r\neq0$. If $r=0$ or $q=0$, then we have a special case, and
-consider $r\sim q$ if $|r|<10$ and $|q|<10$. Equivalently, we could say
+consider $r\orderOf q$ if $|r|<10$ and $|q|<10$. Equivalently, we could say
 \begin{equation}\label{eq:alt-defn-of-sim}
-q\sim r\quad\mbox{if and only if}\quad \left|\log\left(\frac{\max(1,
+q\orderOf r\quad\mbox{if and only if}\quad \left|\log\left(\frac{\max(1,
 |q|)}{\max(1, |r|)}\right)\right| < 1,
 \end{equation}
 which is ungodly to write out or look at.
@@ -299,7 +299,7 @@ which is ungodly to write out or look at.
 an equivalence relation?
 
 \N*{Exercise} According to Eq \eqref{eq:alt-defn-of-sim}, is
-$-3.14\times10^{30}\sim\pi\times10^{30}$? What about using Eq \eqref{eq:defn-of-order-magnitude-sim}?
+$-3.14\times10^{30}\orderOf\pi\times10^{30}$? What about using Eq \eqref{eq:defn-of-order-magnitude-sim}?
 If so, how could we improve our heuristic definition?
 
 \N{``Small Compared to'' Relations}
