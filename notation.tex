@@ -1,0 +1,35 @@
+% notation
+\newcommand{\D}{\mathrm{d}}
+\newcommand{\E}{\mathrm{e}}
+\let\eul=\E
+\newcommand{\I}{{\rm i}}
+\let\imag=\I
+\def\tens#1{\relax\ifmmode\mathsf{#1}\else\textsf{#1}\fi}
+\def\vec#1{\ensuremath{\mathchoice
+                     {\mbox{\boldmath$\displaystyle#1$}}
+                     {\mbox{\boldmath$\textstyle#1$}}
+                     {\mbox{\boldmath$\scriptstyle#1$}}
+                     {\mbox{\boldmath$\scriptscriptstyle#1$}}}}
+\DeclareMathOperator{\sgn}{sgn}
+
+\newcommand\looksLike{\sim}
+\newcommand\orderOf{\sim}
+\newcommand\bigO[1]{\ensuremath{\mathcal{O}\left(#1\right)}}
+
+% common sets
+\def\NN{\mathbb{N}}
+\def\RR{\mathbb{R}}
+
+% common groups
+\newcommand\SU[1]{\operatorname{SU}(#1)}
+\newcommand\U[1]{\operatorname{U}(#1)}
+\newcommand\classicalGroup[1]{\mathsf[1]}
+
+% commutators & brackets
+\newcommand\anticommute[2]{\ensuremath{\left\{#1,\enspace#2\right\}}}
+\newcommand\comm[2]{\ensuremath{\left\lbrack#1,\enspace#2\right\rbrack}}
+
+% notation
+\newcommand\action{\ensuremath{S}}
+\newcommand\qop[1]{\widehat{#1}}
+\newcommand\stepFn{\mathop{\theta}\nolimits}

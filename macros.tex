@@ -1,5 +1,7 @@
 \makeatletter
 \usepackage[12hr,us]{datetime}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{textcomp} % fixes odd symbols siunitx uses...
 \usepackage{siunitx}
@@ -48,9 +50,12 @@
   }{}
 
 \newcounter{chunk@ctr}
-\@addtoreset{chunk@ctr}{chapter}
+\@addtoreset{chunk@ctr}{section}
 
-\def\chunkprefix{\ifnum\value{chapter}>0 \oldstylenums{\arabic{chapter}}.\else{}\fi}
+\def\chunkprefix{\@ifundefined{chapter}{%
+\ifnum\value{section}>0 \oldstylenums{\arabic{section}}.\else{}\fi
+}{%
+\ifnum\value{chapter}>0 \oldstylenums{\arabic{section}}.\else{}\fi}}
 
 \renewcommand\thechunk@ctr{\chunkprefix\oldstylenums{\arabic{chunk@ctr}}}
 
@@ -68,13 +73,48 @@
 \def\NNoStarBracket[#1]#2{\M\textbf{#2}\enspace(#1)\textbf{\@addpunct{.}\quad}\ignorespaces}
 \def\NNoStarNoBracket#1{\M\textbf{#1\@addpunct{.}\quad}\ignorespaces}
 
+\def\Mref#1{\@ifundefined{hyperref}%
+        {\textup{\tagform@{\S\ref{#1}}}}%
+        {\hyperref[#1]{\textup{(\S\ref*{#1})}}}}
+
 % theorems and whatnot
+%\swapnumbers
+\newtheoremstyle{thmstyle}
+  {\topsep}   % ABOVESPACE
+  {\topsep}   % BELOWSPACE
+  {\itshape}  % BODYFONT
+  {0pt}       % INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {.}         % HEADPUNCT
+  {1em plus 1pt minus 1pt} % HEADSPACE
+  {\thmnumber{#2\@addpunct{.}\quad}\thmname{#1}\thmnote{\enspace\textrm{\normalfont(#3)}}}          % CUSTOM-HEAD-SPEC
+\newtheoremstyle{defnstyle}
+  {\topsep}   % ABOVESPACE
+  {\topsep}   % BELOWSPACE
+  {}          % BODYFONT
+  {0pt}       % INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {.}         % HEADPUNCT
+  {1em plus 1pt minus 1pt} % HEADSPACE
+  {\thmnumber{#2\@addpunct{.}\quad}\thmname{#1}\thmnote{\enspace\textrm{\normalfont(#3)}}}          % CUSTOM-HEAD-SPEC
+\newtheoremstyle{rmkstyle}
+  {\topsep}   % ABOVESPACE
+  {\topsep}   % BELOWSPACE
+  {}          % BODYFONT
+  {0pt}       % INDENT (empty value is the same as 0pt)
+  {\itshape} % HEADFONT
+  {.}         % HEADPUNCT
+  {1em plus 1pt minus 1pt} % HEADSPACE
+  {\thmnumber{#2\@addpunct{.}\quad}\thmname{#1}\thmnote{\enspace\textrm{\normalfont(#3)}}}          % CUSTOM-HEAD-SPEC
+\theoremstyle{defnstyle}
+\newtheorem{xca}[chunk@ctr]{Exercise}
+
 \theoremstyle{remark}
 \newcorollary{rmk}{Remark}[chunk@ctr]
 
 \renewcommand\thermk{\thechunk@ctr.\oldstylenums{\arabic{rmk}}}
 
-\newenvironment{soln}{\begin{proof}[Solution]}{\end{proof}}
+\newenvironment{soln}{\begin{proof}[Solution\@addpunct{.}]}{\end{proof}}
 
 % arXiv links
 \def\arXiv{\@ifnextchar[{\@arXivWith}{\@arXivWithout}}
@@ -114,25 +154,4 @@
 \def\define#1{``\textbf{#1}''}
 
 \def\workedExamples{\subsection*{\phantomsection\addcontentsline{toc}{subsection}{Worked Examples}Worked Examples}}
-
-% notation
-\newcommand{\D}{\mathrm{d}}
-\newcommand{\E}{\mathrm{e}}
-\let\eul=\E
-\newcommand{\I}{{\rm i}}
-\let\imag=\I
-\def\tens#1{\relax\ifmmode\mathsf{#1}\else\textsf{#1}\fi}
-\def\vec#1{\ensuremath{\mathchoice
-                     {\mbox{\boldmath$\displaystyle#1$}}
-                     {\mbox{\boldmath$\textstyle#1$}}
-                     {\mbox{\boldmath$\scriptstyle#1$}}
-                     {\mbox{\boldmath$\scriptscriptstyle#1$}}}}
-\DeclareMathOperator{\sgn}{sgn}
-
-\newcommand\orderOf{\sim}
-\newcommand\looksLike{\sim}
-
-\def\NN{\mathbb{N}}
-\def\RR{\mathbb{R}}
-
 \makeatother
