@@ -1,0 +1,108 @@
+\begin{thm}[Gordon's Identity]
+We claim
+\begin{equation}
+\bar{u}(p')\gamma^{\mu}u(p) = \bar{u}(p')\left[\frac{(p'+p)^{\mu}}{2m}+\frac{\I\sigma^{\mu\nu}q_{\nu}}{2m}\right]u(p)
+\end{equation}
+where $q=p'-p$.
+\end{thm}
+
+The basic proof amounts to examining $\sigma^{\mu\nu}q_{\nu}$, then
+considering $\sigma^{\mu\nu}$ in terms of $\gamma^{\mu}\gamma^{\nu}$,
+$\gamma^{\nu}\gamma^{\mu}$, and $\metric^{\mu\nu}$. We casually invoke
+Dirac's equation as necessary. We will first isolate various technical
+details into their own lemmas.
+
+\begin{lemma}\label{lemma:gordon-identity:sigma-identities}
+We have
+\begin{subequations}
+\begin{equation}
+\I\sigma^{\mu\nu} = \metric^{\mu\nu}-\gamma^{\mu}\gamma^{\nu}
+\end{equation}
+and
+\begin{equation}
+\I\sigma^{\mu\nu} = \gamma^{\nu}\gamma^{\mu}-\metric^{\mu\nu}.
+\end{equation}
+\end{subequations}
+\end{lemma}
+\begin{proof}
+We have
+\begin{subequations}
+\begin{align}
+\gamma^{\mu}\gamma^{\nu} 
+&= \frac{1}{2}\commutator{\gamma^{\mu}}{\gamma^{\nu}}+\frac{1}{2}\anticommutator{\gamma^{\mu}}{\gamma^{\nu}}\\
+&= -\I\sigma^{\mu\nu}+\metric^{\mu\nu}
+\end{align}
+Hence
+\begin{equation}
+\I\sigma^{\mu\nu} = \metric^{\mu\nu}-\gamma^{\mu}\gamma^{\nu}.
+\end{equation}
+\end{subequations}
+Similarly, we find
+\begin{subequations}
+\begin{align}
+\gamma^{\nu}\gamma^{\mu} 
+&= \frac{1}{2}\commutator{\gamma^{\nu}}{\gamma^{\mu}}+\frac{1}{2}\anticommutator{\gamma^{\mu}}{\gamma^{\nu}}\\
+&= -\frac{1}{2}\commutator{\gamma^{\mu}}{\gamma^{\nu}}+\frac{1}{2}\anticommutator{\gamma^{\mu}}{\gamma^{\nu}}\\
+&= \I\sigma^{\mu\nu}+\metric^{\mu\nu}
+\end{align}
+and hence
+\begin{equation*}
+\I\sigma^{\mu\nu} = \gamma^{\nu}\gamma^{\mu}-\metric^{\mu\nu}\qedhere
+\end{equation*}
+\end{subequations}
+\end{proof}
+
+\begin{lemma}\label{lemma:gordon-identity:dirac-eqn}
+We have
+\begin{equation}
+\bar{u}(p')\left[(\gamma\cdot p')\gamma^{\mu}
+ + \gamma^{\mu}(\gamma\cdot p)\right]u(p)
+= 2m\,\bar{u}(p')\gamma^{\mu}u(p)
+\end{equation}
+\end{lemma}
+\begin{proof}
+We note
+\begin{subequations}
+\begin{equation}
+\bar{u}(p')(\gamma\cdot p') = m\bar{u}(p')
+\end{equation}
+and
+\begin{equation}
+(\gamma\cdot p)u(p) = m u(p)
+\end{equation}
+\end{subequations}
+which follows from Dirac's equation. The lemma then follows immediately.
+\end{proof}
+
+Now we come to the proof of Gordon's identity.
+\begin{proof}[Proof of Gordon's Identity]
+We have
+\begin{subequations}
+\begin{align}
+\bar{u}(p')\I\sigma^{\mu\nu}q_{\nu}u(p) 
+&= \bar{u}(p')\left[\I\sigma^{\mu\nu}p'_{\nu}-\I\sigma^{\mu\nu}p_{\nu}\right]u(p)\\
+&= \bar{u}(p')\left[(\gamma^{\nu}\gamma^{\mu}-\metric^{\mu\nu})p'_{\nu}-\I\sigma^{\mu\nu}p_{\nu}\right]u(p)\\
+&= \bar{u}(p')\left[(\gamma^{\nu}\gamma^{\mu}-\metric^{\mu\nu})p'_{\nu}-(\metric^{\mu\nu}-\gamma^{\mu}\gamma^{\nu})p_{\nu}\right]u(p)\\
+\end{align}
+where we have invoked lemma \ref{lemma:gordon-identity:sigma-identities}
+twice. We can now rewrite this as 
+\begin{align}
+\bar{u}(p')\I\sigma^{\mu\nu}q_{\nu}u(p) 
+&= \bar{u}(p')\left[(\gamma^{\nu}\gamma^{\mu}-\metric^{\mu\nu})p'_{\nu}-(\metric^{\mu\nu}-\gamma^{\mu}\gamma^{\nu})p_{\nu}\right]u(p)\nonumber\\
+&= \bar{u}(p')\left[(\gamma\cdot p')\gamma^{\mu}
+  -  \metric^{\mu\nu}p'_{\nu}  -  \metric^{\mu\nu}p_{\nu}
+  +  \gamma^{\mu}(\gamma\cdot p)\right]u(p)\\
+&= \bar{u}(p')\left[(\gamma\cdot p')\gamma^{\mu}
+  +  \gamma^{\mu}(\gamma\cdot p)
+  -  \metric^{\mu\nu}(p'_{\nu} + p_{\nu})\right]u(p)\\
+&= \bar{u}(p')\left[2m\gamma^{\mu}
+  -  (p' + p)^{\mu}\right]u(p)
+\end{align}
+where we have used index gymnastics and invoked lemma \ref{lemma:gordon-identity:dirac-eqn} in the
+last line. Now we can rearrange terms to find
+\begin{equation}
+2m\,\bar{u}(p')\gamma^{\mu}u(p) = \bar{u}(p')\left[(p'+p)^{\mu}+\I\sigma^{\mu\nu}q_{\nu}\right]u(p) 
+\end{equation}
+\end{subequations}
+then dividing through by $2m$ gives us the identity as desired.
+\end{proof}
