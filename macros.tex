@@ -1,6 +1,6 @@
 \makeatletter
 \usepackage[12hr,us]{datetime}
-\usepackage[T1]{fontenc}
+% \usepackage[T1]{fontenc}
 \usepackage{enumitem}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{textcomp} % fixes odd symbols siunitx uses...
@@ -19,7 +19,7 @@
 \numberwithin{equation}{chapter}
 
 % author info
-\def\homeurl{\url{http://code.google.com/p/notebk/}}
+\def\homeurl{\url{https://github.com/pqnelson/physics-notes}}
 \author{Alex Nelson%
   \footnote{This is a page from \homeurl\hfil\break%
     \indent\;\, Compiled:\enspace\today\ at \currenttime\ (PST)}\\%
@@ -50,12 +50,16 @@
   }{}
 
 \newcounter{chunk@ctr}
-\@addtoreset{chunk@ctr}{section}
-
-\def\chunkprefix{\@ifundefined{chapter}{%
-\ifnum\value{section}>0 \oldstylenums{\arabic{section}}.\else{}\fi
+\@ifundefined{chapter}{%
+  \@addtoreset{chunk@ctr}{section}
 }{%
-\ifnum\value{chapter}>0 \oldstylenums{\arabic{section}}.\else{}\fi}}
+  \@addtoreset{chunk@ctr}{chapter}
+}
+\def\chunkprefix{\@ifundefined{chapter}{%
+  \ifnum\value{section}>0 \oldstylenums{\arabic{section}}.\else{}\fi
+}{%
+  \ifnum\value{chapter}>0 \oldstylenums{\arabic{chapter}}.\else\oldstylenums{\arabic{section}}\fi
+}}
 
 \renewcommand\thechunk@ctr{\chunkprefix\oldstylenums{\arabic{chunk@ctr}}}
 
@@ -87,7 +91,7 @@
   {\bfseries} % HEADFONT
   {.}         % HEADPUNCT
   {1em plus 1pt minus 1pt} % HEADSPACE
-  {\thmnumber{#2\@addpunct{.}\quad}\thmname{#1}\thmnote{\enspace\textrm{\normalfont(#3)}}}          % CUSTOM-HEAD-SPEC
+  {\thmnumber{#2\@addpunct{.}\enspace}\thmname{#1}\thmnote{\enspace\textrm{\normalfont(#3)}}}          % CUSTOM-HEAD-SPEC
 \newtheoremstyle{defnstyle}
   {\topsep}   % ABOVESPACE
   {\topsep}   % BELOWSPACE
@@ -96,7 +100,7 @@
   {\bfseries} % HEADFONT
   {.}         % HEADPUNCT
   {1em plus 1pt minus 1pt} % HEADSPACE
-  {\thmnumber{#2\@addpunct{.}\quad}\thmname{#1}\thmnote{\enspace\textrm{\normalfont(#3)}}}          % CUSTOM-HEAD-SPEC
+  {\thmnumber{#2\@addpunct{.}\enspace}\thmname{#1}\thmnote{\enspace\textrm{\normalfont(#3)}}}          % CUSTOM-HEAD-SPEC
 \newtheoremstyle{rmkstyle}
   {\topsep}   % ABOVESPACE
   {\topsep}   % BELOWSPACE
@@ -105,7 +109,12 @@
   {\itshape} % HEADFONT
   {.}         % HEADPUNCT
   {1em plus 1pt minus 1pt} % HEADSPACE
-  {\thmnumber{#2\@addpunct{.}\quad}\thmname{#1}\thmnote{\enspace\textrm{\normalfont(#3)}}}          % CUSTOM-HEAD-SPEC
+  {\thmnumber{#2\@addpunct{.}\enspace}\thmname{#1}\thmnote{\enspace\textrm{\normalfont(#3)}}}          % CUSTOM-HEAD-SPEC
+
+\theoremstyle{thmstyle}
+\newtheorem{thm}[chunk@ctr]{Theorem}
+\newtheorem{lemma}[chunk@ctr]{Lemma}
+
 \theoremstyle{defnstyle}
 \newtheorem{xca}[chunk@ctr]{Exercise}
 
@@ -130,14 +139,14 @@
 
 % Danger, Will Robinson!
 \newenvironment{danger}{\medbreak\noindent\hangindent=2pc\hangafter=-2%
-\clubpenalty=10000%
-\hbox to0pt{\hskip-\hangindent\dbend\hfill}\small\ignorespaces}%
+  \clubpenalty=10000%
+  \hbox to0pt{\hskip-\hangindent\dbend\hfill}\small\ignorespaces}%
 {\medbreak\par}
 
 % Danger! Danger!
 \newenvironment{ddanger}{\medbreak\noindent\hangindent=3pc\hangafter=-2%
-\clubpenalty=10000%
-\hbox to0pt{\hskip-\hangindent\dbend\kern2pt\dbend\hfill}\small\ignorespaces}%
+  \clubpenalty=10000%
+  \hbox to0pt{\hskip-\hangindent\dbend\kern2pt\dbend\hfill}\small\ignorespaces}%
 {\medbreak\par}
 
 \def\quoteAuthor#1(#2){\par\nobreak\smallskip\noindent\textup{--- #1\unskip\enspace(#2)}}
