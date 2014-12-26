@@ -7,6 +7,8 @@
 !/img/*.mp
 
 # ignore the misc. LaTeX and MPost output
+physics.*
+!physics.tex
 *.aux
 *.log
 *.mpx
