@@ -1,0 +1,464 @@
+\section{Gauge Invariance, Constraints}
+\M
+For a gauge system, the initial conditions alone do not uniquely
+determine the state in the future. The general solutions to the
+equations of motion may contain arbitrary functions of time.
+
+We will see the canonical variables are not all independent. Hence a
+gauge system is always a constrained system, but the converse is not
+always true.
+
+\subsection{The Lagrangian as a Starting Point. Primary Constraints}
+\N{Stationary Action}
+The classical equations of motion are those that make the action
+\begin{equation}
+  \action_{L} = \int^{t_{2}}_{t_{1}} L(q,\dot{q})\,\D t
+\end{equation}
+stationary under variations $\delta q^{n}(t)$ of the Lagrangian
+variables $q^n$ (for $n=1,\dots,N$) such that the variation vanishes at
+the endpoints $\delta q^{n}(t_{1})=\delta q^{n}(t_{2})=0$.
+
+\N{Equations of Motion}
+The conditions for the action to be stationary are preceisely the
+Euler-Lagrange equations
+\begin{equation}
+  \frac{\D}{\D t}\left(\frac{\partial L}{\partial\dot{q}^{n}}\right)
+  -\frac{\partial L}{\partial q^{n}}=0
+\end{equation}
+for $n=1,\dots, N$. We may use the chain rule to rewrite
+\begin{equation}
+  \frac{\D}{\D t}\left(\frac{\partial L}{\partial\dot{q}^{n}}\right)
+  =\frac{\D q^{n'}}{\D t}\frac{\partial^{2} L}{\partial q^{n'}\partial\dot{q}^{n}}
+  +\frac{\D\dot{q}^{n'}}{\D t}\frac{\partial^{2} L}{\partial\dot{q}^{n'}\partial\dot{q}^{n}}
+\end{equation}
+where we use Einstein summation convention. The equations of motion then
+become
+\begin{equation}
+  \ddot{q}^{n'}\left(\frac{\partial^{2}L}{\partial\dot{q}^{n'}\partial\dot{q}^{n}}\right)
+  =\frac{\partial L}{\partial q^{n}}
+  -\frac{\partial^{2}L}{\partial q^{n'}\partial\dot{q}^{n}}\dot{q}^{n'}
+\end{equation}
+Hence the accelerations are uniquely determined by position and
+velocities at that time if and only if the matrix
+$(\partial^{2}L/\partial\dot{q}^{m}\partial\dot{q}^{n})$ is invertible,
+i.e., $\det(\partial^{2}L/\partial\dot{q}^{m}\partial\dot{q}^{n})\neq0$.
+
+\M
+On the other hand, if
+$\det(\partial^{2}L/\partial\dot{q}^{n'}\partial\dot{q}^{n})=0$, then the
+accelerations are not uniquely determined by positions and
+velocities. Hence the solutions would contain aritrary functions of
+time. The case we're interested in is precisely when this matrix cannot
+be inverted.
+
+\N{Canonical Momenta, Primary Constraints}
+When starting the Hamiltonian analysis, we define the \define{Canonical Momenta}
+by
+\begin{equation}
+  p_{n}=\frac{\partial L}{\partial\dot{q}^{n}}.
+\end{equation}
+Then the determinant in question is precisely
+\begin{equation}
+  \det\left(\frac{\partial p_{n'}}{\partial\dot{q}^{n}}\right)=0
+\end{equation}
+which says the Hessian matrix for the change of coordinates
+$(q,\dot{q})\to(q,p)$ is not invertible.
+
+What does this mean? Well, not all the momenta are independent of each
+other. So we have some relationships among them
+\begin{equation}
+  \phi_{m}(q,p)=0
+\end{equation}
+for $m=1,\dots,M$, which follow just from the definition of the
+momenta. The conditions $\phi_{m}(q,p)=0$ are called \define{Primary
+  Constraints} to emphasize the equations of motion \emph{are not} used
+to obtain these relations, and they imply no restriction on the
+coordinates $q^{n}$ and their velocities $\dot{q}^{n}$.
+
+\N{Definition}
+The \define{Primary Constraint Surface} consists of the submanifold
+smoothly embedded in phase space according to $\phi_{m}(q,p)=0$.
+
+\N*{Remarks}
+We have some simplifying assumptions and remarks worth carrying around.
+\begin{enumerate}
+\item There are $M'$ independent equations among the primary
+  constraints, where $0\leq M'\leq M$.
+\item We assume for simplicity the rank of
+  $\partial^{2}L/\partial\dot{q}^{n}\partial\dot{q}^{n'}$ is $N-M'$
+  (i.e., constant throughout phase space).
+\item The primary constraint surface is a phase-space submanifold of
+  dimension $2N-M'$.
+\end{enumerate}
+
+\M
+It follows from the primary constraints that the inverse transformation
+from the $p$'s to the $q$'s is multi-valued. Given a point $(q^{n}, p_{n})$
+which satisfy the primary constraints, the inverse image $(q^{n}, \dot{q}^{n})$
+that solves
+\begin{equation}
+  p_{n}(q,\dot{q}) = \frac{\partial L}{\partial\dot{q}^{n}}
+\end{equation}
+is not unique\dots since $\partial L/\partial q$ maps the
+$2N$-dimensional manifold of the $q$'s and $\dot{q}$'s to the smaller
+manifold of dimension $(2N-M')$.
+
+% \includegraphics{img/constrained.0}
+
+To render this transformation invertible, we must introduce extra
+parameters (at least $M'$ in number) to indicate the location of
+$\dot{q}$ on the inverse manifold. These parameters will appear as
+Lagrange multipliers when we define the Hamiltonian and study its
+properties.
+
+\subsection{Conditions on the Constraint Functions}
+
+\N{Motivating Example}\label{n:regularity-conditions:motivating-example}
+Given some surface, there are different ways to represent it as the
+zeroes of some equations. For example $p_{1}=0$ may be written as
+$(p_{1})^{2}=0$ or $\sqrt{|p_{1}|}=0$, or even redundantly as (say)
+$(p_{1})^{2}=0$ and $\sqrt{|p_{1}|}=0$.
+
+Before continuing our Hamiltonian analysis, we must impose some
+conditions (restrictions) on the choice of the functions $\phi_{m}$
+representing the primary constraint surface. These are precisely the
+\emph{Regularity Conditions}.
+
+\N{Regularity Conditions}
+The $(2N-M')$-dimensional constraint surface $\phi_{m}=0$ should be
+coverable by open regions, on each of which (``locally'') the
+constraint functions $\phi_{m}$ are either
+\begin{enumerate}
+  \item ``independent'' $\phi_{m'}=0$ for $m'=1$, \dots, $M'$ such that
+    the Jacobian matrix $\partial(\phi_{m'})/\partial(q^{n},p_{n})$ is
+    rank $M'$ on the constraint surface
+  \item ``dependent'' $\phi_{\bar{m}'}=0$ (for $\bar{m}'=M'+1$, \dots,
+    $M$) which holds as a consequence of others ($\phi_{m'}=0\implies\phi_{\bar{m}'}=0$).
+\end{enumerate}
+
+\begin{thm}
+The regularity condition on the Jacobian matrix
+$\partial(\phi_{m'})/\partial(q^{n},p_{n})$ may be reformulated as any
+of the following equivalent conditions:
+\begin{enumerate}
+\item\label{thm:regularity-cond:regular-coords}
+  The functions $\phi_{m'}$ can be locally taken as the first $M'$
+  coordinates of a new, regular coordinate system in the vicinity of the
+  constraint surface.
+\item\label{thm:regularity-cond:locally-linear-independent}
+  The gradients $\D\phi_{1}$, \dots, $\D\phi_{M'}$ are locally
+  linearly independent on the constraint surface, i.e.,
+  $\D\phi_{1}\wedge\cdots\wedge\D\phi_{M'}\neq0$ (``zero is a regular
+  value of the mapping defined by $\phi_{1}$, \dots, $\phi_{M'}$'').
+\item\label{thm:regularity-cond:dirac-cond}
+  The variations $\delta\phi_{m'}$ are of order $\varepsilon$ for
+  arbitrary variations $\delta q^{j}$ and $\delta p_{j}$ of order
+  $\varepsilon$.
+\end{enumerate}
+\end{thm}
+\begin{proof}[Sketch of Proof]
+We see independent constraints $\phi_{m'}$ $\iff$ \eqref{thm:regularity-cond:regular-coords}
+immediately.
+
+We see \eqref{thm:regularity-cond:regular-coords} $\iff$ \eqref{thm:regularity-cond:locally-linear-independent}
+immediately.
+
+Lastly, we find linearity condition \eqref{thm:regularity-cond:locally-linear-independent} $\iff$ \eqref{thm:regularity-cond:dirac-cond}
+immediately.
+\end{proof}
+
+\N{Example}
+Consider our motivating example \Mref{n:regularity-conditions:motivating-example}.
+We see $p_{1}=0$ is admissable.
+
+We see ``$p_{1}=0$ and $(p_{1})^{2}=0$'' is admissible. It is
+regular. But look, it is redundant since $p_{1}=0\implies``p_{1}=0%
+\mbox{\ and\ } (p_{1})^{2}=0"$. So it is a redundant, or ``dependent'',
+constraint.
+
+We find for $(p_{1})^{2}=0$ the Jacobian
+$\partial({p_{1}}^{2})/\partial(q^{n}, p_{n})=0$ when
+$(p_{1})^{2}=0$. That is, it is not rank-1 on the constraint
+surface. Hence this constraint cannot be regular.
+
+We find for $\sqrt{|p_{1}|}$ the Jacobian
+$\partial(\sqrt{|p_{1}|})/\partial(q^{n},p_{n})$ is singular on the
+constraint surface. This cannot possibly be regular.
+
+\N{Remark}
+Although we assumed this partition of the constraint functions may be
+done locally, it is \emph{not} necessary to explicitly divvy them up
+into dependent and independent constraints to develop our theory. The
+subsequent formulas won't be based on such a split. All we require is
+picking $\phi_{m}$ such that \emph{in principle} this could be done.
+
+At any rate, when $\phi_{m}$ satisfy the regularity conditions, we have
+two useful properties.
+
+\begin{thm}
+If a (smooth) phase space function $G$ vanishes on the surface
+$\phi_{m}=0$, then $G=g^{m}\phi_{m}$ for some functions $g^{m}$.
+\end{thm}
+
+\begin{proof}
+We use the fact that we may write a new regular coordinate system
+$(y_{m'},x_{n})$ where $y_{m'}=\phi_{m'}$. Then we just note we want to
+consider $G(0,x_{n})=0$. Using calculus, we see
+\begin{subequations}
+\begin{align}
+G(y,x) &= \int^{1}_{0}\frac{\D}{\D t}G(ty, x)\,\D t\\    
+&=\int^{1}_{0}y_{m'}\frac{\partial}{\partial y_{m'}}G(ty, x)\,\D t\\
+&=y_{m'}\int^{1}_{0}\frac{\partial}{\partial y_{m'}}G(ty, x)\,\D t
+\end{align}
+\end{subequations}
+Hence we find
+\begin{equation*}
+g^{m}=\int^{1}_{0}\frac{\partial}{\partial y_{m'}}G(ty, x)\,\D t.\qedhere
+\end{equation*}
+\end{proof}
+
+\begin{thm}\label{thm:variation-tangent-to-constraint-surface}
+If $\lambda_{n}\delta q^{n} + \mu^{n}\delta p_{n}=0$ for arbitrary
+variations $\delta q^{n}$, $\delta p_{n}$ tangent to the constraint
+surface, then
+\begin{equation}
+  \begin{split}
+    \lambda_{n} &= u^{m}\frac{\partial\phi_{m}}{\partial q^{n}}\\
+    \mu^{n} &= u^{m}\frac{\partial\phi_{m}}{\partial p_{n}}
+  \end{split}
+\end{equation}
+for some $u^{m}$. (The equalities here are equalities on the constraint
+surface.) 
+\end{thm}
+\begin{proof}
+By the regularity conditions, the gradients $(\partial\phi_{m'}/\partial
+q^{n},\partial\phi_{m'}/\partial p_{n})$ are linearly independent.
+We use Artin's trick\footnote{See Artin~\cite{artin1991}, specifically
+chapter 8 ``Linear Groups'', section 6 ``The Lie Algebra'' where Artin
+discusses tangent vectors using infinitesimals.} for figuring out the
+tangent vectors to the surface
+\begin{equation}
+f(q,p) = u^{m}\phi_{m}(q,p)\weakEq 0
+\end{equation}
+by writing
+\begin{subequations}
+\begin{align}
+f(q+\delta q, p+\delta p) &= u^{m}\phi_{m}(q+\delta q, p+\delta p)\\
+&=u^{m}\left(\phi_{m}(q,p)
+             + \frac{\partial\phi_{m}(q,p)}{\partial q^{n}}\delta q^{n}
+             + \frac{\partial\phi_{m}(q,p)}{\partial p_{n}}\delta p_{n}\right)\\
+&=0\mbox{ by hypothesis}
+\end{align}
+\end{subequations}
+then
+\begin{equation}
+\lambda_{n}\delta q^{n}+\mu^{n}\delta p_{n}
+=u^{m}\left(\frac{\partial\phi_{m}(q,p)}{\partial q^{n}}\delta q^{n}
+            + \frac{\partial\phi_{m}(q,p)}{\partial p_{n}}\delta p_{n}\right)
+\end{equation}
+which implies the desired result by matching coefficients of the variations.
+\end{proof}
+
+
+\subsection{The Canonical Hamiltonian}
+\begin{defn}[Canonical Hamiltonian]
+We introduce the Hamiltonian via the Legendre transformation, writing
+the \define{Canonical Hamiltonian}
+\begin{equation}
+H = \dot{q}^{n}p_{n} - L.
+\end{equation}
+\end{defn}
+
+\N{Canonical Hamiltonian Depends on Momenta, Positions}
+As it is written, since $p=p(q,\dot{q})$, the Hamiltonian is a function
+of the positions and velocities. We claim that velocities enter only
+through the combinations of
+\begin{equation}
+  p_{n}(q,\dot{q}) = \frac{\partial L}{\partial\dot{q}^{n}}.
+\end{equation}
+How to check this claim?
+
+We can verify this by considering $\delta H$, and seeing it is
+proportional to $\delta p_{n}$ and $\delta q^{n}$. Observe
+\begin{subequations}
+\begin{align}
+\delta H &= \delta(\dot{q}^{n}p_{n} - L)\\
+&=\dot{q}^{n}p_{n}+p_{n}\dot{q}^{n}
+  -\left(\frac{\partial L}{\partial q^{n}}\delta q^{n}
+         + \frac{\partial L}{\partial\dot{q}^{n}}\delta\dot{q}^{n}\right)\\
+&=\dot{q}^{n}p_{n}
+   +\left(p_{n}-\frac{\partial L}{\partial\dot{q}^{n}}\right)\dot{q}^{n}
+  -\frac{\partial L}{\partial q^{n}}\delta q^{n}\\
+&=\dot{q}^{n}p_{n} -\frac{\partial L}{\partial q^{n}}\delta q^{n}.
+\end{align}
+\end{subequations}
+Observe here $\delta p_{n}$ is \emph{not} an independent variation, but
+regarded as a linear combination of $\delta q^{n}$ and
+$\delta\dot{q}^{n}$. We see that this is the only way for
+$\delta\dot{q}$'s to enter, implying $H=H(q,p)$.
+
+\N{Non-Uniqueness}
+We see the Hamiltonian defined by the Legendre transformation is not
+necessarily unique\dots well, it's not uniquely determined as a function
+of $p$'s and $q$'s. Why? Because the $\delta p$'s are not all
+independent but are restricted to preserve the primary constraints
+$\delta\phi_{m}\weakEq0$.
+
+We conclude the canonical Hamiltonian is well-defined on the submanifold
+defined by the primary constraints and can be extended arbitrarily off
+that manifold. The formalism shouldn't change under the replacement
+\begin{equation}
+  H\to H+c^{m}(q,p)\phi_{m}
+\end{equation}
+for arbitrary (smooth) phase-space functions $c^{m}(q,p)$.
+
+\N{Sketches of Hamilton's Equations}\label{n:constrained:eom-in-hamiltons-form}
+We can rewrite the variation of the Hamiltonian as
+\begin{subequations}
+\begin{equation}
+\delta H - \left(\dot{q}^{n}p_{n} -\frac{\partial L}{\partial q^{n}}\delta q^{n}\right) = 0
+\end{equation}
+then expand $\delta H$ as a linear combination of $\delta q$'s and
+$\delta p$'s
+\begin{equation}
+\left(\frac{\partial H}{\partial q^{n}}\delta q^{n}
+      +\frac{\partial H}{\partial p_{n}}\delta p_{n}\right)
+- \dot{q}^{n}p_{n} + \frac{\partial L}{\partial q^{n}}\delta q^{n}=0
+\end{equation}
+then gathering terms
+\begin{equation}
+ \left(\frac{\partial H}{\partial p_{n}} - \dot{q}^{n}\right)\delta p_{n}
++\left(\frac{\partial H}{\partial q^{n}} + \frac{\partial L}{\partial q^{n}}\right)\delta q^{n}
+=0
+\end{equation}
+\end{subequations}
+Invoking theorem \ref{thm:variation-tangent-to-constraint-surface} we
+find
+\begin{subequations}
+  \begin{align}
+\delta q^{n}\colon\quad-\dot{q}^{n}&=-\frac{\partial H}{\partial p_{n}}
+                                     +u^{m}\frac{\partial\phi_{m}}{\partial p_{n}}\\
+\delta p_{n}\colon\quad\left.\frac{\partial L}{\partial q^{n}}\right|_{\dot{q}}
+&=-\left.\frac{\partial H}{\partial q^{n}}\right|_{p}
+   +u^{m}\frac{\partial\phi_{m}}{\partial q^{n}}
+  \end{align}
+\end{subequations}
+Multiplying through by $-1$ and relabeling $u^{m}\to-u^{m}$ gives us
+\begin{subequations}
+\begin{align}
+\dot{q}^{n}&=\frac{\partial H}{\partial p_{n}} + u^{m}\frac{\partial\phi_{m}}{\partial p_{n}}\\
+\left.-\frac{\partial L}{\partial q^{n}}\right|_{\dot{q}}
+&=\left.\frac{\partial H}{\partial q^{n}}\right|_{p}
+   +u^{m}\frac{\partial\phi_{m}}{\partial q^{n}}
+\end{align}
+\end{subequations}
+Observe the equation for $\dot{q}$ tells us how to recover the
+velocities from the momenta $p_{n}$ (obeying the primary constraints
+$\phi_{m}=0$) and the extra parameters $u^{m}$. These $u^{m}$ parameters
+may be thought of as coordinates on the inverse image of a given
+$p_{n}$.
+
+\begin{prop}
+If the primary constraints are independent, then the vectors
+$\partial\phi_{m}/\partial p_{n}$ are also independent on the primary
+constraint surface $\phi_{m}=0$.
+\end{prop}
+\begin{proof}
+Take
+\begin{equation}
+\begin{split}
+\frac{\partial}{\partial\dot{q}^{n}}\phi_{m}\bigl(q, p(q, \dot{q})\bigr)
+&=\frac{\partial\phi_{m}}{\partial p_{n'}}\left(\frac{\partial p_{n'}}{\partial\dot{q}^{n}}\right)\\  
+&=\frac{\partial\phi_{m}}{\partial p_{n'}}W_{nn'}
+\end{split}
+\end{equation}
+but we see $\ker(\partial p_{n}/\partial\dot{q}^{n'})$ is spanned
+by\dots well, it's enough to show $\partial\phi_{m}/\partial p_{n}$ are
+independent if we use regularity conditions.
+\end{proof}
+\begin{cor}
+No two different sets of $u$'s may express the same velocities.
+\end{cor}
+
+\M
+We may write, in principle, the $u$'s as a function of positions and
+velocities by solving
+\begin{equation}
+\dot{q}^{n} = \frac{\partial H}{\partial p_{n}}\bigl(q, p(q,\dot{q})\bigr)
++ u^{m}(q, \dot{q})%
+\frac{\partial\phi_{m}}{\partial p_{n}}\bigl(q, p(q,\dot{q})\bigr).
+\end{equation}
+
+\M
+Observe we may define the Legendre transform from $(q,\dot{q})$-space to
+the $\phi_{m}(q,p)=0$ surface of $(q,p,u)$-space by means of
+\begin{subequations}
+\begin{align}
+q^{n} &= q^{n}\\
+p_{n} &= \frac{\partial L}{\partial\dot{q}^{n}}(q,\dot{q})\\
+u^{m} &= u^{m}(q, \dot{q})
+\end{align}
+\end{subequations}
+We can invert this Legendre transform
+\begin{subequations}
+\begin{align}
+q^{n}         &= q^{n}\\
+\dot{q}^{n}   &= \frac{\partial H}{\partial p_{n}} +
+                 u^{m}\frac{\partial\phi_{m}}{\partial p_{n}}\\
+\phi_{m}(q,p) &= 0
+\end{align}
+\end{subequations}
+Thus we recover invertibility at the cost of adding more variables.
+
+\N{Remark}
+Observe all our considerations so far have been local. We assume the
+results hold globally. This implies $H$ is not multi-valued.
+
+The only modification we ought to make is to work with non-redundant
+constraints. Then all our results carry over.
+
+\subsection{Action Principle in Hamiltonian Form}
+\N{Brief Review}
+Just to recap our results, we have the original Lagrangian equations of
+motion in Hamilton's form
+\Mref{n:constrained:eom-in-hamiltons-form}. This is a direct consequence
+of our analysis
+\begin{equation}
+  \delta\action=0%
+  \implies\delta H
+  -\left(\dot{q}^{n}\delta p_{n}
+         -\frac{\partial L}{\partial q^{n}}\delta q^{n}\right)=0
+\end{equation}
+then applying theorem \ref{thm:variation-tangent-to-constraint-surface}
+to restrict focus on the constraint surface.
+
+We see
+\begin{subequations}
+\begin{equation}
+\dot{q}^{n}=\frac{\partial H}{\partial p_{n}} +
+u^{m}\frac{\partial\phi_{m}}{\partial p_{n}}
+\end{equation}
+and
+\begin{equation}
+\phi_{m}(q,p)=0
+\end{equation}
+together lets us recover
+\begin{equation}
+p_{n} = \frac{\partial L}{\partial\dot{q}^{n}}.
+\end{equation}
+\end{subequations}
+When we insert this into the remaining equation
+\begin{equation}
+\dot{p}_{n} = -\frac{\partial H}{\partial q^{n}}-u^{m}\frac{\partial\phi_{m}}{\partial q^{n}},
+\end{equation}
+we recover the Lagrangian equations of motion precisely.
+
+\N{Derived from Variational Principle}
+We may derive Hamilton's equations of motion from the variational
+principle
+\begin{equation}
+\delta\int^{t_{2}}_{t_{1}}\left(\dot{q}^{n}p_{n}-H-u^{m}\phi_{m}\right)\,\D t=0
+\end{equation}
+for arbitrary variations $\delta q^{n}$, $\delta p_{n}$, $\delta u^{m}$
+subject to the restriction $\delta q^{n}(t_{1})=\delta q^{n}(t_{2})=0$.
+
