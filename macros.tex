@@ -1,4 +1,25 @@
 \makeatletter
+\usepackage[backend=biber,
+            hyperref=true,
+            maxbibnames=100]{biblatex}
+\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat{pages}{#1}
+\renewbibmacro{in:}{}
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+%  \setunit*{\adddot}% DELETED
+  \setunit*{\addnbspace}% NEW (optional); there's also \addnbthinspace
+  \printfield{number}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}}
+\renewcommand*{\bibfont}{\small}
+
+\addbibresource{bib/classicalMechanics.bib}
+\addbibresource{bib/qg.bib}
+\addbibresource{bib/gr.bib}
+\addbibresource{bib/field.bib}
+\addbibresource{bib/math.bib}
+
 \usepackage[12hr,us]{datetime}
 % \usepackage[T1]{fontenc}
 \usepackage{enumitem}

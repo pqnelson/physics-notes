@@ -1,9 +1,10 @@
 TEX=pdflatex
 FILE=physics
+BIB=biber
 
 all:
 	$(TEX) $(FILE)
-	$(TEX) $(FILE)
+	$(BIB) $(FILE)
 	$(TEX) $(FILE)
 
 compress:
