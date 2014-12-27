@@ -124,7 +124,7 @@ conditions (restrictions) on the choice of the functions $\phi_{m}$
 representing the primary constraint surface. These are precisely the
 \emph{Regularity Conditions}.
 
-\N{Regularity Conditions}
+\N{Regularity Conditions}\label{n:constrained-hamiltonian:regularity-cond}
 The $(2N-M')$-dimensional constraint surface $\phi_{m}=0$ should be
 coverable by open regions, on each of which (``locally'') the
 constraint functions $\phi_{m}$ are either
@@ -461,4 +461,275 @@ principle
 \end{equation}
 for arbitrary variations $\delta q^{n}$, $\delta p_{n}$, $\delta u^{m}$
 subject to the restriction $\delta q^{n}(t_{1})=\delta q^{n}(t_{2})=0$.
+Observe variation with respect to momenta produces
+\begin{equation}
+  \dot{q}^{n} = \frac{\partial H}{\partial p_{n}}
+  +u^{m}\frac{\partial\phi_{m}}{\partial p_{n}}.
+\end{equation}
+Variation with respect to $\delta u^{m}$ gives
+\begin{equation}
+  \phi_{m}(q,p) = 0.
+\end{equation}
+Finally, variation with respect to the momenta gives
+\begin{equation}
+\dot{p}_{n} = -\frac{\partial H}{\partial q^{n}}
+  -u^{m}\frac{\partial\phi_{m}}{\partial q^{n}}.
+\end{equation}
+Observe\marginpar{{\footnotesize\em $u^{m}$ as Lagrange multipliers}} then that the $u^{m}$ now serve as Lagrange multipliers
+enforcing the constraints.
 
+\N{Remark}
+We may fix the endpoints of momentum in our variational analysis,
+$\delta p_{n}(t_{1})=\delta p_{n}(t_{2})=0$ provided we replace
+$\dot{q}^{n}p_{n}$ with $-q^{n}\dot{p}_{n}$. This comes in handy when
+analyzing fermionic systems.
+
+\M
+We see the theory remains invariant under $H\to H+c^{m}\phi_{m}$, it
+amounts to relabeling the Lagrange multipliers $u^{m}\to
+u^{m}+c^{m}$. (To see this, just plug it into the action and perform the
+change.)
+
+\N{Solving the Constraints before Varying}
+We may alternatively consider the good old fashioned action where we
+first solve the constrsaints then perform the variation
+\begin{equation}
+\delta\int(p\dot{q}-H)\,\D t=0
+\end{equation}
+for independent vairations of position and momenta subject to
+$\phi_{m}=0$ and $\delta\phi_{m}=0$. This is equivalent to the standard
+Lagrange multipler approach we learned in basic calculus.
+
+\emph{NB} the regularity conditions
+\Mref{n:constrained-hamiltonian:regularity-cond}
+play a critical role, otherwise solving the constraints before varying
+would not be the same as varying then solving the constraints.
+
+\N{Equations of Motion}\label{n:constrained-hamiltonian:poisson-bracket}
+The equations of motion are here given by
+\begin{equation}
+  \dot{F} = \PoissonBracket{F}{H} + u^{m}\PoissonBracket{F}{\phi_{m}}
+\end{equation}
+where $F(q,p)$ is an arbitrary function of phase space variables, and
+$\PoissonBracket{-}{-}$ is the standard Poisson bracket
+\begin{equation}
+  \PoissonBracket{A}{B} =
+  \frac{\partial A}{\partial q^{n}}\frac{\partial B}{\partial p_{n}}
+- \frac{\partial B}{\partial q^{n}}\frac{\partial A}{\partial p_{n}}.
+\end{equation}
+
+\subsection{Secondary Constraints}
+
+\N{Consistency of Constraints}
+A basic consistent requirement for the constraints is that they should
+not change over time, i.e.,
+\begin{equation}
+  \dot{\phi}_{m}=0.
+\end{equation}
+We use the equations of motion \Mref{n:constrained-hamiltonian:poisson-bracket}
+to write this as
+\begin{equation}
+\PoissonBracket{\phi_{m}}{H} + u^{m'}\PoissonBracket{\phi_{m}}{\phi_{m'}}=0.
+\end{equation}
+This may either (i) reduce to a relation independent of the $u$'s [hence
+  involving only the $p$'s and $q$'s --- the case we will study here],
+or (ii) impose a restriction on the $u$'s (which we will study in
+subsection \ref{subsec:constrained-hamiltonian:restrictions-on-lagrange-multipliers}).
+
+\begin{defn}
+A \define{Secondary Constraint} is a relation of the $p$'s and $q$'s
+(but not the $u$'s) from the consistency condition
+\begin{equation}
+\PoissonBracket{\phi_{m}}{H} + u^{m'}\PoissonBracket{\phi_{m}}{\phi_{m'}}=0.
+\end{equation}
+\end{defn}
+
+\M
+Observe the primary constraints came about because of the definition of
+momenta
+\begin{equation}
+  p_{n} = \frac{\partial L}{\partial\dot{q}^{n}}.
+\end{equation}
+They \emph{did not} involve the equations of motion. The secondary
+constraints emerged from the equations of motion of constraints.
+%% (Some
+%% authors then impose consistency on the secondary constraints, and if any
+%% new constraints are found they're called ``tertiary''; consistency of
+%% tertiary constraints are then imposed, and so on until we're done.)
+
+\begin{puzzle}
+Since the relation is independent of the $u$'s, does it suffice to say
+the $\PoissonBracket{H}{\phi_{m}}$ gives us a secondary constraint?
+\end{puzzle}
+
+\N{Consistency of \emph{Secondary} Constraints}
+We have now some secondary constraint, lets call it $X(q,p)$. We must
+impose another consistency condition
+\begin{equation}
+\PoissonBracket{X}{H}+u^{m}\PoissonBracket{X}{\phi_{m}}=0.
+\end{equation}
+Again, this either (i) creates new constraints [aptly called ``Tertiary
+  Constraints'' by some authors], or (ii) restricts the
+$u$'s. (\emph{NB} some authors call tertiary constraints ``Secondary''
+since they are derived from the equations of motion; Henneaux and
+Teitelboim~\cite{Henneaux:1992ig} call every constraint derived from the
+equations of motion ``Secondary'', for example.)
+
+After this process is finished, we are left with a number of constraints
+$\phi_{k}=0$ for $k=M+1$, \dots, $M+K$, where we have $K$ secondary
+constraints. The reason for notation is because the difference between
+primary and secondary constraints doesn't really matter for the
+Hamiltonian formalism. (Does it matter in the Lagrangian formalism?) We
+thus will denote all constraints $\phi_{j}=0$ for $j=1$, \dots,
+$M+K=J$.
+
+\N{Regularity}
+We make the same regularity assumption for secondary constraints we made
+for primary constraints \Mref{n:constrained-hamiltonian:regularity-cond}.
+Namely: we assume $\phi_{j}=0$ defines a smooth submanifold but we also
+take the constraint for $\phi_{j}$ to obey those very regularity
+conditions. We will assume that $\PoissonBracket{\phi_{j}}{\phi_{j'}}$
+is constant throughout the surface $\phi_{j}=0$ where the constraints
+hold.
+
+\subsection{Weak and Strong Equations}
+
+\begin{defn}
+We introduce \define{Weak Equality} for arbitrary phase space functions
+$F$ and $G$ writing $F\weakEq G$ if and only if $F-G = c^{j}(q,p)\phi_{j}$
+(where we sum $j=1$, \dots, $J$ over all constraints). It is an
+equivalence relation.
+\end{defn}
+
+\begin{xca}
+  Prove weak equality is indeed an equivalence relation.
+\end{xca}
+
+\M
+We write $\phi_{j}\weakEq0$ to emphasize we restrict focus to when the
+constraints vanish\dots as they are not guys that identically vanish
+throughout phase space, they are merely numerically restricted to zero.
+
+\begin{defn}
+If a relation holds throughout phase space, then we use
+\define{Strong Equality} --- the vanilla equality we use all the time,
+writing $F=G$ and saying ``$F$ is `strongly equal' to $G$''.
+\end{defn}
+
+\subsection{Restrictions on the Lagrange Multipliers}\label{subsec:constrained-hamiltonian:restrictions-on-lagrange-multipliers}
+\N{Consistency Condition As System of Linear Equations}
+Suppose we have a complete set of constraints $\phi_{j}$, we now want to
+consider the situation when
+\begin{equation}
+\PoissonBracket{\phi_{j}}{H} + u^{m}\PoissonBracket{\phi_{j}}{\phi_{m}}\weakEq0
+\end{equation}
+which restricts the $u$'s. We can look at this as a system of linear
+equations, where we attempt to solve for the unknown $u$'s and
+$\PoissonBracket{\phi_{j}}{H}$ is the constant vector.
+
+\N{Generic Solution}
+The general solution looks like
+\begin{equation}
+  u^{m} = U^{m} + V^{m}
+\end{equation}
+where $U^{m}$ is a particular solution, and $V^{m}$ is a solution to the
+corresponding homogeneous system of equations. That is to say
+\begin{equation}
+V^{m}\PoissonBracket{\phi_{j}}{\Phi_{m}}\weakEq 0.
+\end{equation}
+We have $A$ such solutions, where $A$ is the rank of
+$\PoissonBracket{\phi_{j}}{\phi_{m}}$ --- which we assume is constant on
+the constraint surface.
+
+So we have $V^{m}=v^{a}{V_{a}}^{m}$ for $a=1$, \dots, $A$ where $v^{a}$
+are arbitrary functions of time, $q$'s, and $p$'s. They are completely
+arbitrary! They represent the arbitrariness (or ``redundancies'') which
+gauge systems possess. If $A=0$, the system possess no gauge symmetry.
+
+The most general solution is then
+\begin{equation}
+u^{m}\weakEq U^{m} + v^{a}{V_{a}}^{m}.
+\end{equation}
+
+\subsection{Irreducible and Reducible Constraints}
+\begin{defn}
+If the constraints $\phi_{j}\weakEq0$ are not independent, we call them
+\define{Reducible} (or \emph{``Redundant''}) and say we are in the
+reducible case. If the constraints are independent, then they are
+\define{Irreducible}.
+\end{defn}
+
+\M
+Observe we may drop redundant constraints without any loss. So we may
+suppose we're always (locally) in the irreducible case. But splitting
+constraints into redundant ones and irreducible ones raises several
+issues:
+\begin{enumerate}
+\item this separation may be awkward to do;
+\item it may spoil some invariance of the system;
+\item it may be impossible due to some topological obstruction.
+\end{enumerate}
+
+\M
+Reducible constraints come about in, e.g., $p$-form gauge theories where
+the $p$-form fields are part of the constraints. (See, e.g., Henneaux
+and Teitelboim's paper~\cite{Henneaux:1986ht} on $p$-form electrodynamics.)
+
+\M
+We can always add redundant constraints to the theory without any
+serious obstacle.
+
+\subsection{Total Hamiltonian}
+\begin{thm}
+The equations of motion are
+\begin{equation}
+\dot{F}\weakEq\PoissonBracket{F}{H'+v^{a}\phi_{a}}
+\end{equation}
+where
+\begin{equation}
+  H' = H + U^{m}\phi_{m}
+\end{equation}
+and $\phi_{a} = {V_{a}}^{m}\phi_{m}$.
+\end{thm}
+(The $H'$ is called the \define{First-Class Hamiltonian}.)
+\begin{proof}
+We see explicitly
+\begin{equation}
+  \begin{split}
+\PoissonBracket{F}{U^{m}\phi_{m}}&=U^{m}\PoissonBracket{F}{\phi_{m}}
+  + \phi_{m}\PoissonBracket{F}{U^{m}}\\
+&\weakEq U^{m}\PoissonBracket{F}{\phi_{m}}.
+  \end{split}
+\end{equation}
+Similar reasoning shows
+\begin{equation}
+  \PoissonBracket{F}{{V_{a}}^{m}\phi_{m}}\weakEq {V_{a}}^{m}\PoissonBracket{F}{\phi_{m}}.
+\end{equation}
+Hence
+\begin{equation}
+  \PoissonBracket{F}{H'}\weakEq\PoissonBracket{F}{H}+U^{m}\PoissonBracket{F}{\phi_{m}}
+\end{equation}
+and thus
+\begin{equation}
+\PoissonBracket{F}{H'+v^{a}\phi_{a}}\weakEq\PoissonBracket{F}{H}+(U^{m}+v^{a}{V_{a}}^{m})\PoissonBracket{F}{\phi_{m}}  
+\end{equation}
+which is weakly the equations of motion.
+\end{proof}
+\begin{xca}
+Show $\PoissonBracket{H'}{\phi_{j}}\weakEq0$.
+\end{xca}
+\begin{defn}
+  The \define{Total Hamiltonian} is
+  \begin{equation}
+    \totalHamiltonian := H' + v^{a}\phi_{a} = H + u^{m}\phi_{m}
+  \end{equation}
+  i.e., the sum of the canonical Hamiltonian $H$ and the sum of primary
+  constraints multiplied by the $u$'s, i.e., $u^{m}\phi_{m}$.
+\end{defn}
+\N*{Remark} We have several observations
+\begin{enumerate}
+\item The equations of motion are
+  $\dot{F}\weakEq\PoissonBracket{F}{\totalHamiltonian}$.
+\item The $v^{a}$ functions reflect the arbitrariness from the gauge
+  symmetries in our system.
+\end{enumerate}

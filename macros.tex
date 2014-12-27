@@ -1,7 +1,8 @@
 \makeatletter
 \usepackage[backend=biber,
             hyperref=true,
-            maxbibnames=100]{biblatex}
+            maxbibnames=100,
+            sorting=nyt]{biblatex}
 \DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
 \DeclareFieldFormat{pages}{#1}
 \renewbibmacro{in:}{%
@@ -134,6 +135,9 @@
   {.}         % HEADPUNCT
   {1em plus 1pt minus 1pt} % HEADSPACE
   {\thmnumber{#2\@addpunct{.}\enspace}\thmname{#1}\thmnote{\enspace\textrm{\normalfont(#3)}}}          % CUSTOM-HEAD-SPEC
+
+\theoremstyle{plain}
+\newtheorem{puzzle}{Puzzle}
 
 \theoremstyle{thmstyle}
 \newtheorem{thm}[chunk@ctr]{Theorem}
