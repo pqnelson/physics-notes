@@ -1,3 +1,9 @@
+\N*{Sketch} We will basically follow Henneaux and Teitelboim's treatment
+of constrained systems~\cite[ch 1]{Henneaux:1992ig}, and supplement this
+with the more dated lectures Dirac gave in 1964~\cite[ch 1]{dirac1964}. 
+(Although it is self-evident Henneaux and Teitelboim based their work on
+Dirac's lectures.)
+
 \section{Gauge Invariance, Constraints}
 \M
 For a gauge system, the initial conditions alone do not uniquely
@@ -627,7 +633,7 @@ which restricts the $u$'s. We can look at this as a system of linear
 equations, where we attempt to solve for the unknown $u$'s and
 $\PoissonBracket{\phi_{j}}{H}$ is the constant vector.
 
-\N{Generic Solution}
+\N{Generic Solution}\label{n:constrained:generic-soln}
 The general solution looks like
 \begin{equation}
   u^{m} = U^{m} + V^{m}
@@ -644,7 +650,9 @@ the constraint surface.
 So we have $V^{m}=v^{a}{V_{a}}^{m}$ for $a=1$, \dots, $A$ where $v^{a}$
 are arbitrary functions of time, $q$'s, and $p$'s. They are completely
 arbitrary! They represent the arbitrariness (or ``redundancies'') which
-gauge systems possess. If $A=0$, the system possess no gauge symmetry.
+gauge systems possess. If $A=0$, the system possess no gauge
+symmetry. In a sense, the ${V_{a}}^{m}$ span the ``kernel'' of
+$\PoissonBracket{\phi_{j}}{\phi_{m}}$.
 
 The most general solution is then
 \begin{equation}
@@ -680,7 +688,7 @@ We can always add redundant constraints to the theory without any
 serious obstacle.
 
 \subsection{Total Hamiltonian}
-\begin{thm}
+\begin{thm}\label{thm:constrained:total-hamiltonian-eqns-of-motion}
 The equations of motion are
 \begin{equation}
 \dot{F}\weakEq\PoissonBracket{F}{H'+v^{a}\phi_{a}}
@@ -691,7 +699,7 @@ where
 \end{equation}
 and $\phi_{a} = {V_{a}}^{m}\phi_{m}$.
 \end{thm}
-(The $H'$ is called the \define{First-Class Hamiltonian}.)
+(The $H'$ is called the \define{First-Class Hamiltonian}, c.f. \Mref{defn:constrained:first-class}.)
 \begin{proof}
 We see explicitly
 \begin{equation}
@@ -721,7 +729,7 @@ Show $\PoissonBracket{H'}{\phi_{j}}\weakEq0$.
 \begin{defn}
   The \define{Total Hamiltonian} is
   \begin{equation}
-    \totalHamiltonian := H' + v^{a}\phi_{a} = H + u^{m}\phi_{m}
+    \totalHamiltonian \eqDef H' + v^{a}\phi_{a} = H + u^{m}\phi_{m}
   \end{equation}
   i.e., the sum of the canonical Hamiltonian $H$ and the sum of primary
   constraints multiplied by the $u$'s, i.e., $u^{m}\phi_{m}$.
@@ -733,3 +741,442 @@ Show $\PoissonBracket{H'}{\phi_{j}}\weakEq0$.
 \item The $v^{a}$ functions reflect the arbitrariness from the gauge
   symmetries in our system.
 \end{enumerate}
+
+\subsection{First-Class and Second-Class Functions}
+\begin{defn}\label{defn:constrained:first-class}\label{defn:constrained:second-class}
+A function of phase space variables $F(q,p)$ is called
+\define{First-Class} iff its Poisson bracket with every constraint
+weakly vanishes
+\begin{equation}
+\PoissonBracket{F}{\phi_{j}}\weakEq0
+\end{equation}
+for all $j=1$, \dots, $J$.
+
+A function is called \define{Second-Class} iff it is not first-class.
+\end{defn}
+
+\begin{thm}
+The Poisson Bracket of two first-class functions is first-class.
+\end{thm}
+
+\begin{proof}
+Let $F$ and $G$ be first-class functions such that
+\begin{subequations}
+\begin{align}
+\PoissonBracket{F}{\phi_{j}} &= {f_{j}}^{j'}\phi_{j'}\\
+\intertext{and}
+\PoissonBracket{G}{\phi_{j}} &= {g_{j}}^{j'}\phi_{j'}
+\end{align}
+\end{subequations}
+for arbitrary functions ${f_{j}}^{j'}$ and ${g_{j}}^{j'}$.
+
+Then we want to show
+$\PoissonBracket{\PoissonBracket{F}{G}}{\phi_{j}}\weakEq0$ for all
+$j$. Our first step is to use the Jacobi identity
+\begin{subequations}
+\begin{align}
+\PoissonBracket{\PoissonBracket{F}{G}}{\phi_{j}}&=
+\PoissonBracket{F}{\PoissonBracket{G}{\phi_{j}}}
+-\PoissonBracket{G}{\PoissonBracket{F}{\phi_{j}}}\\
+&=\PoissonBracket{F}{{g_{j}}^{j'}\phi_{j'}}
+-\PoissonBracket{G}{{f_{j}}^{j'}\phi_{j'}}.
+\end{align}
+Now we use the Leibniz property of the Poisson bracket to write
+\begin{align}
+\PoissonBracket{F}{{g_{j}}^{j'}\phi_{j'}}
+-\PoissonBracket{G}{{f_{j}}^{j'}\phi_{j'}}
+&= {g_{j}}^{j'}\PoissonBracket{F}{\phi_{j'}}
+   +\phi_{j'}\PoissonBracket{F}{{g_{j}}^{j'}}\nonumber\\
+&\qquad-{f_{j}}^{j'}\PoissonBracket{G}{\phi_{j'}}
+   -\phi_{j'}\PoissonBracket{G}{{f_{j}}^{j'}}\\
+&= {g_{j}}^{j'}{f_{j'}}^{j''}\phi_{j''}
+   +\phi_{j'}\PoissonBracket{F}{{g_{j}}^{j'}}\nonumber\\
+&\qquad-{f_{j}}^{j'}{g_{j'}}^{j''}\phi_{j''}
+   -\phi_{j'}\PoissonBracket{G}{{f_{j}}^{j'}}\\
+&\weakEq 0
+\end{align}
+\end{subequations}
+since we have shown the right hand side resembles ${h_{j}}^{j'}\phi_{j'}$.
+\end{proof}
+
+\begin{xca}
+Show the $\phi_{a}$ are first-class.
+\end{xca}
+
+\begin{thm}\label{thm:constrained:phi-a-complete-first-class-primary-constraints}
+The $\phi_{a}$ form a complete set of first-class primary
+constraints.
+\end{thm}
+
+\begin{proof}
+We have, by the previous exercise, $\phi_{a}$ are first-class primary
+constraints. We just need to show any other primary constraint which
+happens to be first-class must necessarily be written as a linear
+combination of the $\phi_{a}$'s. But this follows from the completeness
+of ${V_{a}}^{m}$ \Mref{n:constrained:generic-soln}.
+\end{proof}
+
+Hence any first-class primary constraint may be written as a linear
+combination of them, with functions of $q$'s and $p$'s as coefficients.
+
+\N{Non-Uniqueness of $H'$, $\phi_{a}$}
+This split of $\totalHamiltonian$ into $H'$ and $v^{a}\phi_{a}$ is not
+unique due to the arbitrariness of $U^{m}$. That is to say, we could
+pick a different solution $\widetilde{U}^{m}$ and get a diffferent split. By
+the completeness of $\phi_{a}$ \Mref{thm:constrained:phi-a-complete-first-class-primary-constraints}, we see this amounts to picking different
+arbitrary functions $\widetilde{v}^{a}\neq v^{a}$, giving us
+\begin{equation}
+\totalHamiltonian = \widetilde{H}' + \widetilde{v}^{a}\phi_{a}
+\end{equation}
+Note the total Hamiltonian does not change under a diffferent
+split. This is because at the end of the day, after the dust settles,
+the total Hamiltonian is really
+\begin{equation}
+\totalHamiltonian = H + u^{m}\phi_{m}.
+\end{equation}
+We just introduced $v^{a}\phi_{a}$ to make the gauge redundancies
+manifestly clear.
+
+\section{First-Class Constraints as Generators of Gauge Transformations}
+\subsection{Transformations that do not change the Physical State. Gauge transformations}
+
+\N{Determining Physical State}
+Once we have a given set of $q$'s and $p$'s, we uniquely determine the
+physical state. But the physical state is not uniquely determined by one
+set of $q$'s and $p$'s --- that is, more than one set of values for the
+$q$'s and $p$'s may correspond to the same physical state.
+
+\begin{rmk}[Definition of Physical State]
+OK, so the notion of a ``state'' seems well-defined: it's just a point
+in the phase space. But the notion of a ``physical state'' seems
+ambiguous. I suspect what it means, in the context of gauge systems, is
+it's an equivalence class of states which differ due to the
+arbitrariness we discovered in constrained systems.
+\end{rmk}
+
+\begin{proof}[Proof (Multiple Sets of Values Correspond to Same State)]
+If we give an initial set of canonical variables (hence we determine the
+initial physical state) at time $t_{1}$, then we expect the equations of
+motion to completely determine the physical state at other times. So any
+ambiguity in the value of the canonical variables at $t_{2}\neq t_{1}$
+should be a physically irrelevant ambiguity.
+
+The equations of motion \Mref{thm:constrained:total-hamiltonian-eqns-of-motion}
+involve arbitrary functions $v^{a}$. So if we consider
+$t_{2}=t_{1}+\delta t$ for ``infinitesimal'' $\delta t$, we see
+\begin{equation}
+\begin{split}
+\left.F\right|_{t_{2}}
+&\weakEq\left.\left(F + \PoissonBracket{F}{\totalHamiltonian}\delta t\right)\right|_{t_{1}}\\
+&\weakEq\left.\left(F + \PoissonBracket{F}{H'}\delta t + \PoissonBracket{F}{\phi_{a}}v^{a}\delta{t}\right)\right|_{t_{1}}
+\end{split}
+\end{equation}
+But look, we get the same result for a different choice of $v^{a}$. So a
+transformation of the form
+\begin{equation}
+\delta F = \delta v^{a}\PoissonBracket{F}{\phi_{a}}\quad\mbox{for}\quad
+\delta v^{a} = (\widetilde{v}^{a}-v^{a})\delta t
+\end{equation}
+does not affect the physical state. Such transformations give multiple
+different sets of values for the canonical variables describing the
+physical state.
+\end{proof}
+
+\N{Attempted Definition}\label{n:constrained:attempted-defn-of-gauge-transformation}
+Let $F$ be some function of phase space variables. A transformation of
+the form $F\to F + \delta F$ is a \define{Gauge Transformation} iff
+\begin{equation}
+\delta F = \delta v^{a}\PoissonBracket{F}{\phi_{a}}
+\end{equation}
+for ``arbitrary'' $\delta v^{a}$.
+
+\begin{prop}
+Gauge transfromations are independent iff the constraints are
+irreducible. Otherwise some of the guage transforrmations lead to
+$\delta F\weakEq 0$.
+\end{prop}
+
+\N[Inadequacies of our Definition]{Remark}
+In general, transfromations of the form
+$\delta v^{a}\PoissonBracket{F}{\phi_{a}}$ are not the onlyy ones which
+do not change the physical state. We may have \emph{any} first-class
+constraint (not just first-class primary constraints) generate gauge
+transformations. We will show this is the case, even when we assume and
+demand first-class primary constraints alone generate gauge
+transformations. To do this, we first have two lemmas to prove.
+
+\begin{lemma}
+The Poisson bracket $\PoissonBracket{\phi_{a}}{\phi_{a'}}$ of any two
+first-class primary constraints generates a gauge transformation.
+\end{lemma}
+
+\begin{proof}
+For simplicity, we consider $\phi_{0}$, $\phi_{1}$ as the first-class
+primary constraints. We perform 4 successive gauge transformations with
+$\delta v$ as $\varepsilon$, $\eta$, $-\varepsilon$, $-\eta$. For an arbitrary
+function, we find
+\begin{subequations}
+\begin{equation}
+\delta F_{1} = \varepsilon\PoissonBracket{F}{\phi_{0}}
+\end{equation}
+The next transformation has some subtlety due to our definition, but we
+see composing two transformations gives us
+\begin{equation}
+\begin{split}
+\delta F_{2} &= \eta\PoissonBracket{F+\delta F_{1}}{\phi_{1}}\\
+&= \eta\PoissonBracket{F}{\phi_{1}}+\eta\varepsilon\PoissonBracket{\PoissonBracket{F}{\phi_{0}}}{\phi_{1}}
+\end{split}
+\end{equation}
+Hence composing three gauge transformations
+\begin{equation}
+\begin{split}
+\delta F_{3} &= -\varepsilon\PoissonBracket{F+\delta F_{2}}{\phi_{0}}\\
+&= -\varepsilon\PoissonBracket{F}{\phi_{0}}-\varepsilon\eta\PoissonBracket{\PoissonBracket{F}{\phi_{1}}}{\phi_{0}}+\bigO{\varepsilon^2}
+\end{split}
+\end{equation}
+And so composing four transformations
+\begin{equation}
+\begin{split}
+\delta F_{4} &= -\eta\PoissonBracket{F+\delta F_{3}}{\phi_{1}}\\
+&= -\eta\PoissonBracket{F}{\phi_{1}} + \varepsilon\eta\PoissonBracket{\PoissonBracket{F}{\phi_{0}}}{\phi_{1}}+\bigO{\eta^{2}}.
+\end{split}
+\end{equation}
+Hence the total transformation is just the sum of these guys
+\begin{align}
+\delta F &= \delta F_{1} + \delta F_{2} + \delta F_{3} + \delta F_{4}\\
+&=\eta\varepsilon\left(\PoissonBracket{\PoissonBracket{F}{\phi_{0}}}{\phi_{1}}
+-\PoissonBracket{\PoissonBracket{F}{\phi_{1}}}{\phi_{0}}\right)\\
+&=\eta\varepsilon\PoissonBracket{F}{\PoissonBracket{\phi_{0}}{\phi_{1}}}
+\end{align}
+\end{subequations}
+by the Jacobi identity, discarding the $\bigO{\varepsilon^2}$ and
+$\bigO{\eta^2}$ terms. This shows more generally 
+\begin{equation}
+\delta F = \varepsilon^{a}\eta^{a'}\PoissonBracket{F}{\PoissonBracket{\phi_{a}}{\phi_{a'}}}
++\bigO{\varepsilon^{2}}+\bigO{\eta^{2}}
+\end{equation}
+is a gauge transformation, by our proposed definition \Mref{n:constrained:attempted-defn-of-gauge-transformation}.
+\end{proof}
+
+\begin{lemma}
+The Poisson bracket $\PoissonBracket{\phi_{a}}{H'}$ of any first-class
+primary constraint $\phi_{a}$ with the first-class Hamiltonian generates
+a gauge transformation.
+\end{lemma}
+
+\begin{proof}
+We compute the values of the function $F$ at time $t+\varepsilon$
+obtained by
+\begin{enumerate*}[label=(\em\roman*\/\upshape)]
+\item making a guage transfromation
+  $\eta^{a}\PoissonBracket{F}{\phi_{a}}$ then evolving the system with
+  $H'$, and
+\item the same operations in reverse order.
+\end{enumerate*}
+Their difference must be a gauge transformation. We see 
+\begin{subequations}
+\begin{align}
+\delta F_{1} &= \eta^{a}\PoissonBracket{F}{\phi_{a}}\\
+\intertext{and}
+\delta F_{2} &= \varepsilon\PoissonBracket{F+\delta F_{1}}{H'}\\
+&=\varepsilon\PoissonBracket{F}{H'} + \varepsilon\eta^{a}\PoissonBracket{\PoissonBracket{F}{\phi_{a}}}{H'}
+\end{align}
+\end{subequations}
+but if we first evolve, 
+\begin{subequations}
+\begin{align}
+\delta F_{1}' &= \varepsilon\PoissonBracket{F}{H'}\\
+\intertext{then perform a gauge transformation}
+\delta F_{2}' &= \eta^{a}\PoissonBracket{F+\delta F_{1}'}{\phi_{a}}\\
+&= \eta^{a}\PoissonBracket{F}{\phi_{a}}+\varepsilon\eta^{a}\PoissonBracket{\PoissonBracket{F}{H'}}{\phi_{a}}.
+\end{align}
+\end{subequations}
+We claim
+\begin{subequations}
+\begin{align}
+\delta F &= (F+\delta F_{1}+\delta F_{2}) - (F + \delta F_{1}' + \delta F_{2}')\\
+&= \varepsilon\eta^{a}(\PoissonBracket{\PoissonBracket{F}{\phi_{a}}}{H'}
+-\PoissonBracket{\PoissonBracket{F}{H'}}{\phi_{a}})\\
+&= \varepsilon\eta^{a}\PoissonBracket{F}{\PoissonBracket{\phi_{a}}{H'}}
+\end{align}
+\end{subequations}
+is a gauge transfromation, since it does not affect the physical state.
+\end{proof}
+
+\N{First-Class Secondary Constraints As Gauge Generators?}
+Due to these lemmas we have just considered, we may expect some
+first-class secondary constraints will act as gauge generators. We know
+since $\phi_{a}$ and $H'$ are first-class, the Poisson bracket
+$\PoissonBracket{\phi_{a}}{\phi_{a'}}$ and
+$\PoissonBracket{\phi_{a'}}{H'}$ are also first-class, so their linear
+combinations are first-class. But there is no reason to expect their
+linear combination to contain only primary constraints. In practice,
+most first-class secondary constraints come about in this manner.
+
+\N{Dirac's Conjecture}
+Dirac conjectured~\cite{dirac1964} \emph{all first-class constraints generate
+gauge transformations}\footnote{See the last paragraph of chapter 1 in
+  Dirac's \emph{Lectures on Quantum Mechanics}.}.
+This is false, but a useful approximation. So useful, in fact, we will
+assume it is true. Why?
+
+First, the division of constraints into primary and secondary
+constraints is not natural in the Hamiltonian setting. But the
+first-class versus second-class division \emph{is} natural: it depends
+on the Poisson Bracket only.
+
+Second, the scheme is consistent in the sense that:
+\begin{enumerate}
+\item the transformation generated by first-class constraints preserves
+  \emph{all} constraints, thus mapping an allowed state to an allowed
+  state;
+\item the Poisson bracket of two gauge generators remains a gauge
+  generator.
+\end{enumerate}
+
+Third, all known quantization methods put all first-class constraints on
+the same footing, specifically treating them as gauge generators. It is
+not known if we can do otherwise. But for all known physical systems,
+this is a valid assumption\dots so any concerns are purely academic.
+
+\N{Caution: Generally Covariant Systems}
+We argued $\phi_{a}$ and $\PoissonBracket{\phi_{a}}{H'}$ generate
+transformations that do not alter the physical state, while implicitly
+assuming the time $t$ (the variable of integration in the action) is
+observable. That is, it's information brought in from the outside. We
+may take the perspective that some of the gauge arbitrariness indicates
+time itself is not observable. This is done in 
+\define{Generally Covariant} theories. One of the arbitrary functions is
+associated with reparametrization of time $t\to f(t)$. The choice of $f$
+requires additional information. We make ask and answer \emph{the same}
+questions for generally covariant systems and non-covariant
+systems. 
+
+\subsection{Counter-Example to Dirac's Conjecture}
+\N[{Allcock~\cite{allcock1975}}]{Example}
+Consider the system with Lagrangian
+\begin{equation}
+L = \frac{1}{2}\E^{y}\dot{x}^{2}.
+\end{equation}
+
+\N*{Puzzle} What are the equations of motion? Their solutions?
+
+\begin{soln}
+We find the equations of motion are
+\begin{equation}
+\frac{\partial L}{\partial y} - \frac{\D}{\D t}\frac{\partial L}{\partial\dot{y}}= L - 0 = 0
+\end{equation}
+and
+\begin{equation}
+\frac{\partial L}{\partial x} - \frac{\D}{\D t}\frac{\partial L}{\partial\dot{x}}
+= 0 -\frac{\D}{\D t}\left(\E^{y}\dot{x}\right) = 0
+\end{equation}
+Observe the second equation of motion gives us
+\begin{equation}
+\E^{y}\dot{x} = c
+\end{equation}
+for some constant $c$, hence
+\begin{equation}
+c\cdot\dot{x} = 0
+\end{equation}
+is the first equation of motion. The general solution would be $x=x_{0}$
+is a constant, and $y$ is pure gauge.
+\end{soln}
+
+\N*{Puzzle} What are the canonical momenta?
+
+\begin{soln}
+We find
+\begin{equation}
+\begin{split}
+p_{x} &\eqDef\frac{\partial L}{\partial\dot{x}}\\
+&=\E^{y}\dot{x}
+\end{split}
+\end{equation}
+and
+\begin{equation}
+p_{y} \eqDef \frac{\partial L}{\partial\dot{y}}
+\end{equation}
+but $\dot{y}$ does not appear in $L$. So we have found a primary constraint
+\begin{equation}
+\phi_{1} \eqDef p_{y}\weakEq 0.
+\end{equation}
+These are our momenta.
+\end{soln}
+
+\N*{Puzzle} What's the canonical Hamiltonian?
+
+\begin{soln}
+We find
+\begin{equation}
+H \eqDef \dot{x}p_{x} + \dot{y}p_{y} - L
+\end{equation}
+but we don't allow constraints in the canonical Hamiltonian, so we have
+\begin{equation}
+H = \dot{x}p_{x} - L = \frac{1}{2}\dot{x}^{2}\E^{y}.
+\end{equation}
+We need to express this in terms of positions and momenta. We find
+\begin{equation}
+p_{x} = \dot{x}\E^{y}\implies \dot{x} = p_{x}\E^{-y}
+\end{equation}
+Hence
+\begin{equation}
+\begin{split}
+H &= \frac{1}{2}\left(p_{x}\E^{-y}\right)^{2}\E^{y}\\
+&=\frac{1}{2}p_{x}^{2}\E^{-y}
+\end{split}
+\end{equation}
+is precisely the canonical Hamiltonian.
+\end{soln}
+
+\N*{Puzzle} Is the constraint $\phi_{1}$ consistent over time, i.e., $\dot{\phi}_{1}=0$?
+
+\begin{soln}
+We find
+\begin{equation}
+\begin{split}
+\PoissonBracket{\phi_{1}}{H} &= \frac{\partial H}{\partial y}\\
+&= -H
+\end{split}
+\end{equation}
+But we needed it to weakly vanish! So we find a secondary constraint
+\begin{equation}
+p_{x}^{2}\weakEq 0\quad\implies\quad p_{x}\weakEq0.
+\end{equation}
+We write this secondary constraint as $\phi_{2}\eqDef p_{x}$.
+\end{soln}
+
+\N*{Puzzle} What constraints are first-class?
+
+\begin{soln}
+We see both constraints are first class, since
+\begin{equation}
+\PoissonBracket{\phi_{1}}{\phi_{2}}=\PoissonBracket{p_{y}}{p_{x}}=0
+\end{equation}
+identically. But only $p_{y}\weakEq0$ generates gauge
+transfromations. The second constraint $p_{x}\weakEq0$ generates shifts
+in the physical state; it is \emph{not} due to arbitrariness in the
+general solutions of the equations of motion. Hence the Dirac conjecture
+fails in this model.
+\end{soln}
+
+\N*{Puzzle} How would we quantize this thing?
+
+\begin{soln}
+Well, the space of physical states is 1-dimensional. We cannot have a
+bracket on this space, and quantization is entirely unclear. Hence we
+adopt the perspective $p_{x}$ is a gauge generator \emph{even though}
+the original Lagrangian formalism does not support this. If $x$ is pure
+gauge, we have no degrees of freedom, and the physical Hilbert space
+would consist of a single state.
+\end{soln}
+
+\N{References}
+The literature on this subject (counter-examples to Dirac's conjecture)
+is rich. A few papers are worth mentioning: Allcock~\cite{allcock1975};
+Cawley~\cite{PhysRevLett.42.413}; Frenkel~\cite{Frenkel:1980nt};
+Sugano and Kimura~\cite{Sugano:1982sy}; Costa, Girotti and 
+Simoes~\cite{Costa:1985tt}; Cabo and Louis-Martinez~\cite{Cabo:1990jk};
+Lusanna~\cite{Lusanna:1991je}; Lusanna~\cite{Lusanna:1991im};
+Wu~\cite{Wu:1994jd}; Miskovic and Zanelli~\cite{Miskovic:2003ex};
+Rothe and Rothe~\cite{Rothe:2004jc}.
