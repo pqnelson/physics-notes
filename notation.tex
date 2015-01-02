@@ -1,20 +1,24 @@
 % notation
-\newcommand{\D}{\mathrm{d}}
 \newcommand{\E}{\mathrm{e}}
 \let\eul=\E
 \newcommand{\I}{{\rm i}}
 \let\imag=\I
+\DeclareMathOperator{\sgn}{sgn}
+
+% calculus
+\newcommand{\D}{\mathrm{d}}
 \def\tens#1{\relax\ifmmode\mathsf{#1}\else\textsf{#1}\fi}
 \def\vec#1{\ensuremath{\mathchoice
                      {\mbox{\boldmath$\displaystyle#1$}}
                      {\mbox{\boldmath$\textstyle#1$}}
                      {\mbox{\boldmath$\scriptstyle#1$}}
                      {\mbox{\boldmath$\scriptscriptstyle#1$}}}}
-\DeclareMathOperator{\sgn}{sgn}
 
+% various equalities
 \newcommand\looksLike{\sim}
 \newcommand\orderOf{\sim}
 \newcommand\bigO[1]{\ensuremath{\mathcal{O}\left(#1\right)}}
+\newcommand\eqDef{\coloneqq}
 
 % common sets
 \def\NN{\mathbb{N}}
