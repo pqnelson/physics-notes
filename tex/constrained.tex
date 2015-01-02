@@ -888,7 +888,46 @@ the form $F\to F + \delta F$ is a \define{Gauge Transformation} iff
 \begin{equation}
 \delta F = \delta v^{a}\PoissonBracket{F}{\phi_{a}}
 \end{equation}
-for ``arbitrary'' $\delta v^{a}$.
+for ``arbitrary infinitesimal'' $\delta v^{a}$.
+
+\N{Puzzles}
+How do we compose gauge transformations? More explicitly, suppose we
+have one gauge transformation $F\to F + \varepsilon^{a}\PoissonBracket{F}{\phi_{a}}$
+and a second gauge transformation $F\to F + \eta^{a'}\PoissonBracket{F}{\phi_{a'}}$,
+what does the transformation of doing one then the other look like? 
+
+Is composing gauge transformations commutative? Associative? Invertible?
+
+\begin{proof}[Sketch of Solution to Composing Gauge Transformations.]
+So, suppose we have some gauge transformation $F\to F+\delta F$. Let
+$G=F+\delta F$. The question is: what does a gauge transformation of $G$
+look like?
+
+We see that $G\to G+\delta G$. So we plug in the Poisson brackets:
+\begin{equation}
+\delta G = \eta^{a'}\PoissonBracket{G}{\phi_{a'}}.
+\end{equation}
+Great. But now we plug in $G=F+\delta F$ for 
+\begin{equation}
+\delta F = \varepsilon^{a}\PoissonBracket{F}{\phi_{a}}.
+\end{equation}
+We find
+\begin{equation}
+\begin{split}
+\delta G &= \eta^{a'}\PoissonBracket{F+\varepsilon^{a}\PoissonBracket{F}{\phi_{a}}}{\phi_{a'}}\\
+&= \eta^{a'}\PoissonBracket{F}{\phi_{a'}}+\eta^{a'}\varepsilon^{a}\PoissonBracket{\PoissonBracket{F}{\phi_{a}}}{\phi_{a'}}
+\end{split}
+\end{equation}
+So we find the composed gauge transformation
+\begin{equation}
+F\to F + \delta F + \delta G
+\end{equation}
+is
+\begin{equation}
+\delta F + \delta G = \varepsilon^{a}\PoissonBracket{F}{\phi_{a}}+\eta^{a'}\PoissonBracket{F}{\phi_{a'}}+\eta^{a'}\varepsilon^{a}\PoissonBracket{\PoissonBracket{F}{\phi_{a}}}{\phi_{a'}}.
+\end{equation}
+This gives us the general scheme of how to compose gauge transformations.
+\end{proof}
 
 \begin{prop}
 Gauge transfromations are independent iff the constraints are
