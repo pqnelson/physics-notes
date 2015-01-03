@@ -1081,6 +1081,17 @@ the same footing, specifically treating them as gauge generators. It is
 not known if we can do otherwise. But for all known physical systems,
 this is a valid assumption\dots so any concerns are purely academic.
 
+\begin{defn}
+Let $F$ be some function of phase space variables. A transformation of
+the form $F\to F + \delta F$ is a \define{Gauge
+Transformation}\index{Gauge Transformation|textbf} iff
+\begin{equation}
+\delta F = \varepsilon^{a}\PoissonBracket{F}{\gamma_{a}}
+\end{equation}
+where $\gamma_{a}$ are \emph{all} first-class constraints, and
+$\varepsilon^{a}$ are arbitrary infinitesimal coefficients.
+\end{defn}
+
 \N{Caution: Generally Covariant Systems}
 We argued $\phi_{a}$ and $\PoissonBracket{\phi_{a}}{\firstClassHamiltonian}$
 generate transformations that do not alter the physical state, while implicitly
@@ -1092,7 +1103,10 @@ time itself is not observable. This is done in
 associated with reparametrization of time $t\to f(t)$. The choice of $f$
 requires additional information. We make ask and answer \emph{the same}
 questions for generally covariant systems and non-covariant
-systems. 
+systems.
+
+\N*{Puzzle} What constraint gives rise to reparametrization invariance
+of the time variable?
 
 \subsection{Counter-Example to Dirac's Conjecture}
 \N[{Allcock~\cite{allcock1975}}]{Example}
