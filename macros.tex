@@ -86,7 +86,7 @@
 \def\chunkprefix{\@ifundefined{chapter}{%
   \ifnum\value{section}>0 \oldstylenums{\arabic{section}}.\else{}\fi
 }{%
-  \ifnum\value{chapter}>0 \oldstylenums{\arabic{chapter}}.\else\oldstylenums{\arabic{section}}\fi
+  \ifnum\value{chapter}>0 \oldstylenums{\arabic{chapter}}.\else{}\fi
 }}
 
 \renewcommand\thechunk@ctr{\chunkprefix\oldstylenums{\arabic{chunk@ctr}}}
