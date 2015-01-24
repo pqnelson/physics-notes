@@ -381,7 +381,7 @@ Grimberg \emph{et al.}~\cite{grimberg2008}, and Hogg~\cite{hogg2007}.
 When a particle moves in a circular trajectory with constant speed, the
 motion is called \define{Uniform Circular Motion}.
 
-\N{Derivation of Acceleration}
+\N{Derivation of Acceleration}\label{M:kinematics:uniform-circular-motion:derivation-of-acceleration}
 We draw a segment of the trajectory. The particle mvoes about
 $\mathcal{O}$ with radius $R$. We have the velocities $\vec{v}_{1}$ at
 $P_{1}$, and $\vec{v}_{2}$ at $P_{2}$ some time $\Delta t$ later. The
@@ -539,5 +539,52 @@ which is the correct order of magnitude as Eq \eqref{eq:approxPeriodForEarthToTh
 \end{soln}
 
 \subsection{Non-Uniform Circular Motion}
+\begin{defn}
+When a particle moves in a circle with varying speed, we have
+\define{Non-Uniform Circular Motion}.
+\end{defn}
+\M
+We see that the derivation of acceleration in uniform circular motion
+\Mref{M:kinematics:uniform-circular-motion:derivation-of-acceleration}
+carries over cleanly, but the acceleration describes the
+\emph{perpendicular} acceleration. Furthermore, it need not be
+constrant. So we have the magnitude of acceleration be
+\begin{equation}
+  \|\vec{a}_{\perp}\| = \frac{v^{2}}{R}.
+\end{equation}
+This is orthogonal to velocity, pointing towards the center of the
+circle.
+
+\begin{defn}
+We also have the \define{Tangent Acceleration} which describes the
+acceleration tangent to the circle. We denote it as
+$\vec{a}_{\text{tan}}$. We write
+\begin{equation}
+\|\vec{a}_{\text{tan}}\| = \frac{\D}{\D t}\|\vec{v}\|
+\end{equation}
+since it describes the change in speed. It points towards $\vec{v}$ if
+the body's speeding up, and otherwise it points away from $\vec{v}$.
+\end{defn}
+\begin{rmk}
+Observe then that uniform circular motion is a special case when
+$\|\vec{v}\|$ is constant.
+\end{rmk}
 
 \subsection{Relative Motion}
+\begin{defn}
+The velocity seen by a particular observer is called the velocity
+relative to that observer, or simply \define{Relative Velocity}.
+\end{defn}
+
+\begin{defn}
+An observer, equipped with (in principle) a meter stick and a stopwatch,
+forms a \define{Frame of Reference} (or a ``\textit{Reference Frame\/}'').
+\end{defn}
+\begin{rmk}
+``An observer'' is typically modeled as a point particle along some
+trajectory. ``A meter stick and a stop watch'' amounts to a tetrad
+(i.e., a coordinate system). This turns out to be important when we get
+to relativity. For references on formal definitions, see Arminjon and
+Reifler~\cite{Arminjon:2010ah}, Misner, Thorne and Wheeler~\cite[ch 6
+and \S13.6]{Misner:1974qy}, and Sachs and Wu~\cite[ch 2]{sachs1977gr}.
+\end{rmk}

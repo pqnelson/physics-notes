@@ -1,3 +1,7 @@
+## January 24, 2015
+
+- Finished first draft on kinematics
+
 ## December 26, 2014
 
 - Added notes on constrained Hamiltonian systems, based on Dirac's *Lectures on Quantum Mechanics* and Henneaux and Teitelboim's *Quantization of Gauge Systems*.
