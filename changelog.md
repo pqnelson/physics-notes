@@ -1,6 +1,7 @@
 ## January 24, 2015
 
 - Finished first draft on kinematics
+- Added notes on Newton's first & second laws of motion
 
 ## December 26, 2014
 

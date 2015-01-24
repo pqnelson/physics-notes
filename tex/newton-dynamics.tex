@@ -1,7 +1,184 @@
 \section{Dynamics}
 
+\M
+So far we have been setting up the language to describe motion
+(``kinematics''). We will now start exploring the \emph{causes} of
+motion (``dynamics'').
+
+\subsection{Force and Interaction}
+
+\begin{defn}
+A \define{Force} is a push or a pull (or \emph{any
+interaction which changes the motion of a body}). It describes the interaction
+between a body and its environment, or between two bodies. A force is a
+vectorial quantity involving its strength and direction.
+\end{defn}
+
+\begin{defn}
+A \define{Contact Force} is a force that requires direct contact between
+two bodies, like a push, a pull, or friction.
+\end{defn}
+\begin{defn}
+A \define{Long Range Force} acts on a body or bodies when separated by
+empty space. Gravity and electromagnetism are examples of long range forces.
+\end{defn}
+
+\N{Superposition}
+When two forces $\vec{F}_{1}$ and $\vec{F}_{2}$ act on the same body,
+then the effect is the same as a single force
+$\vec{F}=\vec{F}_{1}+\vec{F}_{2}$ acting on that body. This is the
+\define{Superposition of Forces}.
+
+\begin{rmk}[Empirically Lacking]
+Michael Spivak~\cite{spivak} pointed out this ``superposition of forces''
+does not appear to be experimentally verified, just assumed to work. How
+would one experimentally test the superposition principle?
+\end{rmk}
+\begin{rmk}[Components of Force]
+We can use the superposition of forces to break up a force into its
+components.
+\end{rmk}
+
+\begin{defn}
+The \define{Net Force} acting on a body is the sum of all the individual
+acting forces acting on the body.
+\end{defn}
+
+\N{Detecting Force}
+One method of detecting contact forces uses a ``Spring Balance''%
+\index{Balance!Spring}\index{Spring Balance}\index{Force!Detecting}
+which amounts to a spring hanging vertically with one end fixed, and a
+``pointer'' attached to the other end. As the spring contracts and
+expands, force must be expended, which is measured by the pointer's
+vertical position. The author has never seen this done in the ``real world''.
+Perhaps experimentalists don't like people watching\dots
+
 \subsection{Newton's First Law}
 
+\N{Law}\label{law:newton:first}
+A body acted on by no net force moves with constant velocity
+(which may be zero) and zero acceleration.
+
+\begin{defn}
+The tendency for a body to resist motion is its \define{Inertia}.
+\end{defn}
+
+\M
+Newton's first law speaks of zero \emph{net} force. A book on a table
+feels two forces: the gravitational pull of the Earth, and the table's
+push against the book. The upward supporting force of the table is the
+\define{Normal Force}.
+
+\N[{Neher and Leighton~\cite{neher}}]{Experiment}
+Suppose we have an air hockey table. That is, a plastic puck supported
+by gas and not sliding on the table directly. If Newton's first law
+holds, then the puck's final velocity would be equal to its initial
+velocity, and would travel a fixed distance in a known amount of time.
+
+There is some subtlety here, because the gas introduces new physics
+(stuff we have yet to introduce). Yet when adequately taken into
+account, Newton's first law appears to hold.
+
+\begin{defn}
+A body is in \define{Equilibrium} if and only if the net force acting on
+it vanishes
+\begin{equation}
+  \sum\vec{F} = \vec{0}.
+\end{equation}
+For this to be true, each component must vanish $\sum F_{x}=0$ and $\sum
+F_{y}=0$. 
+\end{defn}
+
+\begin{defn}
+A \define{Inertial Reference Frame} consists of a reference frame such
+that Newton's first law holds. A \define{Non-Inertial Reference Frame}
+is one where Newton's first law fails.
+\end{defn}
+
+\begin{rmk}[Non-Inertial Examples]
+Newton's first law will not hold if the observer's reference frame is
+accelerating, or if the observer is rotating about an axis. Arguably, an
+observer on Earth cannot be inertial, since the Earth rotates constantly.
+\end{rmk}
+
+\begin{thm}
+Let $A$ be an inertial reference frame, and $B$ be a reference frame
+moving with constant velocity relative to $A$. Then $B$ is also an
+inertial reference frame.
+\end{thm}
+\begin{proof}[Sketch of Proof.]
+If Newton's first law holds, then a free body moves with constant velocity
+relative to $A$'s frame $\vec{v}_{A}$. But if $B$ moves with velocity
+$\vec{v}_{B|A}$, then the free body moves with velocity
+$\vec{v}_{B}=\vec{v}_{A}+\vec{v}_{B|A}$ which is the sum of two constant
+vectors. This implies Newton's first law \Mref{law:newton:first} holds.
+\end{proof}
+
 \subsection{Newton's Second Law}
+
+\M
+Newton's first law \Mref{law:newton:first} describes what happens when
+the net force on an object is zero (i.e., the object is in
+equilibrium). But what happens when the net force is nonzero?
+
+\begin{defn}
+A body's \define{Inertial Mass} (or simply ``\emph{Mass\/}'') measures a
+body's resistance to motion (``inertness''). We denote this quantity by $m$.
+\end{defn}
+
+\begin{rmk}[SI units of mass, force]
+We recall~\Mref{M:intro:standards-and-units} the SI unit of mass (the
+kilogram) is measured by a certain platinum--iridium alloy rod kept in
+Paris. We measure force using ``Newtons'', defined as the net force to
+move 1 kilogram with an acceleration of 1 meter per second squared:
+\begin{equation}
+\SI{1}{\newton}=\SI{1}{\kilo\gram\meter\per\second\squared}.
+\end{equation}
+\end{rmk}
+
+\N{Law}\label{M:newton:second}
+If a net force acts on a body, then the body accelerates. The direction
+of acceleration is the same as the direction of the net force. The net
+force is the body's inertial mass times acceleration
+\begin{equation}
+  \vec{F} = m\vec{a}
+\end{equation}
+\begin{rmk}
+  This is specifically in an inertial reference frame.
+\end{rmk}
+\begin{rmk}
+  We can discuss the ``quantity of motion'' (as Newton called it), or
+  what we call \define{Momentum}
+  \begin{equation}
+    \vec{p} = m\vec{v}
+  \end{equation}
+  Newton originally specified his second Law, in an inertial reference
+  frame, as
+  \begin{equation}
+    \vec{F} = \frac{\D\vec{p}}{\D t}
+  \end{equation}
+  This version is used if $m$ is not a constant with respect to
+  time. (For example, modeling a segway with someone stepping off.)
+\end{rmk}
+\begin{rmk}
+The forces are only \emph{external} forces, exerted on the given body by
+other external bodies in the environment. We do not consider forces
+exerted by a body on itself, otherwise we get physically nonsensical
+results.
+\end{rmk}
+
+\N{No-Go on Higher Order Versions}
+Suppose we considered something like
+\begin{equation}
+\vec{F} = \frac{\D\vec{p}}{\D t} + \alpha\frac{\D^{2}\vec{p}}{\D t^{2}}
+\end{equation}
+where $\alpha\approx 0.000327$. Could this even be a candidate for a
+physical law?
+
+No, this is not possible. There are a number of problems, all stem from
+Ostragradski's theorem. The basic problem with this: the system is
+unstable, and the energy unbounded from below. (We would be able to
+harness an infinite amount of energy from \emph{any} system if this
+relation were true.)
 
 \subsection{Newton's Third Law}

@@ -58,7 +58,7 @@ sphere. We may neglect air resistance too. But when we
 iterative approach allows us to model complicated phenomena quite
 simply. 
 
-\N{Standards and Units}
+\N{Standards and Units}\label{M:intro:standards-and-units}
 We measure phenomena experimentally, and use numbers  for
 measurements. Well, any number describing some physical phenomena
 we call a \define{Physical Quantity}. Some quantities are so
@@ -330,3 +330,39 @@ We also have $x\approx y$ whenever $|y-x|\ll1$.
 Really, we say $x\approx y$ when $\varepsilon=|y-x|$ is ``acceptably
 small''. For some symbolic calculations, this could be working with
 ``just the important parts''.
+
+\section{Useful Heuristics for Order of Magnitude Estimates}
+
+\N{Geometric Mean}
+If you want to guess a certain quantity $x$, and you know $a<x<b$, then
+you can estimate
+\begin{equation}
+x\approx\sqrt{ab}.
+\end{equation}
+How does this work? Well, if we know $2^{5}<x<2^{10}$, then the guess
+$x\approx \sqrt{2}2^{7}\approx 181$ may not be unreasonable.
+
+\N{Useful Approximations}
+Here's a grocery list of useful approximations the author has used over
+the years:
+\begin{align}
+2^{10} &\approx 1000\\
+2^{20} &\approx 4^{10}\approx 10^{6}\\
+\E^{7} &\approx 10^{3}\\
+10^{0.1} &\approx 1.3\\
+\sqrt{2} &\approx 1.4\\
+\sqrt{0.5} & \approx 0.7\\
+\ln(2) &\approx 0.7\\
+\log_{10}(2) &\approx 0.3\\
+\log_{10}(3) &\approx 0.5\\
+\log_{2}(10) &\approx 3
+\end{align}
+These estimates are borrowed from the preface of Rob Phillips' upcoming
+book \emph{Cell Biology by the Numbers}.
+
+\begin{xca}
+Are these estimates good to 2 digits? (Hint: these estimates are
+related, so you only have to prove a few of them, and that the rest are
+logical consequences of the few.)
+\end{xca}
+
