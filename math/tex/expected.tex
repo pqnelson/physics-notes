@@ -1,0 +1,274 @@
+\M
+If we have a discrete random variable $X\colon\sampleSpace\to\RR$, we
+can ask what's its \emph{expected value}? What does this mean? We mean,
+if $X=x_{j}$ for $j\in\NN$, we want to consider the expression
+\begin{equation}
+\expected[X]=\sum_{j\in\NN}x_{j}\Pr(X=x_{j}).
+\end{equation}
+The intuition is that
+\begin{equation}
+\expected[X] = \frac{1}{N(\sampleSpace)}\sum_{j\in\NN}x_{j}N(x_{j})
+\end{equation}
+which is precisely what we have.
+
+\N{Example}
+Recall Example \ref{ex:studentGuessingOnExam} when a student guesses on
+a true-false exam. What's the expected value of a student guessing on a
+10 question true-false exam?
+
+\N*{Solution:}
+We see that
+\begin{equation}
+\expected[X] = \sum^{10}_{n=0}n\cdot\binom{10}{n}2^{-10}
+\end{equation}
+We recall
+\begin{equation}
+(1+x)^{n}=\sum^{n}_{k=0}\binom{n}{k}x^{k}
+\end{equation}
+thus taking its derivative gives us
+\begin{equation}
+n(1+x)^{n-1}=\sum^{n}_{k=0}k\binom{n}{k}x^{k-1}.
+\end{equation}
+We set $x=1$ and obtain
+\begin{equation}
+n2^{n-1}=\sum^{n}_{k=0}k\binom{n}{k}.
+\end{equation}
+We thus deduce
+\begin{equation}
+\expected[X]=2^{-10}\cdot 10\cdot2^{9}=5.
+\end{equation}
+An anticlimactic solution: guessing should give a score of 50\%.
+
+\begin{thm}
+The expectation operator satisfies the following properties:
+\begin{enumerate}
+\item If $X\geq0$, then $\expected[X]\geq0$
+\item For any $a,b\in\RR$ we have
+$\expected[aX+bY]=a\expected[X]+b\expected[Y]$
+\item The random variable ${\bf 1}$ which takes the constant value $1$
+satisfies $\expected[{\bf 1}]=1$.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(1) We see that if $X$ takes values $x_j\geq0$, then $\Pr(X=x_j)\geq0$,
+and the product of two positive real numbers is positive. The sum of
+positive real numbers is itself a positive real number.
+
+(2) Linearity follows immediately:
+\begin{subequations}
+\begin{align}
+\expected[aX+bY] &=\sum_{\omega}a\omega\Pr(X=\omega)+b\omega\Pr(Y=\omega)\\
+&= \sum_{x}ax\Pr(X=x) + \sum_{y}by\Pr(Y=y)\\
+&=a\sum_x x\Pr(X=x)+b\sum_y y\Pr(Y=y) = a\expected[X]+b\expected[Y].
+\end{align}
+\end{subequations}
+
+(3) Obvious, since it becomes a sum of probabilities which must be unity.
+\end{proof}
+
+\subsection{Joint Distributions}
+\N{Definition}
+Let $X$, $Y$ be discrete random variables. Their \define{Joint
+Distribution} $F\colon\RR^{2}\to[0,1]$ is given by
+\begin{equation}
+F(x,y)=\Pr(X\leq x, Y\leq y)
+\end{equation}
+and their \define{Joint Mass Function} is
+\begin{equation}
+f(x,y) = \Pr(X=x,Y=y).
+\end{equation}
+We sometimes use the notation $f_{X,Y}(x,y)$ to make it clear what the
+random variables are.
+\N{Definition}
+We see that $X$ and $Y$ are \define{Independent} if and only if
+\begin{subequations}
+\begin{align}
+f_{X,Y}(x,y)
+&= \Pr(X=x,Y=y)\\
+&=\Pr(X=x)\Pr(Y=y)\\
+&=f_{X}(x)f_{Y}(y)
+\end{align}
+\end{subequations}
+Note we induce this notion using the usual notion of independence.
+
+\N{Definition}
+We have the \define{Covariance} of $X$ and $Y$ be
+\begin{equation}
+\cov(X,Y)=\expected[XY]-\expected[X]\expected[Y]
+\end{equation}
+and the \define{Correlation Coefficient}
+\begin{equation}
+\rho(X,Y)=\frac{\cov(X,Y)}{\sqrt{\Var(X)\Var(Y)}}
+\end{equation}
+Recall we defined the variance $\Var(X)$ in \S\ref{defn:variance}.
+
+\begin{lemma}[Independence Condition]
+Let $X$, $Y$ be random variables. They are independent if and only if 
+\begin{equation}
+\cov(X,Y)=0.
+\end{equation}
+\end{lemma}
+\begin{proof}
+We see that
+\begin{equation}
+\begin{split}
+\expected[XY]-\expected[X]\expected[Y]
+&=\sum_{x,y}xy\Pr(X=x,Y=y)-x\Pr(X=x)y\Pr(Y=y)\\
+&=\sum_{x,y}xy\bigl(\Pr(X=x,Y=y)-\Pr(X=x)\Pr(Y=y)\bigr)
+\end{split}
+\end{equation}
+but we see independence for joint distributions precisely occurs when
+\begin{equation}
+\bigl(\Pr(X=x,Y=y)-\Pr(X=x)\Pr(Y=y)\bigr)=0
+\end{equation}
+for any $x$ and $y$.
+\end{proof}
+
+\begin{thm}[Cauchy-Schwarz Inequality]
+Let $X$, $Y$ be random variables. Then
+\begin{equation}
+\bigl(\expected[XY]\bigr)^{2}\leq\expected[X^{2}]\expected[Y^{2}]
+\end{equation}
+with equality if and only if $\Pr(aX=bY)=1$ for some $a,b\in\RR$ (at
+least one of which is nonzero).
+\end{thm}
+\begin{proof}
+We introduce a new random variable
+\begin{equation}
+Z = aX + bY
+\end{equation}
+where $a,b\in\RR$. Suppose $a\geq0$. Then
+\begin{equation}
+0\leq\expected[Z^{2}]=a^{2}\expected[X^{2}]+b^{2}\expected[Y^{2}]-2ab\expected{XY}.
+\end{equation}
+We consider the right hand side as a quadratic function in $a$. When
+does it have a real root? When
+\begin{subequations}\label{eq:Cauchy-Schwarz:prob:proof}
+\begin{equation}
+B^{2}-4AC\leq0
+\end{equation}
+or for us
+\begin{equation}
+4b^{2}\expected[XY]^{2}-4\expected[X^{2}]\cdot
+b^{2}\expected[Y^{2}]\leq0
+\end{equation}
+\end{subequations}
+For nonzero $b$, we have the desired result immediately.
+
+Observe one real root of Eq \eqref{eq:Cauchy-Schwarz:prob:proof}
+implies
+\begin{subequations}
+\begin{equation}
+\expected[Z^{2}]=0
+\end{equation}
+which implies
+\begin{equation}
+Z=0\quad\mbox{with probability }1.
+\end{equation}
+Thus
+\begin{equation}
+aX-bY=0
+\end{equation}
+\end{subequations}
+with probability 1.
+\end{proof}
+
+\subsection{Conditional Distributions and Expectations}
+
+Let $X$ and $Y$ be two discrete random variables on
+$(\sampleSpace, \mathcal{F}, \Pr)$.
+
+\begin{defn}
+The \define{Conditional Distribution Function} of $Y$ given $X=x$,
+written $F_{Y|X}(-|x)$, is defined by
+\begin{equation}
+F_{Y|X}(y|x) = \Pr(y\leq Y|X=x)
+\end{equation}
+for any $x$ such that $\Pr(X=x)>0$.
+
+The \define{Conditional Probability Function} (or ``\emph{Conditional
+Mass Function\/}'') of $Y$ given $X=x$, written $f_{Y|X}(-|x)$, is
+defined as
+\begin{equation}
+f_{Y|X}(y|x)=\Pr(Y=y|X=x)
+\end{equation}
+\end{defn}
+\begin{rmk}
+Note this definition implies
+\begin{equation}
+f_{Y|X}=\frac{f_{Y,X}}{f_{X}}
+\end{equation}
+and that $X$ and $Y$ are independent if and only if
+\begin{equation}
+f_{Y|X}=f_{Y}.
+\end{equation}
+This justifies the choice of notation.
+\end{rmk}
+\begin{rmk}
+Given $X=x$, we may ``define''
+\begin{equation}\label{eq:defn:rmk:condExpect}
+\begin{split}
+\expected[Y|X=x] &\eqdef \sum_{y}yf_{Y|X}(y|x)\\
+&=\mbox{conditional expectation of $Y$ given $(X=x)$}
+\end{split}
+\end{equation}
+We may think of this as a function of $x$:
+\begin{equation}
+\psi(x) = \expected[Y|X=x].
+\end{equation}
+Thus the expected value may be thought of as a function of $X$:
+\begin{equation}
+\psi(X) = \expected[Y|X].
+\end{equation}
+This is a mildly sloppy abuse of notation.
+\end{rmk}
+\begin{defn}
+Let $\psi(x)=\expected[Y|X=x]$. Then the \define{Conditional
+Expectation} of $Y$ given $X$ written $\expected[Y|X]$ is precisely
+$\psi(X)$. Note that $\expected[Y|X]$ is a random variable. 
+\end{defn}
+
+\begin{thm}
+Given random variables $X$, $Y$ as specified, then
+\begin{equation}
+\expected\bigl[\expected[Y|X]\bigr] = \expected[Y].
+\end{equation}
+\end{thm}
+\begin{proof}
+This is a classic ``follow-your-nose and unravel the definitions'' type proof.
+\begin{subequations}
+\begin{align}
+\expected\bigl[\expected[Y|X]\bigr]
+&=\sum_{x}f_{X}(x)\left(\sum_{y}yf_{Y|X}(y|x)\right)\\
+&=\sum_{y}y\sum_{x}f_{X,Y}(x,y)\\
+&=\sum_{y}yf_{Y}(y)=\expected[Y].
+\end{align}
+\end{subequations}
+We just began with Eq \eqref{eq:defn:rmk:condExpect} and ``followed our nose''!
+\end{proof}
+
+Note more generally, we have
+\begin{equation}
+\expected\bigl[\expected[Y|X]g(X)\bigr]=\expected[Yg(X)].
+\end{equation}
+The proof is simple:
+\begin{subequations}
+\begin{align}
+\expected\bigl[\psi(x)g(x)\bigr]
+&=\sum_{x}\psi(x)g(x)\Pr(X=x)\\
+&=\sum_{y}y\sum_{x}\Pr(Y=y|X=x)g(x)\Pr(X=x)\\
+&=\sum_{x,y} yg(x)\Pr(X=x,Y=y)=\expected[Yg(X)].
+\end{align}
+\end{subequations}
+% pg 15 of notes 7
+\begin{thm}
+Let $a,b\in\RR$, and $X$, $Y$, $Z$ be random variables.
+\begin{enumerate}
+\item $\expected[aY+bZ|X]=a\expected[Y|X]+b\expected[Z|X]$
+\item $\expected[Y|X]\geq0$ if $Y\geq0$
+\item $\expected[1|X]=1$
+\item If $X$ and $Y$ are independent, then $\expected[Y|X]=\expected[Y]$
+\item $\expected[Yg(X)|X]=g(X)\expected[Y|X]$ where $g\colon\RR\to\RR$
+\item $\expected\bigl[\expected[Y|X,Z]|X\bigr]=\expected[Y|X]$ and $\expected\bigl[\expected[Y|X]|X,Z\bigr]=\expected[Y|X]$.
+\end{enumerate}
+\end{thm}

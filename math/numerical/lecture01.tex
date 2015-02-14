@@ -1,0 +1,154 @@
+\N{When writing a paper}
+For numerical analysis, we always do several things when writing a
+paper. We should derive everything we use. We need to answer the
+questions: What is it we're doing? How is it done? Why is it important?
+
+\N{General Problem}
+We are trying to solve a system of equations
+\begin{equation}
+A\vec{x}=\vec{b}
+\end{equation}
+We solve on the computer for $\widehat{x}$, an approximate solution. 
+
+We have the \define{Residual Vector} $\vec{r}$ be defined by
+\begin{equation}
+A\widehat{x}-\vec{b}=\vec{r}.
+\end{equation}
+We can solve for
+\begin{equation}
+A\vec{y}=\vec{r}
+\end{equation}
+and produce an approximate solution $\widehat{y}$. Then
+$\widehat{x}+\widehat{y}$ is a better solution than $\widehat{x}$. Such
+an approach is called \emph{iterative}. For each iterative step, it
+costs only forward and backward substitutions.
+
+\begin{defn}
+A sequence $\{\vec{x}_{i}\}^{\infty}_{i=1}$ of vectors in $\RR^n$ is
+said to \define{Converge} to $\vec{x}$ with respect to $\|\cdot\|$ if
+given $\varepsilon>0$ there exists $N(\varepsilon)\in\NN$ such that
+\begin{equation}
+\|\vec{x}_{k}-\vec{x}\|<\varepsilon\quad\mbox{for all }k\geq N(\varepsilon).
+\end{equation}
+\end{defn}
+
+\M Recall for vectors, we have various norms we usually use. We have the
+``Taxicab'' norm
+\begin{subequations}
+\begin{equation}
+\|\vec{x}\|_{1} = |x_{1}|+\dots+|x_{n}|.
+\end{equation}
+The famous Euclidean norm
+\begin{equation}
+\|\vec{x}\|_{2} = \sqrt{{x_{1}}^{2}+\dots+{x_{n}}^{2}}.
+\end{equation}
+The exotic infinity norm
+\begin{equation}
+\|\vec{x}\|_{\infty} = \max(|x_{1}|,\dots,|x_{n}|).
+\end{equation}
+\end{subequations}
+
+\begin{thm}
+For any $\vec{x}\in\RR^n$ we have
+\begin{equation}
+\|\vec{x}\|_{\infty}\leq\|\vec{x}\|_{2}\leq\sqrt{n}\|\vec{x}\|_{\infty}.
+\end{equation}
+\end{thm}
+\begin{proof}
+The inequality $\|\vec{x}\|_{\infty}\leq\|\vec{x}\|_{2}$ is ``obvious.''
+One approach is to write $\vec{x}=x_{k}\vec{e}_{k}+\vec{y}$ where
+$x_{k}=\|\vec{x}\|_{\infty}$ and $\vec{e}_{k}$ is the corresponding unit
+vector for the component, then use the triangle inequality for the
+$\ell^{2}$-norm after noting $\|x_{k}\vec{e}_{k}\|_{\infty}=\|x_{k}\vec{e}_{k}\|_{2}$. 
+
+The other inequality $\|\vec{x}\|_{2}\leq\sqrt{n}\|\vec{x}\|_{\infty}$,
+take $|x_{i}|\leq|x_{n}|$ (we pick the last component as largest
+arbitrarily, we may pick any other component). Then
+\begin{equation}
+\begin{split}
+\sqrt{{x_{1}}^{2}+\dots+{x_{n}}^{2}}
+&\leq\sqrt{{x_{n}}^{2}+\dots+{x_{n}}^{2}}\\
+&\leq\sqrt{n\cdot{x_{n}}^{2}}=|x_{n}|\sqrt{n}
+\end{split}
+\end{equation}
+which concludes the proof.
+\end{proof}
+
+\begin{defn}
+A \define{Matrix Norm} on the set of real $n\times n$ matrices is a
+mapping
+\begin{equation}
+\|\cdot\|\colon\Mat(n,\RR)\to\RR
+\end{equation}
+satisfying the following for any $A,B\in\Mat(n,\RR)$ and $\alpha\in\RR$:
+\begin{enumerate}
+\item $\|A\|\geq0$
+\item $\|A\|=0$ if and only if $A=0$ is the zero matrix
+\item $\|\alpha A\|=|\alpha|\cdot\|A\|$
+\item $\|A+B\|\leq\|A\|+\|B\|$
+\item $\|AB\|\leq\|A\|\cdot\|B\|$
+\end{enumerate}
+\end{defn}
+\begin{thm}[Natural Norm]
+The natural norm on $A$ is 
+\begin{equation}\label{eq:defn:naturalNorm:matrixNorm}
+\|A\|=\max_{\|\vec{x}\|=1}\|A\vec{x}\|.
+\end{equation}
+\end{thm}
+(Note the norm on the right hand side of Eq
+\eqref{eq:defn:naturalNorm:matrixNorm} is a vector norm, so we're really
+inducing a matrix norm given a vector norm!)
+
+\begin{ex}[$\ell_{\infty}$ norm]
+We see
+$\|A\|_{\infty}=\max_{\|\vec{x}\|_{\infty}=1}\|A\vec{x}\|_{\infty}$,
+which is the $\ell_{\infty}$ norm.
+\end{ex}
+
+\begin{defn}
+If $A$ is a real $n\times n$ matrix, the polynomial defined by
+\begin{equation}
+p(\lambda)=\det(A-\lambda I)
+\end{equation}
+is called the \define{Characteristic Polynomial} of $A$. The zeroes of
+$p(\lambda)$ are the \define{Eigenvalues} of $A$. 
+
+If $\lambda$ is an eigenvalue of $A$, and $\vec{x}\neq0$ has the
+property
+\begin{equation}
+(A-\lambda I)\vec{x}=0
+\end{equation}
+then $\vec{x}$ is the \define{Eigenvector} \textbf{corresponding to
+  eigenvalue $\lambda$}.
+
+The \define{Algebraic Multiplicity} of an eigenvalue is its multiplicity
+as a root of $p(\lambda)$.
+
+The \define{Geometric multiplicity} is the maximum number of linearly
+independent eigenvectors associated with the eigenvalue.
+\end{defn}
+\begin{defn}
+The \define{Spectral Radius} $\rho(A)$ of a matrix $A$ is defined by
+\begin{equation}
+\rho(A)=\max|\lambda|
+\end{equation}
+where $\lambda$ is an eigenvalue of $A$.
+\end{defn}
+\begin{thm}
+If $A$ is a real $n\times n$ matrix, then:
+
+(1) $\sqrt{\rho(A^{T}A)}=\|A\|_{2}$
+
+(2) $\rho(A)\leq \|A\|$ for any natural norm $\|\cdot\|$
+\end{thm}
+
+Note, if $A$ is symmetric, then $\rho(A)=\|A\|_{2}$.
+
+\begin{thm}
+Let $A$ be hermitian of order $n$, then $A$ has $n$ real eigenvalues
+$\lambda_1$, \dots, $\lambda_n$ (not necessarily distinct), and $n$
+corresponding eigenvectors $\vec{u}_1$, \dots, $\vec{u}_n$ which form an
+orthonormal basis for $\CC^n$.
+
+If $A$ is real, then the eigenvectors form an orthonormal basis for $\RR^n$.
+\end{thm}

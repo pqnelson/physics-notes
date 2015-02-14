@@ -1,0 +1,51 @@
+\begin{defn}
+A $n\times n$ matrix is \define{Convergent} if 
+\begin{equation}
+\lim_{k\to\infty}(A^{k})_{ij}=0
+\end{equation}
+for each of the components.
+\end{defn}
+\begin{ex}
+Consider
+\begin{equation}
+A=\begin{bmatrix}
+\frac{1}{2} & 0\\
+\frac{1}{4} & \frac{1}{2}
+\end{bmatrix}
+\end{equation}
+then
+\begin{equation}
+(A^{k})_{ij}=\begin{bmatrix}
+(\frac{1}{2})^{k} & 0\\
+\frac{k}{2^{k-1}} & (\frac{1}{2})^{k}
+\end{bmatrix}
+\end{equation}
+and moreover
+\begin{equation}
+\lim_{k\to\infty}A^{k}=0.
+\end{equation}
+We find additionally that $\rho(A)=1/2$.
+\end{ex}
+\begin{thm}
+The following statements are equivalent:
+\begin{enumerate}
+\item $A$ is a convergent matrix
+\item $\displaystyle{\lim_{n\to\infty}\|A^{n}\|=0}$ for some natural
+  norm $\|\cdot\|$
+\item $\rho(A)<1$
+\item $\displaystyle{\lim_{n\to\infty}\|A^{n}\|=0}$ for every natural
+  norm $\|\cdot\|$
+\item $\displaystyle{\lim_{n\to\infty}A^{n}\vec{x}=0}$ for any vector $\vec{x}$.
+\end{enumerate}
+\end{thm}
+
+\N{Problem}
+So we solve
+\begin{equation}
+A\vec{x}=\vec{b}
+\end{equation}
+If $\widetilde{x}$ is an approximation to $\vec{x}$, we expect
+\begin{equation}
+\vec{r}=\vec{b}-A\widetilde{x}
+\end{equation}
+Can we estimate $\|\vec{x}-\widetilde{x}\|$? 

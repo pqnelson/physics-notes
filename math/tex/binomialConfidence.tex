@@ -1,0 +1,18 @@
+\N{Motivation}
+Suppose we flip a coin $n$ times, and we record $n_{1}$ heads. How
+biased is the coin?
+
+\M
+We could suppose these coin flips are random variables, then write
+\begin{equation}
+S_{n} =\frac{X_{1}+\dots+X_{n}}{n}.
+\end{equation}
+We let
+\begin{equation}
+\widehat{p}=\frac{n_{1}}{n}.
+\end{equation}
+Then the central limit theorem tells us the bias lies in the interval
+\begin{equation}
+\left[\widehat{p}- z\sqrt{\frac{1}{n}\widehat{p}(1-\widehat{p})},
+\widehat{p}+z\sqrt{\frac{1}{n}\widehat{p}(1-\widehat{p})}\right]
+\end{equation}
