@@ -1,3 +1,11 @@
+/***
+ * This will simulate flipping a coin repeatedly until we get tails.
+ * So, it is used for the geometric distribution.
+ *
+ * @author: Alex Nelson
+ * @license: public domain
+ * @date: 2013
+ */
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>

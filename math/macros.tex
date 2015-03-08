@@ -57,7 +57,7 @@ morekeywords={__global__, __device__},  % CUDA specific keywords
 
 \newcounter{M}[section]
 \newcounter{MM}[M]
-\renewcommand\theM{\thesection.\arabic{M}}
+\renewcommand\theM{\arabic{section}.\arabic{M}}
 \renewcommand\theMM{\theM.\arabic{MM}}
 
 \def\M{\medbreak\noindent\refstepcounter{M}\textbf{\theM\@addpunct{.}\quad}\ignorespaces}
@@ -68,7 +68,7 @@ morekeywords={__global__, __device__},  % CUDA specific keywords
 \def\NStar#1{\medbreak\noindent\textbf{#1\@addpunct{.}\quad}\ignorespaces}
 \def\NNoStar#1{\M\textbf{#1\@addpunct{.}\quad}\ignorespaces}
 
-
+\def\Mref#1{(\S\ref{#1})}
 % definitions
 \newcommand\define[1]{``\textbf{#1}''}
 
