@@ -1,3 +1,4 @@
+\makeatletter
 % notation
 \newcommand{\E}{\mathrm{e}}
 \let\eul=\E
@@ -14,15 +15,29 @@
                      {\mbox{\boldmath$\scriptstyle#1$}}
                      {\mbox{\boldmath$\scriptscriptstyle#1$}}}}
 
+% linear algebra
+\DeclareMathOperator{\rank}{rank}
+
 % various equalities
 \newcommand\looksLike{\sim}
 \newcommand\orderOf{\sim}
 \newcommand\bigO[1]{\ensuremath{\mathcal{O}\left(#1\right)}}
 \newcommand\eqDef{\coloneqq}
 
+% qft specific notation
+\newcommand\vacuum{0}
+\@ifundefined{DeclarePairedDelimiter}{%
+  \newcommand\normalOrder[1]{\mathrel{:}\!#1\!\mathrel{:}}%
+}{%
+  \DeclarePairedDelimiter{\normalOrder}{\vcentcolon}{\vcentcolon}%
+}
+
 % common sets
-\def\NN{\mathbb{N}}
-\def\RR{\mathbb{R}}
+\newcommand\CC{\mathbb{C}}
+\newcommand\NN{\mathbb{N}}
+\newcommand\QQ{\mathbb{Q}}
+\newcommand\RR{\mathbb{R}}
+\newcommand\ZZ{\mathbb{Z}}
 
 % common groups
 \newcommand\SU[1]{\operatorname{SU}(#1)}
@@ -30,11 +45,12 @@
 \newcommand\classicalGroup[1]{\mathsf[1]}
 
 % commutators & brackets
-\newcommand\anticommute[2]{\ensuremath{\left\{#1,\enspace#2\right\}}}
-\newcommand\comm[2]{\ensuremath{\left\lbrack#1,\enspace#2\right\rbrack}}
+\newcommand\anticommute[2]{\ensuremath{\left\{#1,\;#2\right\}}}
+\newcommand\comm[2]{\ensuremath{\left\lbrack#1,\;#2\right\rbrack}}
 \let\anticommutator\anticommute
 \let\commutator\comm
-\newcommand\PoissonBracket[2]{\ensuremath{\left\{#1,\enspace#2\right\}}}
+\newcommand\PoissonBracket[2]{\ensuremath{\left\{#1,\;#2\right\}}}
+\newcommand\DiracBracket[2]{\PoissonBracket{#1}{#2}_{D}}
 
 % notation
 \newcommand\action{\ensuremath{S}}
@@ -42,5 +58,9 @@
 \newcommand\stepFn{\mathop{\theta}\nolimits}
 \newcommand\metric{\ensuremath{g}}
 \newcommand\weakEq{\approx}
+\newcommand\extendedHamiltonian{\ensuremath{H_{E}}}
 \newcommand\totalHamiltonian{\ensuremath{H_{T}}}
 \newcommand\firstClassHamiltonian{\ensuremath{H'}}
+\newcommand\firstClassConstraint{\gamma}
+\newcommand\secondClassConstraint{\chi}
+\makeatother

@@ -1,0 +1,805 @@
+\N*{Hokey Motivation}
+We have quantized the Schrodinger equation to get a non-relativistic
+quantum field theory, i.e., one invariant under Galilean transformations
+\emph{but not} Lorentz transformations.
+
+We will consider a relativistic Schrodinger equation, then we will
+second-quantize it. How to get a relativistic Schrodinger equation? One
+possibility is to guess. The other is to ``first quantize'' a classical
+relativistic particle traveling along a geodesic. In either case, we
+get the same result: the Klein-Gordon equation. It describes a scalar
+field.
+
+Since the Lorentz group may be ``built'' from $\SU{2}$ (the ``spin''
+group), we may conclude safely that we have a spin-$0$ field. Later we
+will examine spin-$1/2$ and spin-$1$ fields.
+
+\section{Klein-Gordon Equation}
+\M
+The Schrodinger equation for a free particle may be heuristically
+obtained via the quantization of the kinetic energy
+\begin{equation}
+E = \frac{p^{2}}{2m}
+\end{equation}
+via the substitution $E\to\qop{E}=\I\partial_{t}$,
+$p_{j}\to\qop{p}_{j}=-\I\partial_{j}$. This energy-momentum relation
+above is non-relativistic. So, we consider the relativistic version of
+it
+\begin{equation}\label{eq:klein-gordon:mass-shell-relation}
+E^{2} = p^{2} + m^{2}.
+\end{equation}
+Quantizing this system gives us
+\begin{equation}\label{eq:klein-gordon:kg-eqn}
+(\partial_{t}^{2}-\nabla^{2})\varphi(x,t) + m^{2}\varphi(x,t)=0.
+\end{equation}
+We may derive this from the action
+\begin{equation}
+\action[\varphi]=\frac{1}{2}\int\bigl(\partial_{\mu}\varphi\partial^{\mu}\varphi-m^{2}\varphi^{2}\bigr)\D^{4}x
+\end{equation}
+where $x=(t,\vec{x})$, $x^{0}=t$. Observe $\action[\varphi]$ transforms
+as a Lorentz scalar if $\varphi$ transforms as one. Equivalently, the
+Klein-Gordon equation is Lorentz covariant\footnote{Regarding
+  terminology, we shall call something ``invariant'' under some change
+  of coordinates if it remains ``exactly the same'', i.e., we need not
+  multiply by any number of Jacobians or their transpose. Lorentz
+  covariance here implies we need some suitable action of the Lorentz group.}
+if $\varphi$ acts as a scalar.
+
+\begin{ddanger}
+\textbf{CAUTION:}
+I will randomly rewrite $x=(t,\vec{x})$ as $x=(\vec{x},t)$ with the
+understanding that $t$ \emph{always} refers to the time part. I do this
+because I'm inconsistent.
+\end{ddanger}
+
+\N{Problem: Negative Energies}
+We see we could get negative energies, since the relation
+\eqref{eq:klein-gordon:mass-shell-relation} is invariant under
+$E\to-E$. We see we have the plane wave solution
+$\exp[\I(\vec{k}\cdot\vec{x}+\omega_{\vec{k}}{t})]$, it is a solution with energy
+\begin{equation}
+E = -\omega_{\vec{k}} = -(\vec{k}^{2}+m^{2})^{1/2} < 0.
+\end{equation}
+What does this mean physically? Worse, energy is unbounded from
+below. We may, in principle, extract an infinite amount of energy from a
+one-particle system\dots which is clearly unphysical.
+
+If we try to avoid this negative energy problem by taking the positive
+square-root
+\begin{equation}
+E=+\sqrt{\vec{p}^{2}+m^{2}},
+\end{equation}
+we have to series expand it\dots and we get nonlocal operator
+expressions!
+
+\N{Problem: Probabilities}
+Lets try to interpret $\varphi$ as a wave function, i.e., a probability
+amplitude. It must be a conserved quantity, or give rise to one---just
+as $\varphi^{*}\varphi$ did for the Schrodinger equation
+\Mref{par:schrodinger-conserved-current}.
+
+The Klein-Gordon equation \emph{does} have a conserved quantity, which
+is (more or less)
+\begin{equation}
+j_{\ell} = \frac{1}{2\I m}(\varphi^{*}\partial_{\ell}\varphi-(\partial_{\ell}\varphi^{*})\varphi).
+\end{equation}
+The time component, however, is
+\begin{equation}
+j_{0} = \rho = \frac{\I}{2m}(\varphi^{*}\partial_{t}\varphi-(\partial_{t}\varphi^{*})\varphi).
+\end{equation}
+The probability density is not positive-definite. For example, the
+plane wave has its probability density be
+\begin{equation}
+\rho=\frac{-\omega_{\vec{k}}}{m}=\frac{-1}{m}\sqrt{\vec{k}^{2}+m^{2}}<0.
+\end{equation}
+We thus get negative probabilities!
+
+But these problems arise because we are trying to interpret the
+Klein-Gordon equation as a 1-particle state. Lorentz invariance prevents
+us from doing so.
+
+\section{Free Scalar Field} % page 17
+
+\M
+We want to canonically quantize the field $\varphi(x)$. We want to turn
+$\varphi$ into an operator (or ``operator-valued density'', if you're a
+mathematician). Given the classical action
+\begin{equation}
+\action_{KG}[\varphi]=\frac{1}{2}\int\left(\partial_{\mu}\varphi(x)%
+\partial^{\mu}\varphi(x)-m^{2}\varphi(x)^{2}\right)\D^{4}x
+\end{equation}
+we can find the canonically conjugate momenta
+\begin{equation}
+\pi(x)=\frac{\partial\mathcal{L}}{\partial(\partial_{t}\varphi(x))}=\dot{\varphi}(x).
+\end{equation}
+Now we can find the Hamiltonian (density) via the Legendre transform
+\begin{subequations}
+\begin{align}
+\mathcal{H} 
+&=\pi(x)\dot\varphi(x) - \mathcal{L}\\
+&=\pi(x)\dot{\varphi}(x)
+   -\frac{1}{2}\partial_{\mu}\varphi\partial^{\mu}\varphi
+   +\frac{1}{2}m^{2}\varphi(x)^{2}\\
+&=\pi(x)\dot{\varphi}(x)
+  - \frac{1}{2}\bigl[\partial_{t}\varphi\partial^{t}\varphi-|\nabla\varphi|^{2}\bigr]
+  + \frac{1}{2}m^{2}\varphi(x)^{2}\\
+&=\pi(x)^{2}
+  - \frac{1}{2}\bigl[\pi(x)^{2}-|\nabla\varphi|^{2}\bigr]
+  + \frac{1}{2}m^{2}\varphi(x)^{2}\\
+&=\frac{1}{2}\pi(x)^{2}
+  +\frac{1}{2}|\nabla\varphi(x)|^{2}
+  +\frac{m^{2}}{2}\varphi(x)^{2}.
+\end{align}
+\end{subequations}
+The Hamiltonian is thus
+\begin{equation}
+\begin{split}
+H(t) &\eqDef\int\mathcal{H}(\vec{x},t)\,\D^{3}x\\
+&=\frac{1}{2}\int\left(\pi(\vec{x},t)^{2}+|\nabla\varphi(\vec{x},t)|^{2}+m^{2}\varphi(\vec{x},t)^{2}\right)\D^{3}x.
+\end{split}
+\end{equation}
+We also have the (quantum) commutator relations
+\begin{equation}
+\begin{split}
+\commutator{\varphi(\vec{x},t)}{\pi(\vec{y},t)}=\I\delta^{(3)}(\vec{x}-\vec{y})\\
+\commutator{\varphi(\vec{x},t)}{\varphi(\vec{y},t)}=
+\commutator{\pi(\vec{x},t)}{\pi(\vec{y},t)}=0
+\end{split}
+\end{equation}
+
+
+\begin{xca}
+(a) We will derive the definition of the conjugate momenta using the
+  quantum Poisson bracket relation. So given
+\begin{equation}
+\dot{\varphi}=\I\commutator{H}{\pi}
+\end{equation}
+we will show this reproduces the definition for the conjugate momenta.
+
+(b) We will derive the equations of motion, using the quantum Poisson
+bracket relations. Given
+\begin{equation}
+\dot{\pi}=\I\commutator{H}{\varphi}
+\end{equation}
+show this reproduces the equations of motion.
+\end{xca}
+\begin{soln}
+(a) We see
+\begin{equation}
+\begin{split}
+2\I\commutator{H}{\varphi(\vec{y},t)}
+&=\int\commutator{\pi(\vec{x},t)^{2}}{\varphi(\vec{y},t)}\D^{3}x
++\underbrace{\int\bigO{\commutator{\varphi(\vec{x},t)}{\varphi(\vec{y},t)}}\D^{3}x}_{=0}\\
+&=\int\commutator{\pi(\vec{x},t)^{2}}{\varphi(\vec{y},t)}\D^{3}x
+\end{split}
+\end{equation}
+Hence we find
+\begin{subequations}
+\begin{align}
+\int\commutator{\pi(\vec{x},t)^{2}}{\varphi(\vec{y},t)}\D^{3}x
+&=\int\pi(\vec{x},t)\commutator{\pi(\vec{x},t)}{\varphi(\vec{y},t)}\D^{3}x\nonumber\\
+&\quad+\int\commutator{\pi(\vec{x},t)}{\varphi(\vec{y},t)}\pi(\vec{x},t)\D^{3}x\\
+&=\int\pi(\vec{x},t)\I\delta^{(3)}(\vec{x}-\vec{y})\D^{3}x\nonumber\\
+&\quad+\int\I\delta^{(3)}(\vec{x}-\vec{y})\pi(\vec{x},t)\D^{3}x\\
+&=\I 2\pi(\vec{y},t)
+\end{align}
+\end{subequations}
+which implies
+\begin{equation}
+2\I\commutator{H}{\varphi(\vec{y},t)}=\I 2\pi(\vec{y},t).
+\end{equation}
+We see the right hand side of this equation is, by Hamilton's equations
+in Poisson bracket form, necessarily
+$\partial_{t}\varphi(\vec{y},t)$. This implies
+\begin{equation}
+\partial_{t}\varphi(\vec{y},t)=\pi(\vec{y},t)
+\end{equation}
+as desired. \emph{So we have just derived the definition of the conjugate momenta using nothing more than commutators and Hamilton's equations in Poisson bracket form!}
+
+(b) We see by direct computation
+\begin{equation}
+\begin{split}
+2\I\commutator{H}{\varphi(\vec{y},t)}&=
+ \I\int\commutator{\pi(\vec{x},t)^{2}}{\pi(\vec{y},t)}\D^{3}x\\
+&\quad+\I\int\commutator{\partial_{j}\varphi(\vec{x},t)\partial^{j}\varphi(\vec{x},t)}{\pi(\vec{y},t)}\D^{3}x\\
+&\quad+\I m^{2}\int\commutator{\varphi(\vec{x},t)^{2}}{\pi(\vec{y},t)}\D^{3}x.
+\end{split}
+\end{equation}
+Consider each term, we find immediately
+\begin{equation}
+I_{1}\eqDef\int\commutator{\pi(\vec{x},t)^{2}}{\pi(\vec{y},t)}\D^{3}x=0
+\end{equation}
+thanks to the commutator relations. Next we find
+\begin{equation}
+\commutator{\partial_{k}\varphi(\vec{x},t)}{\pi(\vec{y},t)}=\partial_{k}\delta^{(3)}(\vec{x}-\vec{y}).
+\end{equation}
+This simplifies the second term
+\begin{subequations}
+\begin{align}
+I_{2}&\eqDef\int\commutator{\partial_{j}\varphi(\vec{x},t)\partial^{j}\varphi(\vec{x},t)}{\pi(\vec{y},t)}\D^{3}x\\
+&=\int\partial_{j}\varphi(\vec{x},t)\commutator{\partial^{j}\varphi(\vec{x},t)}{\pi(\vec{y},t)}+\commutator{\partial_{j}\varphi(\vec{x},t)}{\pi(\vec{y},t)}\partial^{j}\varphi(\vec{x},t)\D^{3}x\\
+&=\I\int\partial_{j}\varphi(\vec{x},t)\partial^{j}\delta^{(3)}(\vec{x}-\vec{y})+\partial_{j}\delta^{(3)}(\vec{x}-\vec{y})\partial^{j}\varphi(\vec{x},t)\D^{3}x\\
+\intertext{then integrating by parts isolates the delta functions}
+&=-\I\int\nabla^{2}\varphi(\vec{x},t)\delta^{(3)}(\vec{x}-\vec{y})+\delta^{(3)}(\vec{x}-\vec{y})\nabla^{2}\varphi(\vec{x},t)\D^{3}x\\
+&=-2\I\nabla^{2}\varphi(\vec{y},t).
+\end{align}
+\end{subequations}
+The last term is quite simply
+\begin{subequations}
+\begin{align}
+I_{3} &\eqDef\int\commutator{\varphi(\vec{x},t)^{2}}{\pi(\vec{y},t)}\D^{3}x\\
+&=\int\varphi(\vec{x},t)\commutator{\varphi(\vec{x},t)}{\pi(\vec{y},t)}+\commutator{\varphi(\vec{x},t)}{\pi(\vec{y},t)}\varphi(\vec{x},t)\D^{3}x\\
+&=\int\varphi(\vec{x},t)\I\delta^{(3)}(\vec{x}-\vec{y})+\I\delta^{(3)}(\vec{x}-\vec{y})\varphi(\vec{x},t)\,\D^{3}x\\
+&=2\I\varphi(\vec{y},t).
+\end{align}
+\end{subequations}
+Thus we find
+\begin{equation}
+\begin{split}
+2\I\commutator{H}{\pi(\vec{y},t)}&=\I I_{1}+\I I_{2} + \I m^{2} I_{3}\\
+&=0 + 2\nabla^{2}\varphi(\vec{y},t) - 2m^{2}\varphi(\vec{y},t).
+\end{split}
+\end{equation}
+But we see the right hand side is --- by definition ---
+$2\partial_{t}\pi(\vec{y}, t)$. So, setting equals to equals we find
+\begin{equation}
+2\partial_{t}\pi(\vec{y}, t)=2\nabla^{2}\varphi(\vec{y},t) - 2m^{2}\varphi(\vec{y},t).
+\end{equation}
+Look: this is precisely Eq \eqref{eq:klein-gordon:kg-eqn} using $\pi$
+instead of $\partial_{t}\varphi$. So, we have derived the equations of
+motion from the commutator relations and the Hamiltonian.
+\end{soln}
+
+\N{Plane Wave Expansions}\label{par:scalar:plane-wave-expansions}
+We now expand $\varphi(\vec{x},t)$ in terms of the classical solutions.
+\begin{equation}\label{eq:scalar:plane-wave-expansion-eqn}
+\begin{split}
+\varphi(\vec{x},t)
+\;\,&\mbox{``$=$''}\;\sum_{\vec{k}}a(\vec{k})\varphi_{\vec{k}}^{(+)}(\vec{x},t)
+                          + b(\vec{k})\varphi_{\vec{k}}^{(-)}(\vec{x},t)\\
+&=\int(a(k)\E^{-\I k_{\mu}x^{\mu}}+b(k)\E^{\I k_{\mu}x^{\mu}})\frac{1}{2\omega_{\vec{k}}}\frac{\D^{3}k}{(2\pi)^{3}}
+\end{split}
+\end{equation}
+where $k^{0}=\omega_{\vec{k}}=(\vec{k}^{2}+m^{2})^{1/2}$,
+$\varphi^{(+)}(x)$ is the classical solution with positive energy, and
+$\varphi^{(-)}(x)$ is the classical solution with negative energy. When
+$\varphi$ becomes an operator, we expect $a(k)$ and $b(k)$ to be
+operators.
+
+We use $\varphi^{(+)}$ and $\varphi^{(-)}$ to guarantee $\varphi(x)$ is
+a solution of the Klein-Gordon equation. This depends critically on the
+Klein-Gordon equation being a linear differential equation.
+
+\N{Volume-Element}
+The normalization factor $1/2\omega_{\vec{k}}$ may be explained as the
+volume element preserving Lorentz invariance. We rewrite the volume as
+\begin{equation}\label{eq:scalar:volume-element-identity}
+\int2\pi\delta^{(4)}(k^{2}-m^{2})\stepFn(k^{0})\frac{d^{4}k}{(2\pi)^{4}}
+=\int\frac{1}{2\omega_{\vec{k}}}\frac{\D^{3}k}{(2\pi)^{3}}
+\end{equation}
+which is Lorentz invariant, where
+\begin{equation}
+\stepFn(x) = \begin{cases}0 & x<0\\
+1 & x\geq0
+\end{cases}
+\end{equation}
+is the Heaviside step function\index{$\stepFn(-)$}\index{Heaviside Step Function}\index{Step Function}.
+We see Eq \eqref{eq:scalar:volume-element-identity} follows from the
+identity
+\begin{equation}
+\delta\bigl(f(x)\bigr) = \sum_{j}\frac{1}{|f'(x_{j})|}\delta(x-x_{j})
+\end{equation}
+where $x_{j}$ is a simple zero of $f(x)$.
+
+Observe
+\begin{equation}
+k^{2}-m^{2}=(k_{0})^{2}-{\omega_{\vec{k}}}^{2}
+\end{equation}
+so we may factorize the right hand side as
+\begin{equation}
+(k_{0})^{2}-{\omega_{\vec{k}}}^{2}=(k_{0}+\omega_{\vec{k}})(k_{0}-\omega_{\vec{k}}).
+\end{equation}
+Invoking the Delta function identity, we find
+\begin{subequations}
+\begin{align}
+\delta^{(4)}(k^{2}-m^{2})
+&=\delta({k_{0}}^{2}-{\omega_{\vec{k}}}^{2})\\
+&=\frac{1}{2\omega_{\vec{k}}}\delta(k_{0}-\omega_{\vec{k}})
++\frac{1}{(-2\omega_{\vec{k}})}\delta(k_{0}+\omega_{\vec{k}})\\
+&=\frac{1}{2\omega_{\vec{k}}}\bigl(\delta(k_{0}-\omega_{\vec{k}})-\delta(k_{0}+\omega_{\vec{k}})\bigr).\label{eq:scalar:delta-fn-manipulation:vol-elt}
+\end{align}
+\end{subequations}
+the step function factor $\stepFn(k^{0})$ then picks out the
+$\delta(k_{0}-\omega_{\vec{k}})$ term.
+
+Hence plugging in Eq \eqref{eq:scalar:delta-fn-manipulation:vol-elt} into \eqref{eq:scalar:volume-element-identity}
+gives us
+\begin{equation}
+\int2\pi\delta^{(4)}(k^{2}-m^{2})\stepFn(k^{0})\frac{d^{4}k}{(2\pi)^{4}}
+=\int2\pi\frac{\delta(k_{0}-\omega_{\vec{k}})}{2\omega_{\vec{k}}}\stepFn(k^{0})\frac{d^{4}k}{(2\pi)^{4}}.
+\end{equation}
+Performing the integration over $k_{0}$
+\begin{equation}
+\int2\pi\frac{\delta(k_{0}-\omega_{\vec{k}})}{2\omega_{\vec{k}}}\stepFn(k^{0})\frac{d^{4}k}{(2\pi)^{4}}
+=\int\frac{1}{2\omega_{\vec{k}}}\frac{\D^{3}k}{(2\pi)^{3}}
+\end{equation}
+which precisely demonstrates the equality in \eqref{eq:scalar:volume-element-identity}.
+
+\begin{xca}
+Recall \Mref{par:scalar:plane-wave-expansions} the plane-wave
+expansion for $\varphi$. What is $\pi(\vec{x},t)$ in terms of $a(k)$ and $b(k)$?
+\end{xca}
+\begin{soln}
+We see that
+\begin{equation}
+\pi(\vec{x},t)=\partial_{t}\varphi(\vec{x},t).
+\end{equation}
+So we find, using Eq \eqref{eq:scalar:plane-wave-expansion-eqn},
+\begin{subequations}
+\begin{align}
+\pi(\vec{x},t)
+&=\partial_{t}\varphi(\vec{x},t)\nonumber\\
+&=\partial_{t}\int(a(k)\E^{-\I k_{\mu}x^{\mu}}+b(k)\E^{\I k_{\mu}x^{\mu}})\frac{1}{2\omega_{\vec{k}}}\frac{\D^{3}k}{(2\pi)^{3}}\\
+&=\int(-\I\omega_{\vec{k}}a(k)\E^{-\I k_{\mu}x^{\mu}}+\I\omega_{\vec{k}}b(k)\E^{\I k_{\mu}x^{\mu}})\frac{1}{2\omega_{\vec{k}}}\frac{\D^{3}k}{(2\pi)^{3}}.
+\end{align}
+\end{subequations}
+Thus we have found the expansion for the conjugate momenta.
+\end{soln}
+
+\N{Determining $a(k)$}
+Lets now try to consider how we can express $a(k)$ in terms of
+$\varphi(\vec{x},t)$ and $\pi(\vec{x},t)$. We expect
+\begin{equation}
+I_{1}(k')\eqDef\int\left(\omega_{\vec{k}'}\varphi(\vec{x},t)+\I\pi(\vec{x},t)\right)\E^{-\I\vec{k}'\cdot\vec{x}}\,\D^{3}x\looksLike a(k').
+\end{equation}
+Lets evaluate the left hand side, and see what we get. Plugging in the
+expansions for $\varphi$ and $\pi$ gives us
+\begin{equation}
+\begin{split}
+I_{1}(k')&=\iint\left[
+(\omega_{\vec{k}'}+\omega_{\vec{k}})a(k)\E^{-\I k_{\mu}x^{\mu}}
++(\omega_{\vec{k}'}-\omega_{\vec{k}})b(k)\E^{\I k_{\mu}x^{\mu}}
+\right]\frac{\E^{-\I\vec{k}'\cdot\vec{x}}}{2\omega_{\vec{k}}}\frac{\D^{3}x\,\D^{3}k}{(2\pi)^{3}}\\
+&=\iint\left[
+(\omega_{\vec{k}'}+\omega_{\vec{k}})a(k)\E^{-\I \omega_{\vec{k}}t +\I(\vec{k}-\vec{k}')\cdot\vec{x}}
++(\omega_{\vec{k}'}-\omega_{\vec{k}})b(k)\E^{\I \omega_{\vec{k}}t - \I(\vec{k}+\vec{k}')\cdot\vec{x}}
+\right]\frac{1}{2\omega_{\vec{k}}}\frac{\D^{3}x\,\D^{3}k}{(2\pi)^{3}}
+\end{split}
+\end{equation}
+Performing the integral over $x$ turns the exponential factors
+$\exp(\I(\vec{k}\pm\vec{k}')\cdot\vec{x}$ into delta functions
+$\delta^{(3)}(\vec{k}\pm\vec{k}')$. So we find
+\begin{equation}
+I_{1}(k')=\int\left[
+\delta(\vec{k}-\vec{k}')(\omega_{\vec{k}}+\omega_{\vec{k}'})a(k)\E^{-\I\omega_{\vec{k}}t}
++\delta(\vec{k}+\vec{k}')(\omega_{\vec{k}'}-\omega_{\vec{k}})b(k)\E^{\I \omega_{\vec{k}}t}
+\right]\frac{\D^{3}k}{2\omega_{\vec{k}}}
+\end{equation}
+The delta functions simplify things considerably, we get
+\begin{equation}
+\begin{split}
+I_{1}(k')&=\left[
+(2\omega_{\vec{k}'})a(k')\E^{-\I\omega_{\vec{k}'}t}
++(0)b(k')\E^{\I \omega_{\vec{k}'}t}
+\right]\frac{1}{2\omega_{\vec{k}'}}\\
+&=a(k')\exp(-\I\omega_{\vec{k}'}t).
+\end{split}
+\end{equation}
+So we find
+\begin{equation}\label{eq:scalar:ladder-operator-in-terms-of-field-vars}
+\begin{split}
+a(k) &= \E^{\I\omega_{\vec{k}}t}\int\left(\omega_{\vec{k}}\varphi(\vec{x},t)+\I\pi(\vec{x},t)\right)\E^{-\I\vec{k}\cdot\vec{x}}\,\D^{3}x\\
+&=\int\left(\omega_{\vec{k}}\varphi(\vec{x},t)+\I\pi(\vec{x},t)\right)\E^{\I k_{\mu}x^{\mu}}\,\D^{3}x
+\end{split}
+\end{equation}
+
+\N{Determining $b(k)$}
+Great, so lets try to do the same thing with $b(k)$. We expect 
+\begin{equation}
+I_{2}(k')\eqDef\int\left(\omega_{\vec{k}'}\varphi(\vec{x},t)-\I\pi(\vec{x},t)\right)\E^{\I\vec{k}'\cdot\vec{x}}\,\D^{3}x\looksLike b(k').
+\end{equation}
+Performing the exact same steps as before, we find
+\begin{equation}
+I_{2}(k') = b(k')\exp(\I\omega_{\vec{k}'}t)
+\end{equation}
+hence
+\begin{equation}
+\begin{split}
+b(k') &= \E^{-\I\omega_{\vec{k}'}t}\int\left(\omega_{\vec{k}'}\varphi(\vec{x},t)-\I\pi(\vec{x},t)\right)\E^{\I\vec{k}'\cdot\vec{x}}\,\D^{3}x\\
+&=
+\int\left(\omega_{\vec{k}'}\varphi(\vec{x},t)-\I\pi(\vec{x},t)\right)\E^{-\I k'_{\mu}x^{\mu}}\,\D^{3}x
+\end{split}
+\end{equation}
+Observe, though, this resembles Eq
+\eqref{eq:scalar:ladder-operator-in-terms-of-field-vars}\dots which is
+unsurprising. But it appears that $b(k)$ is just the complex conjugate
+of $a(k)$, i.e.,
+\begin{equation}
+b(k) = \bigl(a(k)\bigr)^{*}.
+\end{equation}
+So we\marginpar{\footnotesize\em CHANGE OF NOTATION $b(k)\to a^{\dagger}(k)$}
+change our notation to reflect this relationship between $b(k)$ and
+$a(k)$, using
+\begin{equation}
+b(k)\to a^{\dagger}(k).
+\end{equation}
+We will not use $b(k)$ henceforth when discussing the Scalar field. So,
+to reiterate, we have
+\begin{equation}\label{eq:scalar:adjoint-ladder-operator-in-terms-of-field-vars}
+a^{\dagger}(k') = \int\left(\omega_{\vec{k}'}\varphi(\vec{y},t)-\I\pi(\vec{y},t)\right)\E^{-\I k'_{\mu}y^{\mu}}\,\D^{3}y
+\end{equation}
+
+\N{Differences From Harmonic Oscillator}
+We have obtained ladder operators for our field. But we
+should note, the simple harmonic oscillator has
+\begin{equation}
+a_{\text{SHO}}\looksLike \sqrt{\omega}x + \frac{\I}{\sqrt{\omega}}p
+\end{equation}
+whereas for the scalar field
+\begin{equation}
+a_{\text{scalar}}\looksLike \omega\varphi + \I\pi.
+\end{equation}
+This is \emph{not} a typo or error, this is just a difference
+between the scalar field and the simple harmonic oscillator.
+
+\begin{thm}[Commutation Relations]\label{thm:scalar:ladder-op-commutation-relations}
+We see the coefficient operators obey commutation relations
+\begin{enumerate}[label=(\arabic*)]
+\item $\commutator{a(k)}{a^{\dagger}(k')}=2\omega_{\vec{k}}\cdot(2\pi)^{3}\delta^{(3)}(\vec{k}-\vec{k}').$
+\item $\commutator{a(k)}{a(k')}=0$
+\item $\commutator{a^{\dagger}(k)}{a^{\dagger}(k')}=0$
+\end{enumerate}
+\end{thm}
+\begin{proof} These problems are trivial thanks to Eqs
+  \eqref{eq:scalar:ladder-operator-in-terms-of-field-vars} and 
+  \eqref{eq:scalar:adjoint-ladder-operator-in-terms-of-field-vars}.
+
+% a(k) = \int\left(\omega_{\vec{k}}\varphi(\vec{x},t)+\I\pi(\vec{x},t)\right)\E^{\I k_{\mu}x^{\mu}}\,\D^{3}x
+% b(k) =  \int\left(\omega_{\vec{k}'}\varphi(\vec{y},t)-\I\pi(\vec{y},t)\right)\E^{-\I k'_{\mu}y^{\mu}}\,\D^{3}y
+(1) We find, after plugging in the integral expressions, we consider the
+  commutator of the integrands
+\begin{equation*}
+\commutator{a(k)}{a^{\dagger}(k')}
+=\int\commutator{\omega_{\vec{k}}\varphi(\vec{x},t)+\I\pi(\vec{x},t)}{\omega_{\vec{k}'}\varphi(\vec{y},t)-\I\pi(\vec{y},t)}\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x
+\end{equation*}
+Linearity ``simplifies'' this
+\begin{equation}\label{eq:proof:ladder-operator-commutation:expansion}
+\begin{split}
+\commutator{a(k)}{a^{\dagger}(k')}
+=&\int\commutator{\omega_{\vec{k}}\varphi(\vec{x},t)}{\omega_{\vec{k}'}\varphi(\vec{y},t)}\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x\\
+&-\int\commutator{\omega_{\vec{k}}\varphi(\vec{x},t)}{\I\pi(\vec{y},t)}\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x\\
+&+\int\commutator{\I\pi(\vec{x},t)}{\omega_{\vec{k}'}\varphi(\vec{y},t)}\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x\\
+&-\int\commutator{\I\pi(\vec{x},t)}{\I\pi(\vec{y},t)}\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x
+\end{split}
+\end{equation}
+Our usual commutation relations keeps only the second and third terms,
+which become (factoring out the common $\I$ factors from the momenta)
+\begin{align}
+\commutator{a(k)}{a^{\dagger}(k')}
+&=-\I\int\left(\commutator{\omega_{\vec{k}}\varphi(\vec{x},t)}{\pi(\vec{y},t)}
++\commutator{\omega_{\vec{k}'}\varphi(\vec{y},t)}{\pi(\vec{x},t)}\right)\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x\nonumber\\
+&=-\I\int\left(\I\omega_{\vec{k}}\delta^{(3)}(\vec{x}-\vec{y})
++\I\omega_{\vec{k}'}\delta^{(3)}(\vec{y}-\vec{x})\right)\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x
+\end{align}
+Great, performing the integral over $x$ gives us
+\begin{equation}
+\begin{split}
+\int&\left(\omega_{\vec{k}}\delta^{(3)}(\vec{x}-\vec{y})
++\omega_{\vec{k}'}\delta^{(3)}(\vec{y}-\vec{x})\right)\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x\\
+&=\int(\omega_{\vec{k}}+\omega_{\vec{k}'})\E^{\I(k_{\mu}-k'_{\mu})y^{\mu}}\D^{3}y
+\end{split}
+\end{equation}
+Again, this is just the Fourier transform of a simpler expression, since
+the only place $y$ appears is in the exponential factor (whose integral
+gives us a delta expression):
+\begin{equation}
+\int(\omega_{\vec{k}}+\omega_{\vec{k}'})\E^{\I(k_{\mu}-k'_{\mu})y^{\mu}}\D^{3}y
+=2\omega_{\vec{k}}\cdot(2\pi)^{3}\delta^{(3)}(\vec{k}-\vec{k}').
+\end{equation}
+Hence we conclude
+\begin{equation}
+\commutator{a(k)}{a^{\dagger}(k')} = 2\omega_{\vec{k}}\cdot(2\pi)^{3}\delta^{(3)}(\vec{k}-\vec{k}').
+\end{equation}
+Observe the time component in the exponential factor
+$\exp(\I(\omega_{\vec{k}}-\omega_{\vec{k}'})t)$ plays no role in the
+final answer, because the delta function restricts this to when the
+exponent vanishes (i.e., when $\omega_{\vec{k}}=\omega_{\vec{k}'}$).
+
+(2) We see from Eq
+\eqref{eq:proof:ladder-operator-commutation:expansion} that
+\begin{equation}
+\begin{split}
+\commutator{a(k)}{a(k')}
+=&\int\commutator{\omega_{\vec{k}}\varphi(\vec{x},t)}{\omega_{\vec{k}'}\varphi(\vec{y},t)}\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x\\
+&+\int\commutator{\omega_{\vec{k}}\varphi(\vec{x},t)}{\I\pi(\vec{y},t)}\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x\\
+&+\int\commutator{\I\pi(\vec{x},t)}{\omega_{\vec{k}'}\varphi(\vec{y},t)}\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x\\
+&+\int\commutator{\I\pi(\vec{x},t)}{\I\pi(\vec{y},t)}\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x
+\end{split}
+\end{equation}
+But only the second and third terms could survive, since momentum
+commutes with itself (and the field commutes with itself, too). But we
+see, by the exact same computations as before, we have a slight
+difference in sign:
+\begin{equation}\label{eq:proof:ladder-operator-commutation:vanishing-expansion}
+\begin{split}
+\int&\left(\commutator{\omega_{\vec{k}}\varphi(\vec{x},t)}{\I\pi(\vec{y},t)}-\commutator{\omega_{\vec{k}'}\varphi(\vec{y},t)}{\I\pi(\vec{x},t)}\right)\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x\\
+&=
+\int(\omega_{\vec{k}}-\omega_{\vec{k}'})\E^{\I(k_{\mu}-k'_{\mu})y^{\mu}}\D^{3}y
+\end{split}
+\end{equation}
+which vanishes.
+
+(3) By the same token, we see
+\begin{equation}
+\begin{split}
+\commutator{a^{\dagger}(k)}{a^{\dagger}(k')}
+=&\int\commutator{\omega_{\vec{k}}\varphi(\vec{x},t)}{\omega_{\vec{k}'}\varphi(\vec{y},t)}\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x\\
+&-\int\commutator{\omega_{\vec{k}}\varphi(\vec{x},t)}{\I\pi(\vec{y},t)}\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x\\
+&-\int\commutator{\I\pi(\vec{x},t)}{\omega_{\vec{k}'}\varphi(\vec{y},t)}\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x\\
+&+\int\commutator{\I\pi(\vec{x},t)}{\I\pi(\vec{y},t)}\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x
+\end{split}
+\end{equation}
+which produces Eq
+\eqref{eq:proof:ladder-operator-commutation:vanishing-expansion}
+exactly, which we saw vanishes.
+\end{proof}
+
+\begin{xca}
+Express the Hamiltonian in terms of $a(k)$, $a^{\dagger}(k)$. Recall
+\begin{equation*}
+H = \frac{1}{2}\int\left(\pi(x)^{2}+|\nabla\varphi(x)|^{2}+m^{2}\varphi(x)^{2}\right)\D^{3}x
+\end{equation*}
+\end{xca}
+\begin{soln}
+The real trick is to consider the commutation relations
+\begin{equation}
+\commutator{H}{\varphi(\vec{x}, t)}=\partial_{t}\varphi(\vec{x}, t)
+\end{equation}
+and how the commutator acts on the $a(k)$, $a^{\dagger}(k)$
+operators. We then guess the form of $H$ based on the commutation
+relations \Mref{thm:scalar:ladder-op-commutation-relations}.
+\end{soln}
+
+\N{Definition}
+The \define{Ground State} (or ``\emph{Vacuum State}'' or just
+``Vacuum'') is the guy in the Fock space $\ket{\vacuum}$ satisfying
+\begin{equation}
+a(k)\ket{0}=0,\quad\mbox{and}\quad \braket{\vacuum|\vacuum}=1.
+\end{equation}
+The state $a^{\dagger}(k)\ket{\vacuum}$ contains 1 particle of momentum
+$\vec{k}$ and energy $\omega_{k}$. Similarly,
+$a^{\dagger}(k)^{2}\ket{\vacuum}$ contains two such particles, and so
+on.
+
+\N{Physical States}
+Lets try to take physical states as the ones which are normalizable,
+i.e.,
+\begin{equation}
+0<|\braket{\mbox{phy}|\mbox{phy}}|<\infty.
+\end{equation}
+But look, $a^{\dagger}(k)\ket{\vacuum}$ is not normalizable:
+\begin{subequations}
+\begin{align}
+\braket{\vacuum|a(k)a^{\dagger}(k)|\vacuum}
+&= \braket{\vacuum|a^{\dagger}(k)a(k) + \commutator{a(k)}{a^{\dagger}(k)}|\vacuum}\\
+&= \braket{\vacuum|a^{\dagger}(k)a(k)|\vacuum}
+   + \braket{\vacuum|2\omega_{k}(2\pi)^{3}\delta(0)|\vacuum}\\
+&= 0 + 2\omega_{k}(2\pi)^{3}\delta(0)
+\end{align}
+\end{subequations}
+Hatfield~\cite{Hatfield:1992rz} argues this stray $\delta(0)$ is because
+we are working with plane waves, which are not normalizable if the
+volume containing the system is infinite. But I don't buy
+this. Hatfield's reasoning appears to be based on the Fourier transform
+of the delta function
+\begin{equation}
+\delta^{k}(x-x_{0}) = \frac{1}{(2\pi)^{k}}\int\E^{\I p\cdot(x-x_{0})}\D^{k}x
+\end{equation}
+then taking $x=x_{0}$ produces
+\begin{equation}
+\delta^{k}(0)\looksLike\int_{\RR^{k}}\D^{k}x
+\end{equation}
+which is precisely an integral over a given region.
+I should rework everything in a finite box (with periodic boundary
+conditions)\dots later. At any rate, to get normalizable states, we
+should build a wave packet using superposition.
+
+% 20
+
+To be more precise, we smear\index{Smear}\index{Test Function!Smear} out
+$a^{\dagger}(k)$. So the state
+\begin{equation}
+\ket{f} = \int f(\vec{k})a^{\dagger}(k)\ket{0}\,\D^{3}k
+\end{equation}
+will be normalizable, provided
+\begin{equation}
+0<\int|f(\vec{k})|^{2}\,\D^{3}k<\infty.
+\end{equation}
+So $a^{\dagger}(k)$ really only makes sense in an integral with a test
+function $f(\vec{k})$. Hence $a^{\dagger}(k)$ is a distribution,
+well---as alluded earlier---an ``operator-valued distribution''. So
+doing an integral containing $a(k)$ gives us an operator (whereas an
+integral containing $\delta(x)$ results in a number). Wearing our
+physicist's cap, we will be sloppy and continue calling such things
+``operators''.
+
+We find the vacuum $\ket{\vacuum}$ is an eigenstate of the
+Hamiltonian. What is its energy? We find:
+\begin{equation}
+\begin{split}
+\braket{\vacuum|H|\vacuum}
+&=\frac{1}{2}\int\braket{\vacuum|\omega_{k}(0+a(k)a^{\dagger}(k))|\vacuum}\frac{\D^{3}k}{(2\pi)^{3}}\\
+&=\frac{1}{2}\int\omega_{k}\delta(0)\frac{\D^{3}k}{(2\pi)^{3}}
+\end{split}
+\end{equation}
+As noted earlier, Hatfield equates $(2\pi)^{3}\delta^{3}(0)=\int\D^{3}x$
+and asserts it is related to the infinite volume of the system, but in a
+box\dots we'd get a similar divergence.
+
+At any rate, the trick is to reorder the Hamiltonian and throw away the
+divergent bit. We do this through normal ordering, which puts creation
+operators to the left of the annihilation operators:
+\begin{equation}
+\normalOrder{a^{\dagger}(k)a(k)}
+=\normalOrder{a(k)a^{\dagger}(k)}
+=a^{\dagger}(k)a(k)
+\end{equation}
+Normal ordering is indicated by ``$\normalOrder{-}$''. The normally
+ordered Hamiltonian is then
+\begin{equation}
+\normalOrder{H}=\int\omega_{k}a^{\dagger}(k)a(k)\frac{1}{2\omega_{k}}\frac{\D^{3}k}{(2\pi)^{3}}.
+\end{equation}
+Observe  then that
+\begin{equation}
+\braket{\vacuum|\normalOrder{H}|\vacuum}=0.
+\end{equation}
+Without loss of generality, we will assume that the Hamiltonian is
+always normal ordered.
+
+\N{Lorentz Invariance}
+We started with a classical relativistic field, then seemingly broke
+Lorentz invariance by using equal-time commutators. Nuts! We can
+rephrase this as ``To quantize, we must choose a specific Lorentz
+frame'', i.e., quantization is frame-dependent. We want Lorentz
+invariance! One way to do this is to verify the quantum operator forms
+of the generators of the Lorentz algebra still form a proper algebra
+after quantization.
+
+We should recall the basic structure of the Lorentz group. Confusingly,
+most physicists refer to its Lie algebra as the ``Lorentz group''. We
+will not. What symmetries does the Lorentz group consist of? There are
+three:
+\begin{enumerate}
+\item Translations $x^{\mu}\to x^{\mu} + h^{\mu}$ for some constant
+  $h^{\mu}$ displacement;
+\item Spatial Rotations $x^{j}\to {R^{j}}_{k}x^{k}$ for $k=1,2,3$;
+\item Lorentz Boosts $x^{t}\to {\Lambda^{t}}_{\mu}x^{\mu}$
+\end{enumerate}
+Physicists really care about the Lie algebra (``infinitesimal
+symmetries'' which are ``close'' to the identity transformation).
+
+We expect the field momentum operator (not to be confused with the
+conjugate momenta) should be
+\begin{equation*}
+P^{\mu}\sim\sum_{k} k^{\mu}
+  \begin{pmatrix}\mbox{number of}\\
+    \mbox{particles in}\\
+    \mbox{state $k^{\mu}$}
+  \end{pmatrix}.
+\end{equation*}
+We can make this more rigorous by writing it out as
+\begin{equation}
+P^{\mu} = \int k^{\mu}a^{\dagger}(k)a(k)\frac{1}{2\omega_{k}}\frac{\D^{3}k}{(2\pi)^{3}}
+\end{equation}
+This is our definition for $P^{\mu}$.
+
+\N*{Puzzle:} What is the field momentum operator in terms of $\varphi(x)$
+and $\pi(x)$?
+
+\N*{Solution:} After a bit of gymnastics, we find
+\begin{equation}
+  P^{j} = -\int\pi(x)\partial_{j}\phi(x)\,\D^{3}x.
+\end{equation}
+
+\N{Faster-Than-Light Problem?}
+We \emph{really} don't want signals traveling faster than light. What to
+do? We could specify commutators between fields vanish for space-like
+intervals, i.e., for points $x$ and $y$ such that $(x-y)^{2}<0$. We
+consider what this means, exactly, using the expansions:
+\begin{subequations}
+  \begin{align}
+    \commutator{\varphi(x)}{\varphi(y)}
+    &= \int\left(\commutator{a(k)}{a^{\dagger}(k')}\E^{-\I k\cdot
+      x}\E^{-\I k'\cdot y} + \commutator{a^{\dagger}(k)}{a(k')}\E^{\I
+      k\cdot x}\E^{-\I k'\cdot
+      y}\right)\frac{1}{2\omega_{k}}\frac{1}{2\omega_{k'}}\frac{\D^{3}k'}{(2\pi)^{3}}\frac{\D^{3}k}{(2\pi)^{3}}\\
+&=\int\frac{1}{2\omega_{k}}(\E^{-\I k\cdot(x-y)}-\E^{\I k\cdot(x-y)})\frac{\D^{3}k}{(2\pi)^{3}}\\
+&=\colon \I\Delta(x-y) = \I\Delta(x-y; m)
+  \end{align}
+\end{subequations}
+where in that last line, we define $\Delta(x-y)$ and note that sometimes
+we include the mass $m$ as a parameter.
+
+\N*{Claim} The quantity $\Delta(x-y)$ is Lorentz-invariant.
+
+\N*{Observation}
+We see $\commutator{\varphi(x)}{\varphi(y)}=0$ when $x^{t}=y^{t}$,
+implies $\Delta(x-y)=0$ when $x^{t}=y^{t}$.
+
+\N*{Conclusion} We find $\commutator{\varphi(x)}{\varphi(y)}=0$ when
+$(x-y)^{2}<0$ since it's true at equal times. Hence we can Lorentz boost
+to see this describes arbitrary space-like intervals.
+
+\N{Definition}
+The \define{Pauli--Jordan Operator}\index{Pauli--Jordan Operator|textbf}
+is precisely 
+\begin{equation}
+\Delta(x-y) = -\I\commutator{\varphi(x)}{\varphi(y)}.
+\end{equation}
+The \define{Pauli--Jordan Function}\index{Pauli--Jordan Function|textbf}
+is $\braket{\vacuum|\Delta(x-y)|\vacuum}$.
+
+\begin{rmk}
+For more on this, see Ryder~\cite[\S4.2 and \S6.1]{Ryder:1985wq}
+\end{rmk}
+
+\N{Definition}
+The property $\commutator{\varphi(x)}{\varphi(y)}=0$ for space-like
+$(x-y)^{\mu}$ is called \define{Microscopic Causality}\index{Microscopic Causality}
+(or ``\emph{Micro-Causality\/}''). 
+
+(See Wright~\cite{wright2012thesis} for a full discussion of the
+philosophical consequences of microcausality.)
+
+\N{Remark}
+The microcausal proeprty suggests we can measure the field at two 
+space-like separated points exactly and ``simultaneously'' without 
+interference or having one measurement disturbing the other. On 
+the other hand, we cannot have terms like $\varphi(\vec{x})^{2}$ 
+without causing horrible problems. For this reason, we 
+smear\index{Smear}\index{Smearing Fields}\index{Fields!Smearing} 
+field quantities, opting for 
+$f(\vec{x}, \vec{y})\varphi(\vec{x})\varphi(\vec{y})$ 
+instead.
+
+\begin{thm}[Interesting Properties of $\Delta$]
+The function $\Delta(x-y)$ has the following properties:
+\begin{enumerate}
+\item It is odd: $\Delta(x-y)=-\Delta(y-x)$
+\item $\left.\partial_{t}\Delta(x-y)\right|_{x^{t}=y^{t}} = -\delta^{3}(x-y)$.
+\item It satisfies the Klein--Gordon equation: $(\Box + m^{2})\Delta(x)=0$.
+\end{enumerate}
+\end{thm}
+
+% pg 23
+\M
+
+\N{Remark}
+
+\section{Charged Scalar Fields}
+
+\N{Antiparticles}
+
+\N{Canonical Formalism With Hermitian Fields}
+
+\N{Canonical Formalism With Complex Fields}
+
+\N{Plane Wave Expansion}
+
+\N{$\U{1}$-Invariance}
+
+\N{Remark}
+
+\N{Remark}
+
+\N{Remark}
+
+\section{Time-Ordering and Propagators}
+
+\N{Motivating Example}
+
+\N{Definition}
+
+\M
+
+\N{Remark}

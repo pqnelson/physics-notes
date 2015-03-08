@@ -81,9 +81,10 @@ momenta. The conditions $\phi_{m}(q,p)=0$ are called \define{Primary
 to obtain these relations, and they imply no restriction on the
 coordinates $q^{n}$ and their velocities $\dot{q}^{n}$.
 
-\N{Definition}
+\begin{defn}
 The \define{Primary Constraint Surface} consists of the submanifold
 smoothly embedded in phase space according to $\phi_{m}(q,p)=0$.
+\end{defn}
 
 \N*{Remarks}
 We have some simplifying assumptions and remarks worth carrying around.
@@ -459,7 +460,7 @@ When we insert this into the remaining equation
 \end{equation}
 we recover the Lagrangian equations of motion precisely.
 
-\N{Derived from Variational Principle}
+\N{Derived from Variational Principle}\label{M:total-action-principle}
 We may derive Hamilton's equations of motion from the variational
 principle
 \begin{equation}
@@ -726,7 +727,7 @@ which is weakly the equations of motion.
 \begin{xca}
 Show $\PoissonBracket{\firstClassHamiltonian}{\phi_{j}}\weakEq0$.
 \end{xca}
-\begin{defn}
+\begin{defn}\label{defn:total-hamiltonian}
   The \define{Total Hamiltonian} is
   \begin{equation}
     \totalHamiltonian \eqDef \firstClassHamiltonian + v^{a}\phi_{a} = H + u^{m}\phi_{m}
@@ -1236,3 +1237,299 @@ Simoes~\cite{Costa:1985tt}; Cabo and Louis-Martinez~\cite{Cabo:1990jk};
 Lusanna~\cite{Lusanna:1991je,Lusanna:1991im};
 Wu~\cite{Wu:1994jd}; Miskovic and Zanelli~\cite{Miskovic:2003ex};
 Rothe and Rothe~\cite{Rothe:2004jc}.
+
+\subsection{Extended Hamiltonian}
+
+\N{Notation} We denote all first-class constraints as
+$\firstClassConstraint$ and all second-class constraints as
+$\secondClassConstraint$.
+
+\M
+We arged, in the Hamiltonian setting, the first-class versus
+second-class divide was natural. But our equations of motion depended on
+the total Hamiltonian \Mref{defn:total-hamiltonian}, i.e., first-class primary
+constraints\dots which is not natural! We thus introduce a ``natural''
+generalization. 
+
+\begin{defn}\label{defn:extended-hamiltonian}
+The \define{Extended Hamiltonian} is 
+\begin{equation*}
+\extendedHamiltonian\eqDef\firstClassHamiltonian+u^{a}\firstClassConstraint_{a}
+\end{equation*}
+where $a$ runs over all first-class constraints.
+\end{defn}
+
+\N{Dynamics}
+For gauge-invariant quantities (i.e., $F$ such that
+$\PoissonBracket{F}{\firstClassConstraint_{a}}\weakEq0$ for all $a$),
+their time evolution is the same if we used $\firstClassHamiltonian$,
+$\totalHamiltonian$, or $\extendedHamiltonian$. But for non-gauge
+invariant quantities, we must use $\extendedHamiltonian$ for their
+time-evolution to account for the gauge freedom of the system.
+
+\M
+We should stress $\totalHamiltonian$ reproduces the Lagrangian theory's
+dynamics, because its equations of motion are precisely the Lagrangian
+equations of motion. The use of $\extendedHamiltonian$ extends beyond
+the Lagrangian formalism, making all gauge-invariance manifest.
+
+\subsection{Extended Action Principle}
+
+\M
+Recall the total action principle \Mref{M:total-action-principle}, we had
+\begin{equation*}
+\action_{T} = \int(\dot{q}^{n}p_{n} - \firstClassHamiltonian - u^{m}\phi_{m})\,\D t
+\end{equation*}
+where $u^{m}\phi_{m}$ is over all primary constraints. This reproduced
+the Euler-Lagrange equations of motion.
+
+\M
+If, instead, we consider
+\begin{equation}
+\action_{E} = \int(\dot{q}^{n}p_{n} - \firstClassHamiltonian - u^{m}\phi_{m})\,\D t
+\end{equation}
+where we sum over \emph{all} constraints, and we solve the second-class
+constraints before varying, then\dots well we have
+\begin{equation}
+\action_{E} = \int(\dot{q}^{n}p_{n} - \extendedHamiltonian)\,\D t
+\end{equation}
+and variation gives us
+\begin{subequations}
+\begin{align}
+\PoissonBracket{F}{\extendedHamiltonian}&\weakEq\dot{F}\\
+\phi_{j}&\weakEq0
+\end{align}
+\end{subequations}
+
+\section{Secondary Constraints and the Dirac Bracket}
+
+\subsection{Separation of First-Class and Second-Class Constraints}
+
+\M
+We have second-class constaints whenever the matrix
+\begin{equation}
+C_{jj'}=\PoissonBracket{\phi_{j}}{\phi_{j'}}
+\end{equation}
+does not vanish on the constraint surface. We will assume for now the
+simpler case: we have irreducible constraints. We will also assume that
+$\rank(C_{jj'})$ is constant on the constraint surface.
+
+\begin{thm}
+If $\det(C_{jj'})\weakEq0$, then there exists at least one first-class
+constraint among the $\phi_{j}$'s.
+\end{thm}
+
+\begin{proof}
+If $\det(C_{jj'})\weakEq0$, we may find a nonzero solution to the system
+\begin{equation}
+\lambda^{j}C_{jj'}\weakEq0.
+\end{equation}
+The constraint $\lambda^{j}\phi_{j}$ is clearly first-class, since
+\begin{subequations}
+\begin{align}
+\PoissonBracket{\phi_{j'}}{\phi_{j}\lambda^{j}}
+&=\phi_{j}\PoissonBracket{\phi_{j'}}{\lambda^{j}}+\lambda^{j}\PoissonBracket{\phi_{j'}}{\phi_{j}}\\
+&=\phi_{j}\PoissonBracket{\phi_{j'}}{\lambda^{j}}-\lambda^{j}C_{jj'}\\
+&=\phi_{j}\PoissonBracket{\phi_{j'}}{\lambda^{j}}\\
+&\weakEq0\qedhere
+\end{align}
+\end{subequations}
+\end{proof}
+\M
+We can redefine the constraints
+\begin{equation}
+\phi_{j}\to{a_{j}}^{j'}\phi_{j'}
+\end{equation}
+with some appropriate invertible matrix ${a_{j}}^{j'}$, then enabling us
+to write $\lambda^{j}\phi_{j}$ as the first-class constraint in an
+equivalent representation of the constraint surface. In that
+representation $C_{1j}=-C_{j1}\weakEq0$.
+
+\begin{puzzle}
+What does ${a_{j}}^{j'}$ look like?
+\end{puzzle}
+
+\M
+We gain an efective algorithm to generate an equivalent representation
+of first-class constaints $\firstClassConstraint_{a}\weakEq0$ and
+second-class constraints $\secondClassConstraint_{\alpha}\weakEq0$ which
+makes the Poisson bracket matrix read weakly
+\begin{equation}
+C_{jj'}\weakEq\begin{blockarray}{ccc}
+ & \firstClassConstraint_{a} & \secondClassConstraint_{\alpha}\\
+\begin{block}{c(cc)}
+\firstClassConstraint_{b}      & 0 & 0 \\
+\secondClassConstraint_{\beta} & 0 & C_{\beta\alpha}\\
+\end{block}
+\end{blockarray}
+\end{equation}
+where $C_{\beta\alpha}$ is an antisymmetric matrix everywhere nonzero on
+the constraint surface.
+
+\N{Non-Unique Results}
+This algorithm does not produce unique results. It is preserved by teh
+redefinitions
+\begin{subequations}
+\begin{equation}
+\firstClassConstraint_{a}
+\to{a_{a}}^{b}\firstClassConstraint_{b}
+\end{equation}
+and
+\begin{equation}
+\secondClassConstraint_{\alpha}\to{a_{\alpha}}^{\beta}\secondClassConstraint_{\beta}
++{a_{\alpha}}^{a}\firstClassConstraint_{a}
+\end{equation}
+\end{subequations}
+where $\det({a_{a}}^{b})\neq0$ and $\det({a_{\alpha}}^{\beta})\neq0$. We
+could add squares of second class constraints to
+$\firstClassConstraint_{a}$ without changing the results:
+$\firstClassConstraint_{a}\to\firstClassConstraint_{a}+t^{\alpha\beta}_{a}\secondClassConstraint_{\alpha}\secondClassConstraint_{\beta}$.
+
+\N{Assume}
+The second-class constraints are such that $\det(C_{\alpha\beta})\neq0$
+everywhere on the surface $\secondClassConstraint_{\alpha}=0$ --- not
+just
+$\secondClassConstraint_{\alpha}=0\land\firstClassConstraint_{a}=0$. This
+is necessary to properly handle second-class constraints.
+
+\subsection{Treatment of Second-Class Constraints: An Example}
+
+\M
+We cannot interpret second-class constraints as gauge generators or even
+as generators of any transformation of any physical significance. Why?
+Well ,the contact transformations generated by a second-class constraint
+$\secondClassConstraint$ does not preserve all the constraints
+$\phi_{j}\weakEq0$, thus mapping an allowed state to a non-allowed
+state.
+
+\M
+How do we treat second-class constraints? Consider a toy model with $N$
+pairs of canonical coordinates and the first pair $(q_{1}, p_{1})$
+constrained to zero. The constraints are then
+$\secondClassConstraint_{1}=q_{1}$ and
+$\secondClassConstraint_{2}=p_{1}$. We see they are second class since
+their Poisson bracket with each other
+\begin{equation}
+\PoissonBracket{\secondClassConstraint_{1}}{\secondClassConstraint_{2}}=1
+\end{equation}
+is nonzero, not even weakly zero!
+
+What to do? Well, these constraints tell us these coordinates $q_{1}$
+and $p_{1}$ are not physically important. We can just discard them and
+work with a modified Poisson Bracket
+\begin{equation}
+\DiracBracket{F}{G} = \sum_{n=2}^{N}\frac{\partial F}{\partial
+q^{n}}\frac{\partial G}{\partial p_{n}}
+-\frac{\partial G}{\partial q^{n}}\frac{\partial F}{\partial p_{n}}
+\end{equation}
+Observe we may set the second-class constraints to zero
+before working with our modified bracket $\DiracBracket{-}{-}$. 
+
+The moral? We need some suitable generalization of the Poisson bracket
+when dealing with second-class constraints.
+
+\subsection{The Dirac Bracket}
+
+\begin{defn}
+The \define{Dirac Bracket} is
+\begin{equation}
+\DiracBracket{F}{G} = \PoissonBracket{F}{G} - \PoissonBracket{F}{\secondClassConstraint_{\alpha}}C^{\alpha\beta}\PoissonBracket{\secondClassConstraint_{\beta}}{G}
+\end{equation}
+where $C^{\alpha\beta}$ is the matrix inverse of
+$C_{\alpha\beta}=\PoissonBracket{\secondClassConstraint_{\alpha}}{\secondClassConstraint_{\beta}}$,
+i.e., $C^{\alpha\gamma}C_{\gamma\beta}={\delta^{\alpha}}_{\beta}$.
+\end{defn}
+
+\begin{thm}
+The Dirac bracket has all the nice properties of the Poisson bracket,
+i.e.,
+\begin{enumerate}
+\item Antisymmetry $\DiracBracket{F}{G}=-\DiracBracket{G}{F}$
+\item Leibniz rule $\DiracBracket{F}{GR}=\DiracBracket{F}{G}R+G\DiracBracket{F}{R}$
+\item Jacobi identity $\DiracBracket{F}{\DiracBracket{G}{R}}+\DiracBracket{G}{\DiracBracket{R}{F}}+\DiracBracket{R}{\DiracBracket{F}{G}}=0$.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+\begin{enumerate}
+\item Antisymmetry is straightforward
+\begin{subequations}
+\begin{align}
+\DiracBracket{F}{G}
+&=\PoissonBracket{F}{G} - \PoissonBracket{F}{\secondClassConstraint_{\alpha}}C^{\alpha\beta}\PoissonBracket{\secondClassConstraint_{\beta}}{G}\\
+&=-\PoissonBracket{G}{F} - (-1)^{3}\PoissonBracket{\secondClassConstraint_{\alpha}}{F}C^{\beta\alpha}\PoissonBracket{G}{\secondClassConstraint_{\beta}}\\
+&=-\bigl(\PoissonBracket{G}{F} - \PoissonBracket{\secondClassConstraint_{\alpha}}{F}C^{\beta\alpha}\PoissonBracket{G}{\secondClassConstraint_{\beta}}\bigr)\\
+&=-\DiracBracket{G}{F}
+\end{align}
+\end{subequations}
+\item Leibniz rule
+\begin{subequations}
+\begin{align}
+\DiracBracket{F}{GR}
+&=\PoissonBracket{F}{GR}-\PoissonBracket{F}{\secondClassConstraint_{\alpha}}C^{\alpha\beta}\PoissonBracket{\secondClassConstraint_{\beta}}{GR}\\
+&=(\PoissonBracket{F}{G}R + G\PoissonBracket{F}{R})-(\PoissonBracket{F}{\secondClassConstraint_{\alpha}}C^{\alpha\beta})(\PoissonBracket{\secondClassConstraint_{\beta}}{G}R+G\PoissonBracket{\secondClassConstraint_{\beta}}{R})\\
+&=(\PoissonBracket{F}{G} - \PoissonBracket{F}{\secondClassConstraint_{\alpha}}C^{\alpha\beta}\PoissonBracket{\secondClassConstraint_{\beta}}{G})R
++G(\PoissonBracket{F}{R}-\PoissonBracket{F}{\secondClassConstraint_{\alpha}}C^{\alpha\beta}\PoissonBracket{\secondClassConstraint_{\beta}}{R})\\
+&=\DiracBracket{F}{G}R+G\DiracBracket{F}{R}
+\end{align}
+\end{subequations}
+\item The Jacobi rule\dots is left as an exercise.
+\end{enumerate}
+\end{proof}
+
+\begin{thm}\label{thm:dirac-bracket:addlProperties}
+The Dirac bracket further satisfies:
+\begin{enumerate}
+\item $\DiracBracket{\secondClassConstraint_{\alpha}}{F}=0$ for any $F$
+\item $\DiracBracket{F}{G}\weakEq\PoissonBracket{F}{G}$ for any
+first-class $G$ and arbitrary $F$
+\item
+$\DiracBracket{R}{\DiracBracket{F}{G}}\weakEq\PoissonBracket{R}{\PoissonBracket{F}{G}}$
+for any first-class $F$ and $G$, and arbitrary $R$.
+\end{enumerate}
+\end{thm}
+
+\M
+From the property $\DiracBracket{\secondClassConstraint_{\alpha}}{F}=0$
+for any $F$, the second-class constraints may be set to zero either
+before or after evaluating a Dirac bracket.
+
+\M\label{M:dirac-bracket:dynamics}
+The extended Hamiltonian \Mref{defn:extended-hamiltonian}, being
+first-class, still generates the equations of motion
+\begin{equation}
+\dot{F}\weakEq\PoissonBracket{F}{\extendedHamiltonian}
+\weakEq\DiracBracket{F}{\extendedHamiltonian}
+\end{equation}
+by property 2 of theorem \ref{thm:dirac-bracket:addlProperties}.
+
+\M\label{M:dirac-bracket:gauge-transformations}
+The gauge transformations may be expressed usign the Dirac Bracket since
+\begin{equation}
+\DiracBracket{F}{\firstClassConstraint_{a}}\weakEq\PoissonBracket{F}{\firstClassConstraint_{a}}
+\end{equation}
+for any $F$.
+
+\N{Eliminating Second-Class Constraints}
+All the equations of the theory areformulated in terms of the Dirac
+bracket. We see this works for dynamics \Mref{M:dirac-bracket:dynamics}
+and gauge
+transformations \Mref{M:dirac-bracket:gauge-transformations}. Then the
+second-class constraints merely express identities, expressing some
+canonical variables in terms of others (as strong equations). Put
+simply, second-class constraints can be used in simple cases to
+eliminate some degrees of freedom. In principle, we can do this for more
+complicated system --- for any second-class constraint, really ---
+though it may be difficult to do in practice.
+
+\N{Remark}
+The separation of constraints into first-class and second-class is not
+unique. We may consider a replacement
+$\secondClassConstraint_{\alpha}\to{a_{\alpha}}^{\beta}\secondClassConstraint_{\beta}+{a_{\alpha}}^{a}\firstClassConstraint_{a}$
+which leaves the formalism unchanged in the sense that the Dirac
+brackets of gauge-invariant functions are unchanged on the
+$\firstClassConstraint_{a}=0$ surface.
+
+\subsection{Reducible First-Class and Second-Class Constraints}
+
+\M
+We will say the reducible constraints
