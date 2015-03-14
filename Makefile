@@ -2,6 +2,9 @@ TEX=pdflatex
 FILE=physics
 BIB=biber
 
+index:
+	makeindex -s svind.ist $(FILE)
+
 all:
 	$(TEX) $(FILE)
 	$(BIB) $(FILE)

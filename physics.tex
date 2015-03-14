@@ -1,20 +1,39 @@
-\documentclass[oneside]{book}
+% \documentclass[oneside]{book}
+\documentclass[graybox,envcountchap,sectrefs,vecphys,nospthms]{svmono}
+%% \usepackage{mathptmx}
+%% \usepackage{helvet}
+%% \usepackage{courier}
+%
+\usepackage{type1cm}         
+
+\usepackage{makeidx}         % allows index generation
+%% \usepackage{graphicx}        % standard LaTeX graphics tool
+%%                              % when including figure files
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+
 \input{macros}
 \input{notation}
-\title{Notes on Physics}
-\date{April 13, 2014}
+% \date{April 13, 2014}
+
+\makeindex
+
 \begin{document}
-\frontmatter
+\frontmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \hypersetup{pageanchor=false}
+\title{Notes on Physics}
+\author{Alex Nelson}
 \maketitle
-\nocite{*}
-\chapter{Preface}
+
+% \nocite{*}
+\preface % \chapter{Preface}
 \hypersetup{pageanchor=true}
 \input{tex/preface}
 
 \tableofcontents
 
-\mainmatter
+\mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introduction}
 \input{tex/intro}
 
@@ -34,7 +53,8 @@
 \chapter{Dirac Equation}
 \input{tex/dirac-eqn}
 
-\backmatter
-\appendix
+\backmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \appendix
 \printbibliography[heading=bibintoc]
+\printindex
 \end{document}

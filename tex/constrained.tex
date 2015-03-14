@@ -77,14 +77,16 @@ other. So we have some relationships among them
 \end{equation}
 for $m=1,\dots,M$, which follow just from the definition of the
 momenta. The conditions $\phi_{m}(q,p)=0$ are called \define{Primary
-  Constraints} to emphasize the equations of motion \emph{are not} used
+  Constraints}\index{Constraint!Primary|textbf}\index{Primary Constraint|textbf} to emphasize the equations of motion \emph{are not} used
 to obtain these relations, and they imply no restriction on the
 coordinates $q^{n}$ and their velocities $\dot{q}^{n}$.
 
-\begin{defn}
-The \define{Primary Constraint Surface} consists of the submanifold
+\begin{definition}
+The \define{Primary Constraint Surface}\index{Primary
+Constraint!Surface}\index{Primary Constraint
+Surface|textbf}\index{Constraint Surface!Primary} consists of the submanifold
 smoothly embedded in phase space according to $\phi_{m}(q,p)=0$.
-\end{defn}
+\end{definition}
 
 \N*{Remarks}
 We have some simplifying assumptions and remarks worth carrying around.
@@ -131,7 +133,7 @@ conditions (restrictions) on the choice of the functions $\phi_{m}$
 representing the primary constraint surface. These are precisely the
 \emph{Regularity Conditions}.
 
-\N{Regularity Conditions}\label{n:constrained-hamiltonian:regularity-cond}
+\N{Regularity Conditions}\index{Regularity Conditions|(}\label{n:constrained-hamiltonian:regularity-cond}
 The $(2N-M')$-dimensional constraint surface $\phi_{m}=0$ should be
 coverable by open regions, on each of which (``locally'') the
 constraint functions $\phi_{m}$ are either
@@ -143,7 +145,7 @@ constraint functions $\phi_{m}$ are either
     $M$) which holds as a consequence of others ($\phi_{m'}=0\implies\phi_{\bar{m}'}=0$).
 \end{enumerate}
 
-\begin{thm}
+\begin{theorem}
 The regularity condition on the Jacobian matrix
 $\partial(\phi_{m'})/\partial(q^{n},p_{n})$ may be reformulated as any
 of the following equivalent conditions:
@@ -162,7 +164,7 @@ of the following equivalent conditions:
   arbitrary variations $\delta q^{j}$ and $\delta p_{j}$ of order
   $\varepsilon$.
 \end{enumerate}
-\end{thm}
+\end{theorem}
 \begin{proof}[Sketch of Proof]
 We see independent constraints $\phi_{m'}$ $\iff$ \eqref{thm:regularity-cond:regular-coords}
 immediately.
@@ -171,7 +173,7 @@ We see \eqref{thm:regularity-cond:regular-coords} $\iff$ \eqref{thm:regularity-c
 immediately.
 
 Lastly, we find linearity condition \eqref{thm:regularity-cond:locally-linear-independent} $\iff$ \eqref{thm:regularity-cond:dirac-cond}
-immediately.
+immediately.\index{Regularity Conditions|)}
 \end{proof}
 
 \N{Example}
@@ -202,10 +204,10 @@ picking $\phi_{m}$ such that \emph{in principle} this could be done.
 At any rate, when $\phi_{m}$ satisfy the regularity conditions, we have
 two useful properties.
 
-\begin{thm}
+\begin{theorem}
 If a (smooth) phase space function $G$ vanishes on the surface
 $\phi_{m}=0$, then $G=g^{m}\phi_{m}$ for some functions $g^{m}$.
-\end{thm}
+\end{theorem}
 
 \begin{proof}
 We use the fact that we may write a new regular coordinate system
@@ -224,7 +226,7 @@ g^{m}=\int^{1}_{0}\frac{\partial}{\partial y_{m'}}G(ty, x)\,\D t.\qedhere
 \end{equation*}
 \end{proof}
 
-\begin{thm}\label{thm:variation-tangent-to-constraint-surface}
+\begin{theorem}\label{thm:variation-tangent-to-constraint-surface}
 If $\lambda_{n}\delta q^{n} + \mu^{n}\delta p_{n}=0$ for arbitrary
 variations $\delta q^{n}$, $\delta p_{n}$ tangent to the constraint
 surface, then
@@ -236,7 +238,7 @@ surface, then
 \end{equation}
 for some $u^{m}$. (The equalities here are equalities on the constraint
 surface.) 
-\end{thm}
+\end{theorem}
 \begin{proof}
 By the regularity conditions, the gradients $(\partial\phi_{m'}/\partial
 q^{n},\partial\phi_{m'}/\partial p_{n})$ are linearly independent.
@@ -268,13 +270,14 @@ which implies the desired result by matching coefficients of the variations.
 
 
 \subsection{The Canonical Hamiltonian}
-\begin{defn}[Canonical Hamiltonian]
+\begin{definition}
 We introduce the Hamiltonian via the Legendre transformation, writing
-the \define{Canonical Hamiltonian}
+the \define{Canonical
+Hamiltonian}\index{Hamiltonian!Canonical}\index{Canonical Hamiltonian|textbf}
 \begin{equation}
 H = \dot{q}^{n}p_{n} - L.
 \end{equation}
-\end{defn}
+\end{definition}
 
 \N{Canonical Hamiltonian Depends on Momenta, Positions}
 As it is written, since $p=p(q,\dot{q})$, the Hamiltonian is a function
@@ -365,11 +368,11 @@ $\phi_{m}=0$) and the extra parameters $u^{m}$. These $u^{m}$ parameters
 may be thought of as coordinates on the inverse image of a given
 $p_{n}$.
 
-\begin{prop}
+\begin{proposition}
 If the primary constraints are independent, then the vectors
 $\partial\phi_{m}/\partial p_{n}$ are also independent on the primary
 constraint surface $\phi_{m}=0$.
-\end{prop}
+\end{proposition}
 \begin{proof}
 Take
 \begin{equation}
@@ -383,9 +386,9 @@ but we see $\ker(\partial p_{n}/\partial\dot{q}^{n'})$ is spanned
 by\dots well, it's enough to show $\partial\phi_{m}/\partial p_{n}$ are
 independent if we use regularity conditions.
 \end{proof}
-\begin{cor}
+\begin{corollary}
 No two different sets of $u$'s may express the same velocities.
-\end{cor}
+\end{corollary}
 
 \M
 We may write, in principle, the $u$'s as a function of positions and
@@ -482,7 +485,8 @@ Finally, variation with respect to the momenta gives
 \dot{p}_{n} = -\frac{\partial H}{\partial q^{n}}
   -u^{m}\frac{\partial\phi_{m}}{\partial q^{n}}.
 \end{equation}
-Observe\marginpar{{\footnotesize\em $u^{m}$ as Lagrange multipliers}} then that the $u^{m}$ now serve as Lagrange multipliers
+Observe\marginpar{{\footnotesize\em $u^{m}$ as Lagrange multipliers}}
+then that the $u^{m}$ now serve as Lagrange multipliers\index{Lagrange Multipliers!in Gauge Systems}
 enforcing the constraints.
 
 \N{Remark}
@@ -527,7 +531,7 @@ $\PoissonBracket{-}{-}$ is the standard Poisson bracket
 
 \subsection{Secondary Constraints}
 
-\N{Consistency of Constraints}
+\N{Consistency of Constraints}\index{Constraint!Consistency}
 A basic consistent requirement for the constraints is that they should
 not change over time, i.e.,
 \begin{equation}
@@ -543,13 +547,14 @@ This may either (i) reduce to a relation independent of the $u$'s [hence
 or (ii) impose a restriction on the $u$'s (which we will study in
 subsection \ref{subsec:constrained-hamiltonian:restrictions-on-lagrange-multipliers}).
 
-\begin{defn}
-A \define{Secondary Constraint} is a relation of the $p$'s and $q$'s
+\begin{definition}
+A \define{Secondary
+Constraint}\index{Constraint!Secondary}\index{Secondary Constraint|textbf} is a relation of the $p$'s and $q$'s
 (but not the $u$'s) from the consistency condition
 \begin{equation}
 \PoissonBracket{\phi_{m}}{H} + u^{m'}\PoissonBracket{\phi_{m}}{\phi_{m'}}=0.
 \end{equation}
-\end{defn}
+\end{definition}
 
 \M
 Observe the primary constraints came about because of the definition of
@@ -576,7 +581,7 @@ impose another consistency condition
 \PoissonBracket{X}{H}+u^{m}\PoissonBracket{X}{\phi_{m}}=0.
 \end{equation}
 Again, this either (i) creates new constraints [aptly called ``Tertiary
-  Constraints'' by some authors], or (ii) restricts the
+  Constraints''\index{Tertiary Constraint}\index{Constraint!Tertiary} by some authors], or (ii) restricts the
 $u$'s. (\emph{NB} some authors call tertiary constraints ``Secondary''
 since they are derived from the equations of motion; Henneaux and
 Teitelboim~\cite{Henneaux:1992ig} call every constraint derived from the
@@ -601,12 +606,13 @@ hold.
 
 \subsection{Weak and Strong Equations}
 
-\begin{defn}
-We introduce \define{Weak Equality} for arbitrary phase space functions
+\begin{definition}
+We introduce \define{Weak Equality}\index{Equality!Weak, for Constrained Systems}\index{Weak Equality|textbf}
+for arbitrary phase space functions
 $F$ and $G$ writing $F\weakEq G$ if and only if $F-G = c^{j}(q,p)\phi_{j}$
 (where we sum $j=1$, \dots, $J$ over all constraints). It is an
 equivalence relation.
-\end{defn}
+\end{definition}
 
 \begin{xca}
   Prove weak equality is indeed an equivalence relation.
@@ -617,11 +623,11 @@ We write $\phi_{j}\weakEq0$ to emphasize we restrict focus to when the
 constraints vanish\dots as they are not guys that identically vanish
 throughout phase space, they are merely numerically restricted to zero.
 
-\begin{defn}
+\begin{definition}
 If a relation holds throughout phase space, then we use
 \define{Strong Equality} --- the vanilla equality we use all the time,
 writing $F=G$ and saying ``$F$ is `strongly equal' to $G$''.
-\end{defn}
+\end{definition}
 
 \subsection{Restrictions on the Lagrange Multipliers}\label{subsec:constrained-hamiltonian:restrictions-on-lagrange-multipliers}
 \N{Consistency Condition As System of Linear Equations}
@@ -661,12 +667,12 @@ u^{m}\weakEq U^{m} + v^{a}{V_{a}}^{m}.
 \end{equation}
 
 \subsection{Irreducible and Reducible Constraints}
-\begin{defn}
+\begin{definition}
 If the constraints $\phi_{j}\weakEq0$ are not independent, we call them
-\define{Reducible} (or \emph{``Redundant''}) and say we are in the
+\define{Reducible}\index{Reducible Constraints|textbf}\index{Constraint!Reducible} (or \emph{``Redundant''}) and say we are in the
 reducible case. If the constraints are independent, then they are
-\define{Irreducible}.
-\end{defn}
+\define{Irreducible}\index{Irreducible Constraints|textbf}\index{Constraint!Irreducible}.
+\end{definition}
 
 \M
 Observe we may drop redundant constraints without any loss. So we may
@@ -689,7 +695,7 @@ We can always add redundant constraints to the theory without any
 serious obstacle.
 
 \subsection{Total Hamiltonian}
-\begin{thm}\label{thm:constrained:total-hamiltonian-eqns-of-motion}
+\begin{theorem}\label{thm:constrained:total-hamiltonian-eqns-of-motion}
 The equations of motion are
 \begin{equation}
 \dot{F}\weakEq\PoissonBracket{F}{\firstClassHamiltonian+v^{a}\phi_{a}}
@@ -699,8 +705,8 @@ where
   \firstClassHamiltonian = H + U^{m}\phi_{m}
 \end{equation}
 and $\phi_{a} = {V_{a}}^{m}\phi_{m}$.
-\end{thm}
-(The $\firstClassHamiltonian$ is called the \define{First-Class Hamiltonian}, c.f. \Mref{defn:constrained:first-class}.)
+\end{theorem}
+(The $\firstClassHamiltonian$ is called the \define{First-Class Hamiltonian}\index{Hamiltonian!First-Class}{First-Class Hamiltonian|textbf}, c.f. \Mref{defn:constrained:first-class}.)
 \begin{proof}
 We see explicitly
 \begin{equation}
@@ -727,14 +733,14 @@ which is weakly the equations of motion.
 \begin{xca}
 Show $\PoissonBracket{\firstClassHamiltonian}{\phi_{j}}\weakEq0$.
 \end{xca}
-\begin{defn}\label{defn:total-hamiltonian}
-  The \define{Total Hamiltonian} is
+\begin{definition}\label{defn:total-hamiltonian}
+  The \define{Total Hamiltonian}\index{Hamiltonian!Total}\index{Total Hamiltonian|textbf} is
   \begin{equation}
     \totalHamiltonian \eqDef \firstClassHamiltonian + v^{a}\phi_{a} = H + u^{m}\phi_{m}
   \end{equation}
   i.e., the sum of the canonical Hamiltonian $H$ and the sum of primary
   constraints multiplied by the $u$'s, i.e., $u^{m}\phi_{m}$.
-\end{defn}
+  \end{definition}
 \N*{Remark} We have several observations
 \begin{enumerate}
 \item The equations of motion are
@@ -744,21 +750,21 @@ Show $\PoissonBracket{\firstClassHamiltonian}{\phi_{j}}\weakEq0$.
 \end{enumerate}
 
 \subsection{First-Class and Second-Class Functions}
-\begin{defn}\label{defn:constrained:first-class}\label{defn:constrained:second-class}
+\begin{definition}\label{defn:constrained:first-class}\label{defn:constrained:second-class}
 A function of phase space variables $F(q,p)$ is called
-\define{First-Class} iff its Poisson bracket with every constraint
+\define{First-Class}\index{First-Class Function!On Phase Space} iff its Poisson bracket with every constraint
 weakly vanishes
 \begin{equation}
 \PoissonBracket{F}{\phi_{j}}\weakEq0
 \end{equation}
 for all $j=1$, \dots, $J$.
 
-A function is called \define{Second-Class} iff it is not first-class.
-\end{defn}
+A function is called \define{Second-Class}\index{Second-Class Function!On Phase Space} iff it is not first-class.
+\end{definition}
 
-\begin{thm}
+\begin{theorem}
 The Poisson Bracket of two first-class functions is first-class.
-\end{thm}
+\end{theorem}
 
 \begin{proof}
 Let $F$ and $G$ be first-class functions such that
@@ -804,10 +810,10 @@ since we have shown the right hand side resembles ${h_{j}}^{j'}\phi_{j'}$.
 Show the $\phi_{a}$ are first-class.
 \end{xca}
 
-\begin{thm}\label{thm:constrained:phi-a-complete-first-class-primary-constraints}
+\begin{theorem}\label{thm:constrained:phi-a-complete-first-class-primary-constraints}\index{First-Class Constraints!Complete Set for Primary ---}
 The $\phi_{a}$ form a complete set of first-class primary
 constraints.
-\end{thm}
+\end{theorem}
 
 \begin{proof}
 We have, by the previous exercise, $\phi_{a}$ are first-class primary
@@ -849,13 +855,13 @@ physical state. But the physical state is not uniquely determined by one
 set of $q$'s and $p$'s --- that is, more than one set of values for the
 $q$'s and $p$'s may correspond to the same physical state.
 
-\begin{rmk}[Definition of Physical State]
+\begin{remark}[Definition of Physical State]\index{Physical State!of Gauge System|(}
 OK, so the notion of a ``state'' seems well-defined: it's just a point
 in the phase space. But the notion of a ``physical state'' seems
 ambiguous. I suspect what it means, in the context of gauge systems, is
 it's an equivalence class of states which differ due to the
-arbitrariness we discovered in constrained systems.
-\end{rmk}
+arbitrariness we discovered in constrained systems.\index{Physical State!of Gauge System|)}
+\end{remark}
 
 \begin{proof}[Proof (Multiple Sets of Values Correspond to Same State)]
 If we give an initial set of canonical variables (hence we determine the
@@ -887,7 +893,8 @@ physical state.
 
 \N{Attempted Definition}\label{n:constrained:attempted-defn-of-gauge-transformation}
 Let $F$ be some function of phase space variables. A transformation of
-the form $F\to F + \delta F$ is a \define{Gauge Transformation} iff
+the form $F\to F + \delta F$ is a \define{Gauge
+Transformation}\index{Gauge Transformation} iff
 \begin{equation}
 \delta F = \delta v^{a}\PoissonBracket{F}{\phi_{a}}
 \end{equation}
@@ -895,13 +902,16 @@ for ``arbitrary infinitesimal'' $\delta v^{a}$.
 
 \N{Puzzles}
 How do we compose gauge transformations? More explicitly, suppose we
-have one gauge transformation $F\to F + \varepsilon^{a}\PoissonBracket{F}{\phi_{a}}$
-and a second gauge transformation $F\to F + \eta^{a'}\PoissonBracket{F}{\phi_{a'}}$,
+have one gauge transformation 
+$F\to F + \varepsilon^{a}\PoissonBracket{F}{\phi_{a}}$
+and a second gauge transformation 
+$F\to F + \eta^{a'}\PoissonBracket{F}{\phi_{a'}}$,
 what does the transformation of doing one then the other look like? 
 
 Is composing gauge transformations commutative? Associative? Invertible?
 
-\begin{proof}[Sketch of Solution to Composing Gauge Transformations.]
+\begin{proof}[Sketch of Solution to Composing Gauge
+Transformations.]\index{Gauge Transformation!Composing}
 So, suppose we have some gauge transformation $F\to F+\delta F$. Let
 $G=F+\delta F$. The question is: what does a gauge transformation of $G$
 look like?
@@ -932,11 +942,11 @@ is
 This gives us the general scheme of how to compose gauge transformations.
 \end{proof}
 
-\begin{prop}
+\begin{proposition}
 Gauge transfromations are independent iff the constraints are
 irreducible. Otherwise some of the guage transforrmations lead to
 $\delta F\weakEq 0$.
-\end{prop}
+\end{proposition}
 
 \N[Inadequacies of our Definition]{Remark}
 In general, transfromations of the form
@@ -1045,7 +1055,8 @@ We claim
 is a gauge transfromation, since it does not affect the physical state.
 \end{proof}
 
-\N{First-Class Secondary Constraints As Gauge Generators?}
+\N{First-Class Secondary Constraints As Gauge
+Generators?}\index{First-Class Constraints!As Gauge Generators}
 Due to these lemmas we have just considered, we may expect some
 first-class secondary constraints will act as gauge generators. We know
 since $\phi_{a}$ and $\firstClassHamiltonian$ are first-class, the
@@ -1056,7 +1067,7 @@ no reason to expect their linear combination to contain only primary
 constraints. In practice, most first-class secondary constraints come
 about in this manner.
 
-\N{Dirac's Conjecture}
+\N{Dirac's Conjecture}\index{Dirac Conjecture!for Gauge Systems}
 Dirac conjectured~\cite{dirac1964} \emph{all first-class constraints generate
 gauge transformations}\footnote{See the last paragraph of chapter 1 in
   Dirac's \emph{Lectures on Quantum Mechanics}.}.
@@ -1082,7 +1093,7 @@ the same footing, specifically treating them as gauge generators. It is
 not known if we can do otherwise. But for all known physical systems,
 this is a valid assumption\dots so any concerns are purely academic.
 
-\begin{defn}
+\begin{definition}
 Let $F$ be some function of phase space variables. A transformation of
 the form $F\to F + \delta F$ is a \define{Gauge
 Transformation}\index{Gauge Transformation|textbf} iff
@@ -1091,9 +1102,9 @@ Transformation}\index{Gauge Transformation|textbf} iff
 \end{equation}
 where $\gamma_{a}$ are \emph{all} first-class constraints, and
 $\varepsilon^{a}$ are arbitrary infinitesimal coefficients.
-\end{defn}
+\end{definition}
 
-\N{Caution: Generally Covariant Systems}
+\N{Caution: Generally Covariant Systems}\index{General Covariance!As Gauge}
 We argued $\phi_{a}$ and $\PoissonBracket{\phi_{a}}{\firstClassHamiltonian}$
 generate transformations that do not alter the physical state, while implicitly
 assuming the time $t$ (the variable of integration in the action) is
@@ -1110,7 +1121,7 @@ systems.
 of the time variable?
 
 \subsection{Counter-Example to Dirac's Conjecture}
-\N[{Allcock~\cite{allcock1975}}]{Example}
+\N[{Allcock~\cite{allcock1975}}]{Example}\index{Dirac Conjecture!Counter-Example}
 Consider the system with Lagrangian
 \begin{equation}
 L = \frac{1}{2}\E^{y}\dot{x}^{2}.
@@ -1251,13 +1262,14 @@ the total Hamiltonian \Mref{defn:total-hamiltonian}, i.e., first-class primary
 constraints\dots which is not natural! We thus introduce a ``natural''
 generalization. 
 
-\begin{defn}\label{defn:extended-hamiltonian}
-The \define{Extended Hamiltonian} is 
+\begin{definition}\label{defn:extended-hamiltonian}
+The \define{Extended
+Hamiltonian}\index{Hamiltonian!Extended}\index{Extended Hamiltonian|textbf} is 
 \begin{equation*}
 \extendedHamiltonian\eqDef\firstClassHamiltonian+u^{a}\firstClassConstraint_{a}
 \end{equation*}
 where $a$ runs over all first-class constraints.
-\end{defn}
+\end{definition}
 
 \N{Dynamics}
 For gauge-invariant quantities (i.e., $F$ such that
@@ -1314,10 +1326,10 @@ does not vanish on the constraint surface. We will assume for now the
 simpler case: we have irreducible constraints. We will also assume that
 $\rank(C_{jj'})$ is constant on the constraint surface.
 
-\begin{thm}
+\begin{theorem}
 If $\det(C_{jj'})\weakEq0$, then there exists at least one first-class
 constraint among the $\phi_{j}$'s.
-\end{thm}
+\end{theorem}
 
 \begin{proof}
 If $\det(C_{jj'})\weakEq0$, we may find a nonzero solution to the system
@@ -1430,17 +1442,17 @@ when dealing with second-class constraints.
 
 \subsection{The Dirac Bracket}
 
-\begin{defn}
-The \define{Dirac Bracket} is
+\begin{definition}
+The \define{Dirac Bracket}\index{Dirac Bracket|textbf} is
 \begin{equation}
 \DiracBracket{F}{G} = \PoissonBracket{F}{G} - \PoissonBracket{F}{\secondClassConstraint_{\alpha}}C^{\alpha\beta}\PoissonBracket{\secondClassConstraint_{\beta}}{G}
 \end{equation}
 where $C^{\alpha\beta}$ is the matrix inverse of
 $C_{\alpha\beta}=\PoissonBracket{\secondClassConstraint_{\alpha}}{\secondClassConstraint_{\beta}}$,
 i.e., $C^{\alpha\gamma}C_{\gamma\beta}={\delta^{\alpha}}_{\beta}$.
-\end{defn}
+\end{definition}
 
-\begin{thm}
+\begin{theorem}
 The Dirac bracket has all the nice properties of the Poisson bracket,
 i.e.,
 \begin{enumerate}
@@ -1448,7 +1460,7 @@ i.e.,
 \item Leibniz rule $\DiracBracket{F}{GR}=\DiracBracket{F}{G}R+G\DiracBracket{F}{R}$
 \item Jacobi identity $\DiracBracket{F}{\DiracBracket{G}{R}}+\DiracBracket{G}{\DiracBracket{R}{F}}+\DiracBracket{R}{\DiracBracket{F}{G}}=0$.
 \end{enumerate}
-\end{thm}
+\end{theorem}
 \begin{proof}
 \begin{enumerate}
 \item Antisymmetry is straightforward
@@ -1476,7 +1488,7 @@ i.e.,
 \end{enumerate}
 \end{proof}
 
-\begin{thm}\label{thm:dirac-bracket:addlProperties}
+\begin{theorem}\label{thm:dirac-bracket:addlProperties}
 The Dirac bracket further satisfies:
 \begin{enumerate}
 \item $\DiracBracket{\secondClassConstraint_{\alpha}}{F}=0$ for any $F$
@@ -1486,14 +1498,14 @@ first-class $G$ and arbitrary $F$
 $\DiracBracket{R}{\DiracBracket{F}{G}}\weakEq\PoissonBracket{R}{\PoissonBracket{F}{G}}$
 for any first-class $F$ and $G$, and arbitrary $R$.
 \end{enumerate}
-\end{thm}
+\end{theorem}
 
 \M
 From the property $\DiracBracket{\secondClassConstraint_{\alpha}}{F}=0$
 for any $F$, the second-class constraints may be set to zero either
 before or after evaluating a Dirac bracket.
 
-\M\label{M:dirac-bracket:dynamics}
+\M\label{M:dirac-bracket:dynamics}\index{Dirac Bracket!Dynamics}
 The extended Hamiltonian \Mref{defn:extended-hamiltonian}, being
 first-class, still generates the equations of motion
 \begin{equation}
@@ -1502,14 +1514,14 @@ first-class, still generates the equations of motion
 \end{equation}
 by property 2 of theorem \ref{thm:dirac-bracket:addlProperties}.
 
-\M\label{M:dirac-bracket:gauge-transformations}
+\M\label{M:dirac-bracket:gauge-transformations}\index{Dirac Bracket!Gauge Transformations}\index{Gauge Transformation!and Dirac Bracket}
 The gauge transformations may be expressed usign the Dirac Bracket since
 \begin{equation}
 \DiracBracket{F}{\firstClassConstraint_{a}}\weakEq\PoissonBracket{F}{\firstClassConstraint_{a}}
 \end{equation}
 for any $F$.
 
-\N{Eliminating Second-Class Constraints}
+\N{Eliminating Second-Class Constraints}\index{Second-Class Constraint!Elimination}
 All the equations of the theory areformulated in terms of the Dirac
 bracket. We see this works for dynamics \Mref{M:dirac-bracket:dynamics}
 and gauge

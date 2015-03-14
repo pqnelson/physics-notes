@@ -1,6 +1,6 @@
 \makeatletter
 \usepackage{braket}
-\usepackage[top=6pc,textheight=8.9in,textwidth=33pc,inner=6pc,marginparwidth=9pc,marginparsep=1.5pc]{geometry}
+\@ifclassloaded{svmono}{}{\usepackage[top=6pc,textheight=8.9in,textwidth=33pc,inner=6pc,marginparwidth=9pc,marginparsep=1.5pc]{geometry}}
 \usepackage[backend=biber,
             hyperref=true,
             maxbibnames=100,
@@ -8,19 +8,20 @@
 \usepackage[12hr,us]{datetime}
 \usepackage[inline]{enumitem}
 \usepackage{blkarray}
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsthm,corollaries}
+\usepackage{amsmath,amssymb}
 \usepackage{mathtools}
 \usepackage{textcomp} % fixes odd symbols siunitx uses...
 \usepackage{siunitx}
 \usepackage{ifpdf}
 \usepackage{cancel}
 \usepackage[final]{graphicx}
+\usepackage{titlesec}
 \ifpdf
   \usepackage{microtype}
   \DeclareGraphicsRule{*}{mps}{*}{}
 \fi
-\usepackage{corollaries}
-\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[nottoc]{tocbibind}
 \usepackage[hidelinks,plainpages=false]{hyperref}
 
 \numberwithin{equation}{chapter}
@@ -51,24 +52,23 @@
 
 %% author info
 \def\homeurl{\url{https://github.com/pqnelson/physics-notes}}
-\author{Alex Nelson%
+\@ifclassloaded{svmono}{}{\author{Alex Nelson%
   \footnote{This is a page from \homeurl\hfil\break%
     \indent\;\, Compiled:\enspace\today\ at \currenttime\ (PST)}\\%
-  \texttt{Email:\enspace\href{mailto:pqnelson@gmail.com}{pqnelson@gmail.com}}}
+  \texttt{Email:\enspace\href{mailto:pqnelson@gmail.com}{pqnelson@gmail.com}}}}
 
 % fonts for the sections
-\usepackage{titlesec}
-
-\titleformat{\chapter}[display]
-  {\large\sffamily} % format
-  {\chaptertitlename\ \thechapter} % label
-  {20pt} % sep
-  {\filleft\Large\bfseries} % before
-\titlespacing*{\chapter}
-  {0pt}{4pc}{2pc}
-\titleformat*{\section}{\large\bfseries\sffamily}
-\titleformat*{\subsection}{\large\bfseries\sffamily}
-\titleformat*{\subsubsection}{\bfseries\sffamily}
+\@ifclassloaded{svmono}{}{%
+  \titleformat{\chapter}[display]
+    {\large\sffamily} % format
+    {\chaptertitlename\ \thechapter} % label
+    {20pt} % sep
+    {\filleft\Large\bfseries} % before
+  \titlespacing*{\chapter}
+    {0pt}{4pc}{2pc}
+  \titleformat*{\section}{\large\bfseries\sffamily}
+  \titleformat*{\subsection}{\large\bfseries\sffamily}
+  \titleformat*{\subsubsection}{\bfseries\sffamily}}
 
 % bibliography commands
 \@ifundefined{bysame}{
@@ -78,7 +78,10 @@
 % chunking commands
 \@ifundefined{@addpunct}{
   \def\@addpunct#1{\ifnum\spacefactor>\@m \else#1\fi}
+  \def\frenchspacing{\sfcode`\.1006\sfcode`\?1005\sfcode`\!1004  \sfcode`\:1003\sfcode`\;1002\sfcode`\,1001 }
   }{}
+
+\@ifclassloaded{svmono}{\frenchspacing}{}
 
 \newcounter{chunk@ctr}
 \@ifundefined{chapter}{%
@@ -113,7 +116,6 @@
         {\hyperref[#1]{\textup{(\S\ref*{#1})}}}}
 
 % theorems and whatnot
-%\swapnumbers
 \newtheoremstyle{thmstyle}
   {\topsep}   % ABOVESPACE
   {\topsep}   % BELOWSPACE
@@ -142,23 +144,27 @@
   {1em plus 1pt minus 1pt} % HEADSPACE
   {\thmnumber{#2\@addpunct{.}\enspace}\thmname{#1}\thmnote{\enspace\textrm{\normalfont(#3)}}}          % CUSTOM-HEAD-SPEC
 
+
+% case, conjecture, corollary, definition, example, exercise, lemma, note,
+% problem, property, proposition, question, remark, solution, theorem.
+
 \theoremstyle{plain}
 \newtheorem{puzzle}{Puzzle}
 
 \theoremstyle{thmstyle}
-\newtheorem{thm}[chunk@ctr]{Theorem}
+\newtheorem{theorem}[chunk@ctr]{Theorem}
 \newtheorem{lemma}[chunk@ctr]{Lemma}
-\newtheorem{prop}[chunk@ctr]{Proposition}
-\newtheorem{cor}[chunk@ctr]{Corollary}
+\newtheorem{proposition}[chunk@ctr]{Proposition}
+\newtheorem{corollary}[chunk@ctr]{Corollary}
 
 \theoremstyle{defnstyle}
 \newtheorem{xca}[chunk@ctr]{Exercise}
-\newtheorem{defn}[chunk@ctr]{Definition}
+\newtheorem{definition}[chunk@ctr]{Definition}
 
-\theoremstyle{remark}
-\newcorollary{rmk}{Remark}[chunk@ctr]
-
-\renewcommand\thermk{\thechunk@ctr.\oldstylenums{\arabic{rmk}}}
+\theoremstyle{rmkstyle}
+\newcorollary{remark}{Remark}[chunk@ctr]
+  
+\renewcommand\theremark{\thechunk@ctr.\oldstylenums{\arabic{remark}}}
 
 \newenvironment{soln}{\begin{proof}[Solution\@addpunct{.}]}{\end{proof}}
 
@@ -189,7 +195,7 @@
 \def\quoteAuthor#1(#2){\par\nobreak\smallskip\noindent\textup{--- #1\unskip\enspace(#2)}}
 \let\oldauthor\author
 %\def\quotes
-\newenvironment{quotes}{\footnotesize\baselineskip 10pt
+\newenvironment{quotes}{\medbreak\footnotesize\baselineskip 10pt
   \raggedleft\parfillskip \z@
   \interlinepenalty 10000
   %\leftskip \z@ plus 40pc minus \parindent

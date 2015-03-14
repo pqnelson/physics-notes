@@ -367,7 +367,7 @@ I_{1}(k')&=\iint\left[
 \end{split}
 \end{equation}
 Performing the integral over $x$ turns the exponential factors
-$\exp(\I(\vec{k}\pm\vec{k}')\cdot\vec{x}$ into delta functions
+$\exp(\I(\vec{k}\pm\vec{k}')\cdot\vec{x})$ into delta functions
 $\delta^{(3)}(\vec{k}\pm\vec{k}')$. So we find
 \begin{equation}
 I_{1}(k')=\int\left[
@@ -442,14 +442,14 @@ a_{\text{scalar}}\looksLike \omega\varphi + \I\pi.
 This is \emph{not} a typo or error, this is just a difference
 between the scalar field and the simple harmonic oscillator.
 
-\begin{thm}[Commutation Relations]\label{thm:scalar:ladder-op-commutation-relations}
+\begin{theorem}[Commutation Relations]\label{thm:scalar:ladder-op-commutation-relations}
 We see the coefficient operators obey commutation relations
 \begin{enumerate}[label=(\arabic*)]
 \item $\commutator{a(k)}{a^{\dagger}(k')}=2\omega_{\vec{k}}\cdot(2\pi)^{3}\delta^{(3)}(\vec{k}-\vec{k}').$
 \item $\commutator{a(k)}{a(k')}=0$
 \item $\commutator{a^{\dagger}(k)}{a^{\dagger}(k')}=0$
 \end{enumerate}
-\end{thm}
+\end{theorem}
 \begin{proof} These problems are trivial thanks to Eqs
   \eqref{eq:scalar:ladder-operator-in-terms-of-field-vars} and 
   \eqref{eq:scalar:adjoint-ladder-operator-in-terms-of-field-vars}.
@@ -714,7 +714,7 @@ consider what this means, exactly, using the expansions:
       k\cdot x}\E^{-\I k'\cdot
       y}\right)\frac{1}{2\omega_{k}}\frac{1}{2\omega_{k'}}\frac{\D^{3}k'}{(2\pi)^{3}}\frac{\D^{3}k}{(2\pi)^{3}}\\
 &=\int\frac{1}{2\omega_{k}}(\E^{-\I k\cdot(x-y)}-\E^{\I k\cdot(x-y)})\frac{\D^{3}k}{(2\pi)^{3}}\\
-&=\colon \I\Delta(x-y) = \I\Delta(x-y; m)
+&\eqqcolon \I\Delta(x-y) = \I\Delta(x-y; m)
   \end{align}
 \end{subequations}
 where in that last line, we define $\Delta(x-y)$ and note that sometimes
@@ -739,9 +739,9 @@ is precisely
 The \define{Pauli--Jordan Function}\index{Pauli--Jordan Function|textbf}
 is $\braket{\vacuum|\Delta(x-y)|\vacuum}$.
 
-\begin{rmk}
+\begin{remark}
 For more on this, see Ryder~\cite[\S4.2 and \S6.1]{Ryder:1985wq}
-\end{rmk}
+\end{remark}
 
 \N{Definition}
 The property $\commutator{\varphi(x)}{\varphi(y)}=0$ for space-like
@@ -762,14 +762,14 @@ field quantities, opting for
 $f(\vec{x}, \vec{y})\varphi(\vec{x})\varphi(\vec{y})$ 
 instead.
 
-\begin{thm}[Interesting Properties of $\Delta$]
+\begin{theorem}[Interesting Properties of $\Delta$]
 The function $\Delta(x-y)$ has the following properties:
 \begin{enumerate}
 \item It is odd: $\Delta(x-y)=-\Delta(y-x)$
 \item $\left.\partial_{t}\Delta(x-y)\right|_{x^{t}=y^{t}} = -\delta^{3}(x-y)$.
 \item It satisfies the Klein--Gordon equation: $(\Box + m^{2})\Delta(x)=0$.
 \end{enumerate}
-\end{thm}
+\end{theorem}
 
 % pg 23
 \M

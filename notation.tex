@@ -1,19 +1,23 @@
 \makeatletter
 % notation
-\newcommand{\E}{\mathrm{e}}
-\let\eul=\E
-\newcommand{\I}{{\rm i}}
-\let\imag=\I
+\@ifclassloaded{svmono}{}{%
+  \newcommand{\E}{\mathrm{e}}
+  \let\eul=\E
+  \newcommand{\I}{\mathrm{i}}
+  \let\imag=\I
+  \newcommand{\D}{\mathrm{d}}
+  \def\tens#1{\relax\ifmmode\mathsf{#1}\else\textsf{#1}\fi}
+  \def\vec#1{\ensuremath{\mathchoice
+                       {\mbox{\boldmath$\displaystyle#1$}}
+                       {\mbox{\boldmath$\textstyle#1$}}
+                       {\mbox{\boldmath$\scriptstyle#1$}}
+                       {\mbox{\boldmath$\scriptscriptstyle#1$}}}}}
 \DeclareMathOperator{\sgn}{sgn}
 
 % calculus
-\newcommand{\D}{\mathrm{d}}
-\def\tens#1{\relax\ifmmode\mathsf{#1}\else\textsf{#1}\fi}
-\def\vec#1{\ensuremath{\mathchoice
-                     {\mbox{\boldmath$\displaystyle#1$}}
-                     {\mbox{\boldmath$\textstyle#1$}}
-                     {\mbox{\boldmath$\scriptstyle#1$}}
-                     {\mbox{\boldmath$\scriptscriptstyle#1$}}}}
+
+% linear algebra
+\DeclareMathOperator{\rank}{rank}
 
 % linear algebra
 \DeclareMathOperator{\rank}{rank}

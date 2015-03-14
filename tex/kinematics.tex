@@ -29,7 +29,7 @@ in general. We summarize the components in the diagram:
 The question we should ask ourselves is ``What happens to velocity (when
 considering nonzero acceleration)?''
 
-\N{Parallel Acceleration} 
+\N{Parallel Acceleration}\index{Acceleration!Parallel}
 So consider a ``small interval'' from $t_{1}$ to $t_{2}=t_{1}+\Delta t$. 
 The change in velocity $\Delta\vec{v}=\vec{v}(t_{2})-\vec{v}(t_{1})$
 gives us an ``average velocity'' for the body. If the acceleration is
@@ -39,7 +39,7 @@ as $\vec{v}_{1}=\vec{v}(t_{1})$. And the velocity's direction remains the same
 the magnitude for the velocity \emph{changes} when the acceleration is
 \emph{parallel} to velocity.
 
-\N{Perpendicular Acceleration}\label{chunk:perpAcceleration}
+\N{Perpendicular Acceleration}\label{chunk:perpAcceleration}\index{Acceleration!Perpendicular}
 Suppose we have in our interval $\Delta t$, the change in velocity
 $\Delta\vec{v}$ is ``very nearly'' perpendicular to $\vec{v}_{1}$. We
 doodle the situation thus:
@@ -84,12 +84,12 @@ $\|\vec{v}\|\geq0$.
 
 \subsection{Projectile Motion}
 \N{Definition}
-A \define{Projectile} is any body that is given an initial velocity,
+A \define{Projectile}\index{Projectile|textbf} is any body that is given an initial velocity,
 then follows a trajectory determined entirely by gravitational
 acceleration and air resistance. The path taken by a projectile is
-called its \define{Trajectory}.
+called its \define{Trajectory}\index{Trajectory!for Projectile}.
 
-\begin{rmk}
+\begin{remark}
 We simplify this model by considering constant
 acceleration\footnote{Note this is the \emph{definition} of standard
   gravity, as set forth by ISO 80000-3. See~\cite[p 52]{sp330}.}
@@ -98,7 +98,7 @@ g=\SI{9.80655}{\meter/\square\second}
 \end{equation}
 and neglecting air resistance. This limits us, since we ignore the
 curvature of the Earth, but for a first pass, it's decent.
-\end{rmk}
+\end{remark}
 
 \M We set up coordinates so the horizontal coordinate $x$ experiences no
 acceleration, and the vertical component $y$ experiences $g$. So we have
@@ -119,7 +119,7 @@ calculus, and get the position along the trajectory as
 \end{equation}
 This is the first step in the right direction.
 
-\N{Parabolic Motion}
+\N{Parabolic Motion}\index{Projectile!Parabolic Motion}
 Lets take $(x_{0}, y_{0})=(0,0)$ --- the initial position is the origin
 of the coordinate system. We then have
 \begin{subequations}
@@ -154,14 +154,14 @@ where $A=\tan(\alpha)$ and $B=g\sec^{2}(\alpha)/2{v_{0}}^{2}$ are
 constants in time. Hence we get an honest parabola describing the
 trajectory.
 
-\begin{rmk}[Assumptions]
+\begin{remark}[Assumptions]
 Air resistance isn't always negligible. For example, we will consider
 the trajectory for a Napoleon 12-pounder canon. When we ignore air
 resistance, we predict the canonball shot will travel twice farther
 than its empirical distance.
-\end{rmk}
+\end{remark}
 
-\begin{rmk}[Historical Notes]
+\begin{remark}[Historical Notes]
 Galileo appears to be the first to note parabolic motion in the second
 half of his \emph{Dialogues of the Two New Sciences} (1638). Not only
 that, Galileo investigated the motion of bodies under constant
@@ -169,7 +169,7 @@ acceleration. Presumably this summarizes his earlier work dating back to
 1604. Although it sounds minor, this work was crucial in overturning the
 Aristotlean worldview that ``heavier'' objects fall faster than
 ``lighter'' objects. 
-\end{rmk}
+\end{remark}
 
 \workedExamples{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -295,7 +295,7 @@ the right track.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\N[Napoleon 12-Pounder]{Example}
+\N[Napoleon 12-Pounder]{Example}\index{Napoleon 12-Pounder}
 Wikipedia tells us\footnote{Accessed April 13, 2014 at 2:31PM (PST), \url{http://en.wikipedia.org/wiki/Canon_obusier_de_12}}
 that the Napoleon 12-pounder canon had a muzzle velocity of
 \SI{439}{\meter/\second} (i.e., the velocity which a canonball had
@@ -367,19 +367,19 @@ This rough order-of-magnitude estimate confirms our calculations were
 correct\dots probably.
 \end{soln}
 
-\begin{rmk}
+\begin{remark}
 Note the range for a Napoleon 12-pounder with the same given conditions
 is empirically around \SI{1480}{\meter}. We computed over twice
 that. Why? We ignored air resistance. For discussions, see
 Burko and Price~\cite{burko2003}, Euler~\cite{e77,e217,e226,e853}, 
 Grimberg \emph{et al.}~\cite{grimberg2008}, and Hogg~\cite{hogg2007}. 
-\end{rmk}
+\end{remark}
 
 \subsection{Uniform Circular Motion}
 
 \N{Definition}
 When a particle moves in a circular trajectory with constant speed, the
-motion is called \define{Uniform Circular Motion}.
+motion is called \define{Uniform Circular Motion}\index{Circular Motion!Uniform}.
 
 \N{Derivation of Acceleration}\label{M:kinematics:uniform-circular-motion:derivation-of-acceleration}
 We draw a segment of the trajectory. The particle mvoes about
@@ -401,7 +401,7 @@ $\overrightarrow{OP}_{2}$ to infinity, parallel transport $\vec{v}_{2}$
 along it, extend $\vec{v}_{1}$ to infinity, and parallel transport the
 vector $\vec{v}_{1}$ along that ray --- the rest is high school geometry).
 
-\N*{Lemma} The triangles in both these figures are similar.
+\N*{Lemma} \textit{The triangles in both these figures are similar.}
 
 \begin{proof}
 By the side-angle-side theorem, it follows immediately.
@@ -451,11 +451,12 @@ the circle's origin.
 
 \N{Definitions}
 The acceleration vector for uniform circular motion always points
-towards the circle's center, and is called \define{Centripetal Acceleration} 
+towards the circle's center, and is called \define{Centripetal Acceleration}\index{Acceleration!Centripetal}\index{Centripetal Acceleration}
 where ``centripetal'' derives from the Latin for ``center
 [\emph{centrum}] seeking [\emph{-petus}]''.
 
-We express the magnitude of acceleration in terms of the \define{Period}
+We express the magnitude of acceleration in terms of the
+\define{Period}\index{Period!for Circular Motion}
 $T$ of motion (time for one revolution about the circle). We see
 \begin{subequations}
 \begin{align}
@@ -464,12 +465,12 @@ a &=\frac{4\pi^{2}R}{T^{2}}.
 \end{align}
 \end{subequations}
 
-\begin{rmk}[Historical Notes]
+\begin{remark}[Historical Notes]
 The tradition to introduce uniform circular motion when discussing
 kinematics may be traced back to chapter 1, section 2 of
 Book I in Isaac Newton's \emph{Principia}. Newton, too, coined the term
 ``centripetal'' around 1687.
-\end{rmk}
+\end{remark}
 
 \workedExamples{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -539,10 +540,10 @@ which is the correct order of magnitude as Eq \eqref{eq:approxPeriodForEarthToTh
 \end{soln}
 
 \subsection{Non-Uniform Circular Motion}
-\begin{defn}
+\begin{definition}
 When a particle moves in a circle with varying speed, we have
-\define{Non-Uniform Circular Motion}.
-\end{defn}
+\define{Non-Uniform Circular Motion}\index{Circular Motion!Non-Uniform}.
+\end{definition}
 \M
 We see that the derivation of acceleration in uniform circular motion
 \Mref{M:kinematics:uniform-circular-motion:derivation-of-acceleration}
@@ -555,8 +556,8 @@ constrant. So we have the magnitude of acceleration be
 This is orthogonal to velocity, pointing towards the center of the
 circle.
 
-\begin{defn}
-We also have the \define{Tangent Acceleration} which describes the
+\begin{definition}
+We also have the \define{Tangent Acceleration}\index{Tangent Acceleration}\index{Acceleration!Tangent} which describes the
 acceleration tangent to the circle. We denote it as
 $\vec{a}_{\text{tan}}$. We write
 \begin{equation}
@@ -564,27 +565,28 @@ $\vec{a}_{\text{tan}}$. We write
 \end{equation}
 since it describes the change in speed. It points towards $\vec{v}$ if
 the body's speeding up, and otherwise it points away from $\vec{v}$.
-\end{defn}
-\begin{rmk}
+\end{definition}
+\begin{remark}
 Observe then that uniform circular motion is a special case when
 $\|\vec{v}\|$ is constant.
-\end{rmk}
+\end{remark}
 
 \subsection{Relative Motion}
-\begin{defn}
+\begin{definition}
 The velocity seen by a particular observer is called the velocity
-relative to that observer, or simply \define{Relative Velocity}.
-\end{defn}
+relative to that observer, or simply \define{Relative
+  Velocity}\index{Relative Velocity|textbf}\index{Velocity!Relative}.
+\end{definition}
 
-\begin{defn}
+\begin{definition}
 An observer, equipped with (in principle) a meter stick and a stopwatch,
-forms a \define{Frame of Reference} (or a ``\textit{Reference Frame\/}'').
-\end{defn}
-\begin{rmk}
+forms a \define{Frame of Reference}\index{Reference Frame|textbf} (or a ``\textit{Reference Frame\/}'').
+\end{definition}
+\begin{remark}
 ``An observer'' is typically modeled as a point particle along some
 trajectory. ``A meter stick and a stop watch'' amounts to a tetrad
 (i.e., a coordinate system). This turns out to be important when we get
 to relativity. For references on formal definitions, see Arminjon and
 Reifler~\cite{Arminjon:2010ah}, Misner, Thorne and Wheeler~\cite[ch 6
 and \S13.6]{Misner:1974qy}, and Sachs and Wu~\cite[ch 2]{sachs1977gr}.
-\end{rmk}
+\end{remark}
