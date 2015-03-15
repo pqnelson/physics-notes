@@ -72,7 +72,7 @@ E=+\sqrt{\vec{p}^{2}+m^{2}},
 we have to series expand it\dots and we get nonlocal operator
 expressions!
 
-\N{Problem: Probabilities}
+\N{Problem: Probabilities}\label{par:scalar:probabilities}
 Lets try to interpret $\varphi$ as a wave function, i.e., a probability
 amplitude. It must be a conserved quantity, or give rise to one---just
 as $\varphi^{*}\varphi$ did for the Schrodinger equation
@@ -656,7 +656,7 @@ Observe  then that
 Without loss of generality, we will assume that the Hamiltonian is
 always normal ordered.
 
-\N{Lorentz Invariance}
+\N{Lorentz Invariance}\marginpar{TODO: Clean this up}
 We started with a classical relativistic field, then seemingly broke
 Lorentz invariance by using equal-time commutators. Nuts! We can
 rephrase this as ``To quantize, we must choose a specific Lorentz
@@ -773,14 +773,107 @@ The function $\Delta(x-y)$ has the following properties:
 
 % pg 23
 \M
+Consider
+\begin{equation}
+\Delta_{+}(x-y)\eqDef\braket{\vacuum|\varphi(\vec{x})\varphi(\vec{y})|\vacuum}.
+\end{equation}
+It's a fairly straightforward but length calculation to find
+\begin{equation}
+\Delta_{+}(x-y)=\int\E^{-\I
+k_{\mu}(x-y)^{\mu}}\frac{1}{2\omega_{\vec{k}}}\frac{\D^{3}\vec{k}}{(2\pi)^{3}}
+\end{equation}
+Consider the limit $y\to x$, we find
+\begin{equation}
+\Delta_{+}(0)=\int
+\frac{1}{2\omega_{\vec{k}}}\frac{\D^{3}\vec{k}}{(2\pi)^{3}}
+\end{equation}
+We can see this is divergent, even in $(1+1)$-dimensions we see
+$\Delta_{+}(0)\looksLike\omega_{\vec{k}}$ which diverges for large $k$.
 
 \N{Remark}
+We also introduce 
+\begin{equation}
+\Delta_{-}(x-y)=\int\E^{\I k_{\mu}(x-y)^{\mu}}\frac{1}{2\omega_{\vec{k}}}\frac{\D^{3}\vec{k}}{(2\pi)^{3}}
+\end{equation}
+so
+\begin{equation}
+\Delta(x-y) = \Delta_{+}(x-y)-\Delta_{-}(x-y).
+\end{equation}
+Further, $\Delta_{\pm}$ refers to the positive frequency or negative
+frequency parts (corresponding to the sign). We have
+\begin{equation}
+\Delta_{1}(x-y)=\Delta_{+}(x-y)+\Delta_{-}(x-y).
+\end{equation}
+Observe that $\Delta_{1}(x-y)\neq0$ for spacelike separated $x$ and
+$y$. So if we quantized $\varphi(x)$ using the anticommutator, we ould
+violate causality. Ultimately this is because Lorentz invariance links
+spin with statistics.
 
 \section{Charged Scalar Fields}
 
 \N{Antiparticles}
+So far, we have considered the Hermitian field $\varphi(x)$ which does
+not distinguish between particles and antiparticles. To distinguish
+between the two, we need some ``charge'' quantum number. The
+antiparticles will have the opposite charge. Note: this doesn't
+necessarily mean \emph{electric} charge, for example, the $\bar{K}^{0}$
+meson is the antiparticle of the $K^{0}$ meson. Both are electrically
+neutral. For them, strangeness charge distinguishes the two.
+
+Recall \Mref{par:scalar:probabilities} the charge density for the scalar
+field is
+\begin{equation}
+j_{0} = \rho
+= \frac{\I}{2m}(\varphi^{*}\partial_{t}\varphi-(\partial_{t}\varphi^{*})\varphi)
+\end{equation}
+which vanishes for Hermitian $\varphi$.  We therefore want a
+non-Hermitian $\varphi$, i.e., a complex-valued classical field such
+that $\varphi^{*}\neq\varphi$.
 
 \N{Canonical Formalism With Hermitian Fields}
+We could construct a system of a pair of non-interacting scalar fields
+$\varphi_{1}$, $\varphi_{2}$ with action
+\begin{equation}
+\action[\varphi_{1},\varphi_{2}]
+=\frac{1}{2}\int\normalOrder{\partial_{\mu}\varphi_{1}\partial^{\mu}\varphi_{1}
++\partial_{\mu}\varphi_{2}\partial^{\mu}\varphi_{2}
+-m^{2}\varphi_{1}^{2}-m^{2}\varphi_{2}^{2}}\,\D^{4}x.
+\end{equation}
+We repeat the same procedure as before, finding the canonical momenta
+\begin{subequations}
+\begin{equation}
+\pi_{1}(x) = \frac{\partial\mathcal{L}}{\partial(\partial_{t}\varphi_{1})}
+\end{equation}
+and
+\begin{equation}
+\pi_{2}(x) = \frac{\partial\mathcal{L}}{\partial(\partial_{t}\varphi_{2})}
+\end{equation}
+with the equal-time commutators satisfying
+\begin{equation}
+\commutator{\varphi_{i}(\vec{x})}{\pi_{j}(\vec{y})}=\I\delta_{ij}\delta^{3}(\vec{x}-\vec{y})
+\end{equation}
+(and all others vanishing).
+\end{subequations}
+To get particles, we consider the Fourier decomposition
+\begin{equation}
+\begin{split}
+\varphi_{1}(\vec{x},t)&=
+\int(a_{1}(k)\E^{-I k_{\mu}x^{\mu}}+a_{1}^{\dagger}(k)\E^{\I k_{\mu}x^{\mu}})\frac{1}{2\omega_{\vec{k}}}\frac{\D^{3}k}{(2\pi)^{3}}\\
+\varphi_{2}(\vec{x},t)&=
+\int(a_{2}(k)\E^{-I k_{\mu}x^{\mu}}+a_{2}^{\dagger}(k)\E^{\I
+k_{\mu}x^{\mu}})\frac{1}{2\omega_{\vec{k}}}\frac{\D^{3}k}{(2\pi)^{3}}
+\end{split}
+\end{equation}
+We have 2 types of particles, so we have doubled our trouble! The vacuum
+state still satisfies
+\begin{equation}
+a_{j}(k)\ket{\vacuum}=0
+\end{equation}
+for $j=1,2$. The operators
+\begin{equation}
+N_{j} = \int a_{j}^{\dagger}(k)a_{j}(k)\frac{1}{2\omega_{\vec{k}}}\frac{\D^{3}k}{(2\pi)^{3}}
+\end{equation}
+counts the number of particles of type $j=1,2$.
 
 \N{Canonical Formalism With Complex Fields}
 
