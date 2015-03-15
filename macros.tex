@@ -1,6 +1,8 @@
 \makeatletter
+\newif\ifsvmono
+\@ifclassloaded{svmono}{\svmonotrue}{\svmonofalse}
 \usepackage{braket}
-\@ifclassloaded{svmono}{}{\usepackage[top=6pc,textheight=8.9in,textwidth=33pc,inner=6pc,marginparwidth=9pc,marginparsep=1.5pc]{geometry}}
+\ifsvmono\else\usepackage[top=6pc,textheight=8.9in,textwidth=33pc,inner=6pc,marginparwidth=9pc,marginparsep=1.5pc]{geometry}\fi
 \usepackage[backend=biber,
             hyperref=true,
             maxbibnames=100,
@@ -52,13 +54,15 @@
 
 %% author info
 \def\homeurl{\url{https://github.com/pqnelson/physics-notes}}
-\@ifclassloaded{svmono}{}{\author{Alex Nelson%
+\ifsvmono\else
+\author{Alex Nelson%
   \footnote{This is a page from \homeurl\hfil\break%
     \indent\;\, Compiled:\enspace\today\ at \currenttime\ (PST)}\\%
-  \texttt{Email:\enspace\href{mailto:pqnelson@gmail.com}{pqnelson@gmail.com}}}}
+  \texttt{Email:\enspace\href{mailto:pqnelson@gmail.com}{pqnelson@gmail.com}}}
+\fi
 
 % fonts for the sections
-\@ifclassloaded{svmono}{}{%
+\ifsvmono\else
   \titleformat{\chapter}[display]
     {\large\sffamily} % format
     {\chaptertitlename\ \thechapter} % label
@@ -68,7 +72,7 @@
     {0pt}{4pc}{2pc}
   \titleformat*{\section}{\large\bfseries\sffamily}
   \titleformat*{\subsection}{\large\bfseries\sffamily}
-  \titleformat*{\subsubsection}{\bfseries\sffamily}}
+  \titleformat*{\subsubsection}{\bfseries\sffamily}\fi
 
 % bibliography commands
 \@ifundefined{bysame}{
@@ -81,7 +85,10 @@
   \def\frenchspacing{\sfcode`\.1006\sfcode`\?1005\sfcode`\!1004  \sfcode`\:1003\sfcode`\;1002\sfcode`\,1001 }
   }{}
 
-\@ifclassloaded{svmono}{\frenchspacing}{}
+\ifsvmono\frenchspacing\else\fi
+
+\let\oldDelta\Delta
+\ifsvmono\let\Delta\varDelta\else\fi
 
 \newcounter{chunk@ctr}
 \@ifundefined{chapter}{%

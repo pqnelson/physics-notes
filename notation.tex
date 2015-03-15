@@ -1,6 +1,6 @@
 \makeatletter
 % notation
-\@ifclassloaded{svmono}{}{%
+\ifsvmono\else
   \newcommand{\E}{\mathrm{e}}
   \let\eul=\E
   \newcommand{\I}{\mathrm{i}}
@@ -11,7 +11,9 @@
                        {\mbox{\boldmath$\displaystyle#1$}}
                        {\mbox{\boldmath$\textstyle#1$}}
                        {\mbox{\boldmath$\scriptstyle#1$}}
-                       {\mbox{\boldmath$\scriptscriptstyle#1$}}}}}
+                       {\mbox{\boldmath$\scriptscriptstyle#1$}}}}
+\fi
+
 \DeclareMathOperator{\sgn}{sgn}
 
 % linear algebra
