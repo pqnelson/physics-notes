@@ -165,14 +165,12 @@ show this reproduces the equations of motion.
 \end{xca}
 \begin{soln}
 (a) We see
-\begin{equation}
-\begin{split}
+\begin{align}
 2\I\commutator{H}{\varphi(\vec{y},t)}
 &=\int\commutator{\pi(\vec{x},t)^{2}}{\varphi(\vec{y},t)}\D^{3}x
-+\underbrace{\int\bigO{\commutator{\varphi(\vec{x},t)}{\varphi(\vec{y},t)}}\D^{3}x}_{=0}\\
++\underbrace{\int\bigO{\commutator{\varphi(\vec{x},t)}{\varphi(\vec{y},t)}}\D^{3}x}_{=0}\nonumber\\
 &=\int\commutator{\pi(\vec{x},t)^{2}}{\varphi(\vec{y},t)}\D^{3}x
-\end{split}
-\end{equation}
+\end{align}
 Hence we find
 \begin{subequations}
 \begin{align}
@@ -220,7 +218,7 @@ I_{2}&\eqDef\int\commutator{\partial_{j}\varphi(\vec{x},t)\partial^{j}\varphi(\v
 &=\int\partial_{j}\varphi(\vec{x},t)\commutator{\partial^{j}\varphi(\vec{x},t)}{\pi(\vec{y},t)}+\commutator{\partial_{j}\varphi(\vec{x},t)}{\pi(\vec{y},t)}\partial^{j}\varphi(\vec{x},t)\D^{3}x\\
 &=\I\int\partial_{j}\varphi(\vec{x},t)\partial^{j}\delta^{(3)}(\vec{x}-\vec{y})+\partial_{j}\delta^{(3)}(\vec{x}-\vec{y})\partial^{j}\varphi(\vec{x},t)\D^{3}x\\
 \intertext{then integrating by parts isolates the delta functions}
-&=-\I\int\nabla^{2}\varphi(\vec{x},t)\delta^{(3)}(\vec{x}-\vec{y})+\delta^{(3)}(\vec{x}-\vec{y})\nabla^{2}\varphi(\vec{x},t)\D^{3}x\\
+I_{2}&=-\I\int\nabla^{2}\varphi(\vec{x},t)\delta^{(3)}(\vec{x}-\vec{y})+\delta^{(3)}(\vec{x}-\vec{y})\nabla^{2}\varphi(\vec{x},t)\D^{3}x\\
 &=-2\I\nabla^{2}\varphi(\vec{y},t).
 \end{align}
 \end{subequations}
@@ -360,20 +358,22 @@ I_{1}(k')&=\iint\left[
 (\omega_{\vec{k}'}+\omega_{\vec{k}})a(k)\E^{-\I k_{\mu}x^{\mu}}
 +(\omega_{\vec{k}'}-\omega_{\vec{k}})b(k)\E^{\I k_{\mu}x^{\mu}}
 \right]\frac{\E^{-\I\vec{k}'\cdot\vec{x}}}{2\omega_{\vec{k}}}\frac{\D^{3}x\,\D^{3}k}{(2\pi)^{3}}\\
-&=\iint\left[
-(\omega_{\vec{k}'}+\omega_{\vec{k}})a(k)\E^{-\I \omega_{\vec{k}}t +\I(\vec{k}-\vec{k}')\cdot\vec{x}}
-+(\omega_{\vec{k}'}-\omega_{\vec{k}})b(k)\E^{\I \omega_{\vec{k}}t - \I(\vec{k}+\vec{k}')\cdot\vec{x}}
-\right]\frac{1}{2\omega_{\vec{k}}}\frac{\D^{3}x\,\D^{3}k}{(2\pi)^{3}}
+&=\iint\Bigl[
+(\omega_{\vec{k}'}+\omega_{\vec{k}})a(k)\E^{-\I \omega_{\vec{k}}t +\I(\vec{k}-\vec{k}')\cdot\vec{x}}\\
+&\phantom{=\iint\Bigl[}\quad+(\omega_{\vec{k}'}-\omega_{\vec{k}})b(k)\E^{\I \omega_{\vec{k}}t - \I(\vec{k}+\vec{k}')\cdot\vec{x}}
+\Bigr]\frac{1}{2\omega_{\vec{k}}}\frac{\D^{3}x\,\D^{3}k}{(2\pi)^{3}}
 \end{split}
 \end{equation}
 Performing the integral over $x$ turns the exponential factors
 $\exp(\I(\vec{k}\pm\vec{k}')\cdot\vec{x})$ into delta functions
 $\delta^{(3)}(\vec{k}\pm\vec{k}')$. So we find
 \begin{equation}
-I_{1}(k')=\int\left[
-\delta(\vec{k}-\vec{k}')(\omega_{\vec{k}}+\omega_{\vec{k}'})a(k)\E^{-\I\omega_{\vec{k}}t}
-+\delta(\vec{k}+\vec{k}')(\omega_{\vec{k}'}-\omega_{\vec{k}})b(k)\E^{\I \omega_{\vec{k}}t}
-\right]\frac{\D^{3}k}{2\omega_{\vec{k}}}
+\begin{split}
+I_{1}(k')&=\int\Bigl[
+\delta(\vec{k}-\vec{k}')(\omega_{\vec{k}}+\omega_{\vec{k}'})a(k)\E^{-\I\omega_{\vec{k}}t}\\
+&\phantom{=\int\Bigl[}\quad+\delta(\vec{k}+\vec{k}')(\omega_{\vec{k}'}-\omega_{\vec{k}})b(k)\E^{\I \omega_{\vec{k}}t}
+\Bigr]\frac{\D^{3}k}{2\omega_{\vec{k}}}
+\end{split}
 \end{equation}
 The delta functions simplify things considerably, we get
 \begin{equation}
@@ -475,7 +475,7 @@ Linearity ``simplifies'' this
 Our usual commutation relations keeps only the second and third terms,
 which become (factoring out the common $\I$ factors from the momenta)
 \begin{align}
-\commutator{a(k)}{a^{\dagger}(k')}
+&\commutator{a(k)}{a^{\dagger}(k')}\nonumber\\
 &=-\I\int\left(\commutator{\omega_{\vec{k}}\varphi(\vec{x},t)}{\pi(\vec{y},t)}
 +\commutator{\omega_{\vec{k}'}\varphi(\vec{y},t)}{\pi(\vec{x},t)}\right)\E^{\I (k_{\mu}x^{\mu}-k'_{\mu}y^{\mu})}\D^{3}y\,\D^{3}x\nonumber\\
 &=-\I\int\left(\I\omega_{\vec{k}}\delta^{(3)}(\vec{x}-\vec{y})
@@ -560,7 +560,7 @@ operators. We then guess the form of $H$ based on the commutation
 relations \Mref{thm:scalar:ladder-op-commutation-relations}.
 \end{soln}
 
-\N{Definition}
+\N{Definition}\index{State!Ground}\index{Ground State|textbf}\index{Vacuum State|see{Ground State}}
 The \define{Ground State} (or ``\emph{Vacuum State}'' or just
 ``Vacuum'') is the guy in the Fock space $\ket{\vacuum}$ satisfying
 \begin{equation}
@@ -571,7 +571,7 @@ $\vec{k}$ and energy $\omega_{k}$. Similarly,
 $a^{\dagger}(k)^{2}\ket{\vacuum}$ contains two such particles, and so
 on.
 
-\N{Physical States}
+\N{Physical States}\index{State!Physical}
 Lets try to take physical states as the ones which are normalizable,
 i.e.,
 \begin{equation}

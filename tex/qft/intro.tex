@@ -372,7 +372,7 @@ We can create a 2-particle state
 $a^{\dagger}_{n}a^{\dagger}_{m}\ket{\vacuum}$ with energy $e_{m}+e_{n}$. The
 collection of all states formed by creation operators acting on
 $\ket{\vacuum}$ (for any $N$ --- and, technically, they can act on any
-so-constructed state) produces a \define{Fock Space}.
+so-constructed state) produces a \define{Fock Space}\index{Fock Space}.
 \end{definition}
 
 \N{Remarks}
@@ -508,18 +508,22 @@ We again apply the Hamiltonian to it and find
 \begin{subequations}
 \begin{align}
 H&\int f(x_{1}, x_{2}, t)\varphi^{*}(x_{1},t)\varphi^{*}(x_{2},t)\ket{\vacuum}\,\D{x_{1}}\D{x_{2}}\nonumber\\
-&=\iint\varphi^{*}(y,t)h(y)\varphi(y,t)f(x_{1}, x_{2}, t)\varphi^{*}(x_{1},t)\varphi^{*}(x_{2},t)\ket{\vacuum}\,\D{x_{1}}\D{x_{2}}\D{y}\\
-&=\iint\varphi^{*}(y,t)h(y)f(x_{1}, x_{2}, t)\Bigl(\varphi(y,t)\varphi^{*}(x_{1},t)\varphi^{*}(x_{2},t)\Bigr)\ket{\vacuum}\,\D{x_{1}}\D{x_{2}}\D{y}
+&=\iint\varphi^{*}(y,t)h(y)\varphi(y,t)f(x_{1}, x_{2}, t)\varphi^{*}(x_{1},t)\varphi^{*}(x_{2},t)\ket{\vacuum}\,\D{x_{1}}\D{x_{2}}\,\D{y}\\
+&=\iint\varphi^{*}(y,t)h(y)f(x_{1}, x_{2}, t)\Bigl(\varphi(y,t)\varphi^{*}(x_{1},t)\varphi^{*}(x_{2},t)\Bigr)\ket{\vacuum}\,\D{x_{1}}\D{x_{2}}\,\D{y}
 \end{align}
 \end{subequations}
 again commuting the parenthetic terms gives us
 \begin{subequations}
 \begin{align}
 \Bigl(\varphi(y,t)\varphi^{*}(x_{1},t)\varphi^{*}(x_{2},t)\Bigr)
-&=\Bigl(\varphi^{*}(x_{1},t)\varphi(y,t)+\commutator{\varphi(y,t)}{\varphi^{*}(x_{1},t)}\Bigr)\varphi^{*}(x_{2},t)\\
-&=\Bigl(\varphi^{*}(x_{1},t)\varphi(y,t)+\delta(y-x_{1})\Bigr)\varphi^{*}(x_{2},t)\\
-&=\varphi^{*}(x_{1},t)\varphi(y,t)\varphi^{*}(x_{2},t)+\delta(y-x_{1})\varphi^{*}(x_{2},t)\\
-&=\varphi^{*}(x_{1},t)\Bigl(\varphi(y,t)\varphi^{*}(x_{2},t)\Bigr)+\delta(y-x_{1})\varphi^{*}(x_{2},t)\\
+&=\Bigl(\varphi^{*}(x_{1},t)\varphi(y,t)\nonumber\\
+&\phantom{=\Bigl(}\quad+\commutator{\varphi(y,t)}{\varphi^{*}(x_{1},t)}\Bigr)\varphi^{*}(x_{2},t)\\
+&=\Bigl(\varphi^{*}(x_{1},t)\varphi(y,t)\nonumber\\
+&\phantom{=\Bigl(}\quad+\delta(y-x_{1})\Bigr)\varphi^{*}(x_{2},t)\\
+&=\varphi^{*}(x_{1},t)\varphi(y,t)\varphi^{*}(x_{2},t)\nonumber\\
+&\phantom{=}\quad+\delta(y-x_{1})\varphi^{*}(x_{2},t)\\
+&=\varphi^{*}(x_{1},t)\Bigl(\varphi(y,t)\varphi^{*}(x_{2},t)\Bigr)\nonumber\\
+&\phantom{=}\quad+\delta(y-x_{1})\varphi^{*}(x_{2},t)\\
 &=\varphi^{*}(x_{1},t)\Bigl(\varphi^{*}(x_{2},t)\varphi(y,t)+\commutator{\varphi(y,t)}{\varphi^{*}(x_{2},t)}\Bigr)\nonumber\\
 &\phantom{=}\quad+\delta(y-x_{1})\varphi^{*}(x_{2},t)\\
 &=\varphi^{*}(x_{1},t)\Bigl(\varphi^{*}(x_{2},t)\varphi(y,t)+\delta(y-x_{2})\Bigr)\nonumber\\
@@ -731,11 +735,13 @@ Integrable theories should be exactly solvable.
 The general $N$-body system has a solution, first worked out by Lieb and
 Liniger~\cite{Lieb:1963rt,Lieb:1963zz}. The general solution is
 \begin{equation}
-f_{N}(x_{1},\dots,x_{N})
-=
+\begin{split}
+&f_{N}(x_{1},\dots,x_{N})\\
+&=
 \left(\prod_{j<\ell}
 \theta(x_{j}-x_{\ell})+\E^{\I\Delta(k_{\ell}-k_{j})}\theta(x_{\ell}-x_{j})\right)
 \exp(\I\sum^{N}_{j=1}k_{j}x_{j})
+\end{split}
 \end{equation}
 where $\theta$ is the Heaviside step function, and
 \begin{equation}
@@ -776,7 +782,8 @@ We Taylor expand $g(x-y)$ about $x=y$:
 \begin{align}
 g(x-y)
 &= g(0)
-   + \partial_{x}g(x-y)|_{x=y}(x-y) 
+   + \partial_{x}g(x-y)|_{x=y}(x-y) \nonumber\\
+&\phantom{=}\quad
    + \left.\frac{1}{2}\partial_{x}^{2}g(x-y)\right|_{x=y}(x-y)^{2}
    + \cdots\\
 &= \braket{\vacuum|\varphi^{*}(y)\varphi(y)|\vacuum}\\
