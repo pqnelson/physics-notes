@@ -2,7 +2,14 @@
 \newif\ifsvmono
 \@ifclassloaded{svmono}{\svmonotrue}{\svmonofalse}
 \usepackage{braket}
-\ifsvmono\else\usepackage[top=6pc,textheight=8.9in,textwidth=33pc,inner=6pc,marginparwidth=9pc,marginparsep=1.5pc]{geometry}\fi
+\ifsvmono\else
+  \usepackage[top=6pc, % 1762.2 pc^2 = 508.825 pc^2 more than SV pages
+              textheight=8.9in, % 53.4 pc
+              textwidth=33pc,
+              inner=6pc,
+              marginparwidth=9pc,
+              marginparsep=1.5pc]{geometry}
+\fi
 \usepackage[backend=biber,
             hyperref=true,
             maxbibnames=100,
@@ -28,6 +35,8 @@
 
 \numberwithin{equation}{chapter}
 
+
+\newcommand\svcr{\ifsvmono\\\else\fi}
 %% bibliography related macros
 
 \DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
@@ -62,17 +71,23 @@
 \fi
 
 % fonts for the sections
-\ifsvmono\else
-  \titleformat{\chapter}[display]
-    {\large\sffamily} % format
-    {\chaptertitlename\ \thechapter} % label
-    {20pt} % sep
-    {\filleft\Large\bfseries} % before
-  \titlespacing*{\chapter}
-    {0pt}{4pc}{2pc}
-  \titleformat*{\section}{\large\bfseries\sffamily}
-  \titleformat*{\subsection}{\large\bfseries\sffamily}
-  \titleformat*{\subsubsection}{\bfseries\sffamily}\fi
+\titleformat{\chapter}[display]
+  {\large\sffamily} % format
+  {\chaptertitlename\ \thechapter} % label
+  {20pt} % sep
+  {\filleft\Large\bfseries} % before
+\titlespacing*{\chapter}
+  {0pt}{4pc}{2pc}
+\titleformat*{\section}{\large\bfseries\sffamily}
+\titleformat*{\subsection}{\large\bfseries\sffamily}
+\titleformat*{\subsubsection}{\bfseries\sffamily}
+
+\ifsvmono
+  \titlespacing*{\section}{0pt}{2.3ex}{1.8ex}
+  \titlespacing*{\subsection}{0pt}{1.5ex}{1.05ex}
+  \titlespacing*{\subsubsection}{0pt}{1.5ex}{1.05ex}
+\else
+\fi
 
 % bibliography commands
 \@ifundefined{bysame}{
