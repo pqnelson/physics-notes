@@ -6,6 +6,9 @@
 /img/*
 !/img/*.mp
 
+# ignore backups, autosaves
+*~
+
 # ignore the misc. LaTeX and MPost output
 physics.*
 !physics.tex
