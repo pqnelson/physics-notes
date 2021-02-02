@@ -179,14 +179,20 @@
 \newtheorem{lemma}[chunk@ctr]{Lemma}
 \newtheorem{proposition}[chunk@ctr]{Proposition}
 \newtheorem{corollary}[chunk@ctr]{Corollary}
+\let\thm\theorem
+\let\endthm\endtheorem
 
 \theoremstyle{defnstyle}
 \newtheorem{xca}[chunk@ctr]{Exercise}
+\newtheorem{ex}[chunk@ctr]{Example}
 \newtheorem{definition}[chunk@ctr]{Definition}
+\let\defn\definition
+\let\enddefn\enddefinition
 
 \theoremstyle{rmkstyle}
 \newcorollary{remark}{Remark}[chunk@ctr]
-  
+\let\rmk\remark
+\let\endrmk\endremark
 \renewcommand\theremark{\thechunk@ctr.\oldstylenums{\arabic{remark}}}
 
 \newenvironment{soln}{\begin{proof}[Solution\@addpunct{.}]}{\end{proof}}
@@ -231,4 +237,8 @@
 \def\workedExamples{\subsection*{\phantomsection\addcontentsline{toc}{subsection}{Worked Examples}Worked Examples}}
 
 \def\TODO#1{\marginpar{\footnotesize TODO:~#1}}
+
+\ifsvmono\else\def\preface{\chapter{Preface}}\fi
+
+
 \makeatother

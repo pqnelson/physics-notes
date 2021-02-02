@@ -1,0 +1,57 @@
+\begin{xca}[{Irodov~\cite[1.2]{irodovProblems}}]
+A point traversed half the distance with a velocity $v_{0}$. The
+remaining part of the distance was covered with velocity $v_{1}$ for
+half the time, and with velocity $v_{2}$ for the other half of the
+time. Find the mean velocity of the point averaged over the whole time
+of motion.
+\end{xca}
+
+\begin{soln}
+\textsc{Identify:} Lets write down all the quantities:
+\begin{enumerate}
+\item $\ell$ be the unknown total distance
+\item $\Delta t = \Delta t_{0} + 2\Delta t_{1}$ be the unknown time interval for the total trajectory
+\item $\Delta t_{0}$ be the unknown time interval for the point to
+traverse the first half of the trajectory
+\item $v_{0}$ be the unknown velocity traversed over a distance of $\ell/2$
+\item $v_{1}$ be the unknown velocity traversed over the time interval $\Delta t_{1}$
+\item $v_{2}$ be the unknown velocity traversed over the time interval
+$\Delta t_{1}$ (not a typo, it's really $\Delta t_{1}$).
+\end{enumerate}
+The average velocity we want to find $\bar{v}$ will be equal to $\ell/\Delta t$.
+
+\textsc{Set-up:} We have
+\begin{equation}
+   v_{0} = \frac{\ell/2}{\Delta t_{0}}
+\end{equation}
+and
+\begin{equation}
+    (v_{1} + v_{2})\Delta t_{1} = \ell/2.
+\end{equation}
+We will use these equations to write the average velocity
+\begin{equation}
+    \bar{v} = \frac{\ell}{\Delta t_{0} + 2\Delta t_{1}}
+\end{equation}
+in terms of the velocities $v_{0}$, $v_{1}$, $v_{2}$.
+
+\textsc{Execute:} We can now compute from these the time intervals
+\begin{equation}
+\Delta t_{1} = \frac{\ell}{2(v_{1}+v_{2})}.
+\end{equation}
+Hence
+\begin{subequations}
+\begin{align}
+\bar{v} &= \frac{\ell}{\Delta t}\\
+&= \frac{\ell}{[(\ell/2)/v_{0}] + 2[\ell/(2v_{1}+2v_{2})]}\\
+&= \frac{\ell}{[\ell/(2v_{0})] + [\ell/(v_{1}+v_{2})]}\\
+&= \frac{1}{[1/(2v_{0})] + [1/(v_{1}+v_{2})]}
+\end{align}
+\end{subequations}
+Hence
+\begin{equation}
+\bar{v} = \frac{2v_{0}(v_{1} + v_{2})}{v_{1} + v_{2} + 2v_{0}}.
+\end{equation}
+
+\textsc{Evaluate:} If the velocity is constant $v_{0}=v_{1}=v_{2}=v$,
+then the average velocity is $\bar{v}=2v(v+v)/(v + v + 2v)=4v^{2}/(4v)=v$ as expected.
+\end{soln}

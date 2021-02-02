@@ -4,13 +4,86 @@
 When we consider \emph{how to describe the state of a system},
 we are discussing the system's \define{Kinematics}. For classical
 mechanics, we begin with a point-like particle which travels along a
-curve called its \define{Trajectory}. 
+curve called its \define{Trajectory}.
 
 At any moment, a point in the trajectory is the particle's
 \emph{position}. The first derivative (with respect to time) is the
 particle's \emph{velocity}. Its second derivative, its
 \emph{acceleration}. Kinematics for a point particle amounts to little
 more than the differential geometry of curves.
+
+
+\begin{defn}
+\define{Kinematics} is a complete description of a physical system at
+any given moment.
+\end{defn}
+\begin{defn}
+\define{Dynamics} describes the change of a physical system --- how and
+why the system changes.
+\end{defn}
+
+\N{Point Particle}
+We may consider a physical system approximating a body with no internal
+structure, described as a geometric point in space. This is a
+\define{Point Particle}.
+
+\begin{danger}
+\textsc{Do not think of a point particle as \emph{always} approximating
+  an atom or a subatomic particle.} When considering the motion of a
+planet around a star, we may approximate both the planet and the star as
+point particles. Throwing a ball may be described as considering the
+trajectory of a point particle approximating the ball.
+\end{danger}
+
+\section{Position and Velocity Vectors}
+
+\begin{defn}
+The \define{Position Vector} for a point particle is a vector $\vec{r}$
+from the origin of the coordinate system to the position of the point
+particle. It is considered a function of time $\vec{r}=\vec{r}(t)$.
+\end{defn}
+
+\begin{defn}
+The \define{Velocity Vector} (or just \emph{``Velocity''}) for a point
+particle is the time derivative of its position vector
+\begin{equation}
+    \vec{v}(t) = \frac{\D\vec{r}(t)}{\D t}.
+\end{equation}
+\end{defn}
+
+\begin{defn}
+The \define{Average Velocity} for a point particle over a time interval
+$\Delta t = t_{2}-t_{1}$ is
+\begin{equation}
+    \vec{v}_{\text{av}} = \frac{\vec{r}(t_{2})-\vec{r}(t_{1})}{t_{2}-t_{1}}.
+\end{equation}
+\end{defn}
+
+\begin{thm}
+The velocity vector for a point particle is obtained by taking the limit
+of its average velocity as $\Delta t\to0$.
+\end{thm}
+\begin{proof}
+Definition of the derivative.
+\end{proof}
+
+\begin{rmk}
+Observe, we can take the velocity vector as fundamental. Then its
+average value over a time interval $[t_{1},t_{2}]$ will be
+\begin{equation}
+\vec{v}_{\text{av}} = \frac{\int^{t_{2}}_{t_{1}}\vec{v}\,\D t}{t_{2}-t_{1}}.
+\end{equation}
+But since the velocity vector is just the time derivative of the
+position vector,
+the fundamental theorem of calculus gives us
+\begin{equation}
+\vec{v}_{\text{av}} = \frac{\int^{t_{2}}_{t_{1}}\vec{v}\,\D t}{t_{2}-t_{1}}
+ = \frac{\vec{r}(t_{2})-\vec{r}(t_{1})}{t_{2}-t_{1}}
+\end{equation}
+as expected.
+\end{rmk}
+
+\input{tex/kinematics/avg-velocity-along-string}
 
 \subsection{Acceleration Vector}
 
@@ -30,7 +103,7 @@ The question we should ask ourselves is ``What happens to velocity (when
 considering nonzero acceleration)?''
 
 \N{Parallel Acceleration}\index{Acceleration!Parallel}
-So consider a ``small interval'' from $t_{1}$ to $t_{2}=t_{1}+\Delta t$. 
+So consider a ``small interval'' from $t_{1}$ to $t_{2}=t_{1}+\Delta t$.
 The change in velocity $\Delta\vec{v}=\vec{v}(t_{2})-\vec{v}(t_{1})$
 gives us an ``average velocity'' for the body. If the acceleration is
 parallel to the velocity, then $\Delta\vec{v}$ is in the same direction
@@ -80,7 +153,9 @@ but by the product rule we also have this equal to
 \frac{\D}{\D t}\|\vec{v}\|^{2}=2\|\vec{v}\|\cdot\frac{\D\|\vec{v}\|}{\D t}
 \end{equation}
 which has the same sign as $\D\|\vec{v}\|/\D t$ since
-$\|\vec{v}\|\geq0$. 
+$\|\vec{v}\|\geq0$.
+
+\input{tex/kinematics/uniform-car}
 
 \subsection{Projectile Motion}
 \N{Definition}
@@ -94,7 +169,7 @@ We simplify this model by considering constant
 acceleration\footnote{Note this is the \emph{definition} of standard
   gravity, as set forth by ISO 80000-3. See~\cite[p 52]{sp330}.}
 \begin{equation}
-g=\SI{9.80655}{\meter/\square\second} 
+g=\SI{9.80655}{\meter/\square\second}
 \end{equation}
 and neglecting air resistance. This limits us, since we ignore the
 curvature of the Earth, but for a first pass, it's decent.
@@ -143,7 +218,7 @@ t = \frac{x(t)}{v_{0}\cos(\alpha)}.
 We plug this into $y(t)$ to find $y$ as a function of $x$:
 \begin{equation}
 \begin{split}
-y(x) 
+y(x)
 &=v_{0}\sin(\alpha)\left(\frac{x(t)}{v_{0}\cos(\alpha)}\right)
    - \frac{1}{2}g\left(\frac{x(t)}{v_{0}\cos(\alpha)}\right)^{2}\\
 &=\tan(\alpha)x - \frac{g}{2{v_{0}}^{2}}\sec^{2}(\alpha)x^{2}\\
@@ -168,7 +243,7 @@ that, Galileo investigated the motion of bodies under constant
 acceleration. Presumably this summarizes his earlier work dating back to
 1604. Although it sounds minor, this work was crucial in overturning the
 Aristotlean worldview that ``heavier'' objects fall faster than
-``lighter'' objects. 
+``lighter'' objects.
 \end{remark}
 
 \workedExamples{}
@@ -180,12 +255,12 @@ Suppose a student emulates Galileo and drops a coin\footnote{Galileo
   the guards won't let you take canonballs into the Tower of Pisa for
   ``security reasons''.} from the
 leaning Tower of Pisa (at $\SI{56.0}{\meter}$ from the ground). How
-long until the coin hits the ground? 
+long until the coin hits the ground?
 
 \begin{soln}
 \textsc{Identify.} We need to use
 $x(t)=x_{0}+v_{0}t+\frac{1}{2}at^{2}$, assuming $a=-g$ is
-constant. 
+constant.
 
 \textsc{Set-Up.}
 We first doodle the tower
@@ -224,7 +299,7 @@ t_{1} &= \sqrt{\frac{2\cdot\SI{56.0}{\meter}}{\SI{9.8}{\meter\per\second\squared
 \textsc{Evaluate.}
 We see that the coin, after $\SI{3.0}{\second}$, travels a distance
 of approximately $\Delta y\approx \SI{45}{\meter}$. Why? Well,
-since $g/2\approx \SI{5}{\meter/\second\squared}$ and 
+since $g/2\approx \SI{5}{\meter/\second\squared}$ and
 $(\SI{3}{\second})^{2}=\SI{9}{\second\squared}$ gives us $\Delta y\approx(1/2)g\cdot(\SI{9.0}{\second\squared})\approx \SI{45}{\meter}$. So it's
 reasonable that it'd take about $\SI{3.4}{\second}$.
 \end{soln}
@@ -354,7 +429,7 @@ we can estimate it as
 t_{1}\approx \frac{2v_{0}\sin(\alpha)}{10}
 \end{equation}
 since $g\approx 10$, $\cos(\alpha)\approx 1$, and the
-$\sqrt{v_{0}^{2}\sin^{2}(\alpha)+\dots}\approx 
+$\sqrt{v_{0}^{2}\sin^{2}(\alpha)+\dots}\approx
 v_{0}\sin(\alpha)$. We see then that
 \begin{equation}
 t_{1}\approx \SI{7.6}{\second}.
@@ -371,8 +446,8 @@ correct\dots probably.
 Note the range for a Napoleon 12-pounder with the same given conditions
 is empirically around \SI{1480}{\meter}. We computed over twice
 that. Why? We ignored air resistance. For discussions, see
-Burko and Price~\cite{burko2003}, Euler~\cite{e77,e217,e226,e853}, 
-Grimberg \emph{et al.}~\cite{grimberg2008}, and Hogg~\cite{hogg2007}. 
+Burko and Price~\cite{burko2003}, Euler~\cite{e77,e217,e226,e853},
+Grimberg \emph{et al.}~\cite{grimberg2008}, and Hogg~\cite{hogg2007}.
 \end{remark}
 
 \subsection{Uniform Circular Motion}
@@ -477,7 +552,7 @@ Book I in Isaac Newton's \emph{Principia}. Newton, too, coined the term
 
 \N[{Earth Rotation~\cite[Exercise 3.25]{young}}]{Example}
 The Earth rotates in a period of 24 hours, its radius is
-$\SI{6371}{\kilo\meter}$. 
+$\SI{6371}{\kilo\meter}$.
 \begin{enumerate}
 \item Find the radial acceleration $a_{\text{rad}}$ of the Earth (on the
   equator).
@@ -508,7 +583,7 @@ where the subscript $\oplus$ is the symbol for the Earth. We just have
 to plug these into the given equations to get our solutions.
 
 \textsc{Execute.}
-(1) We find 
+(1) We find
 \begin{equation}
 \begin{split}
 a &= \frac{4\pi^{2}\times\SI{6.371}{\meter}}{(\SI{86.4}{\second})^{2}}\\

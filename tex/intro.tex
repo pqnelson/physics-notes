@@ -1,9 +1,9 @@
 %%
 %% intro.tex
-%% 
+%%
 %% Made by Alex Nelson
 %% Login   <alex@black-cherry>
-%% 
+%%
 %% Started on  Fri Jul 27 15:14:26 2012 Alex Nelson
 %% Last update Sat Jul 28 11:14:12 2012 Alex Nelson
 %%
@@ -11,7 +11,7 @@
 \N{Nature of Physics} As with any science, physics works via
 paradigms. A paradigm is a collection of conceptual tools (e.g.,
 equations and models) used to analyze and explain phenomena, make
-predictions, and set up models. 
+predictions, and set up models.
 
 We will investigate the Newtonian paradigm. Later, after
 investigating electromagnetism, we will see this paradigm
@@ -29,6 +29,12 @@ Newton's paradigm works for slow objects, when $v\ll c$. For speeds
 approaching light, we lose accuracy and need to work with special
 relativity.
 
+\begin{rmk}
+I am really using the term ``paradigm'' in a weaker sense than Kuhn meant.
+Strictly speaking, I should be calling it a ``research programme'' in the Lakotosian sense of the term.
+See Imre Lakatos's \emph{The Methodology of Scientific Research Programmes: Volume 1: Philosophical Papers}, (eds.\ John Worrall, Gregory Currie) CUP 1980.
+\end{rmk}
+
 \N{Problem-Solving} Pure mathematics works via
 ``Definition--theorem--proof'', but applied mathematics and
 sciences focuses on \emph{examples}, working out problems. We
@@ -41,13 +47,13 @@ consisting of four steps used in problem--solving:
   numeric value or an algebraic expression?
 \item\textbf{Set up the problem:} Draw a sketch if it
   helps. Choose the equations based on the ``identify'' step,
-  decide how we'll use them. 
+  decide how we'll use them.
 \item\textbf{Execute the Solution:} Do the math, preferably doing
   algebraic calculations first, then plug in the physical
-  quantities. 
+  quantities.
 \item\textbf{Evaluate your answer:} Does it make sense? You can
-  double check using order of magnitude estimates. Also try to
-  think of more complicated problems.
+  double check using order of magnitude estimates, limiting to special
+  cases. Also try to think of more complicated problems.
 \end{enumerate}
 
 \N{Idealized Models}
@@ -57,7 +63,33 @@ ball as a \define{Point Particle}\index{Particle!Point}\index{Point Particle|tex
 sphere. We may neglect air resistance too. But when we
 \emph{evaluate} the model, we may introduce these factors. This
 iterative approach allows us to model complicated phenomena quite
-simply. 
+simply.
+
+\N{Dimensions}
+There are several dimensions which we're interested in, namely: length
+$\mathsf{L}$, mass $\mathsf{M}$, time $\mathsf{T}$. Conventionally the
+dimensions are typeset using\footnote{SI
+Brochure, \url{https://www.bipm.org/en/publications/si-brochure/section1-3.html}}
+``a single sans serif roman capital letter.'' Other dimensions will be
+introduced later (like ``temperature'') or shown to be ``built out of''
+these basic dimensions (for example, the physical dimensions of energy
+is mass length-squared per time-squared or symbolically
+$[E] = \mathsf{ML}^{2}/\mathsf{T}^{2}$).
+Given\marginpar{$[Q]$ = physical dimension of $Q$}
+some physical quantity $Q$, we write its dimension as
+$[Q]$ and it is a rational monomial in these dimensions
+$[Q]=\mathsf{L}^{\ell}\mathsf{M}^{m}\mathsf{T}^{t}(\dots)$ where $\ell$,
+$m$, $t$ are integers.
+
+\N{Four Constants of Nature}
+There are four constants of nature which the international system of
+units takes as ``primitive'':
+\begin{enumerate}
+    \item Speed of Light in a vacuum $c$
+    \item Planck's constant $\hbar$
+    \item Boltzmann's constant $k_{B}$
+    \item the Avogadro number $N_{A}$
+\end{enumerate}
 
 \N{Standards and Units}\label{M:intro:standards-and-units}
 We measure phenomena experimentally, and use numbers  for
@@ -69,7 +101,7 @@ Definition}\index{Definition!Operational}\index{Operational Definition}.
 We measure distances with rulers, time intervals with clocks.
 
 So Goliath\index{Goliath} is 6 cubits (according to 1Sam17:4), and an even more
-powerful authority---Google---tells us 
+powerful authority---Google---tells us
 \begin{equation}
 \SI{1}{cubit}=\SI{45.72}{\centi\meter}.
 \end{equation}
@@ -90,7 +122,7 @@ cycles of this radiation.
 \end{center}
 \textbf{Distance:\quad}\ignorespaces%
 We define one \define{Meter} to be the distance a photon travels
-in a vacuum in $\SI{1/299792458}{\second}$.  
+in a vacuum in $\SI{1/299792458}{\second}$.
 
 \noindent\textbf{Mass:\quad}\ignorespaces%
 We keep a particular cylinder of platinum--iridium alloy in
@@ -110,7 +142,8 @@ few\ times\ bigger\ than\ largest\ atom)}\\
 \SI{1}{centimeter}&=\SI{1}{\centi\meter} = \SI[parse-numbers = false]{10^{-2}}{\meter}\mathrm{\
 (diameter\ of\ pinky)}\\
 \SI{1}{kilometer} &=\SI{1}{\kilo\meter} = \SI[parse-numbers = false]{10^{3}}{\meter}\mathrm{\ (a\
-ten\ minute\ walk)}
+ten\ minute\ walk)}\\
+\SI{40,000}{kilometer} &=\SI[parse-numbers = false]{4\times10^{4}}{\kilo\meter}\approx\mathrm{\ (Circumference\ of\ Earth)}
 \end{align*}
 We will consider several different mass scales
 \begin{align*}
@@ -122,19 +155,33 @@ We will consider several different mass scales
 of\ paperclip)}
 \end{align*}
 
+\begin{rmk}[2018 Redefinition]
+Prior to 2018, SI units were slightly different. For example, the second
+was defined using excitation of a Cesium atom. We hit a Cesium
+atom\index{Cesium} in its ground state with radiation at the frequency
+necessary to energize the valence electron to the next energy state. We
+had defined one \define{Second}\index{Second!pre-2018 def.} to be
+9,192,631,770 cycles of this radiation.
+
+The definition of a kilogram has also changed. Before 2018,
+we kept a particular cylinder of platinum--iridium alloy in
+Paris, and its mass we define as one \define{Kilogram}\index{Kilogram!pre-2018 def.}.
+But there were concerns it was experiencing atomic decay,
+making the unit time-dependent (which is undesirable).
+\end{rmk}
 
 \N{Unit Consistency and Conversion} Equations must be
 dimensionally consistent. We cannot add oranges to orangutans!
 For example: $d = rt$, so we have
 \begin{equation}
-\SI{12}{\meter} = 
+\SI{12}{\meter} =
 \left(3\frac{\si{\meter}}{\si{\highlight{red}\cancel\second}}\right)(4\si{\highlight{red}\cancel\second})
 \end{equation}
 Huzzah, we have consistency!
 
 Really, we should treat units as if they're algebraic
 quantities. We need to convert accordingly, so we avoid
-inconsistencies. 
+inconsistencies.
 
 \N{Example}
 United States President Barack Obama\index{Obama!President Barack} was born August 4, 1961 at
@@ -159,7 +206,7 @@ T &= T_{1}+T_{2}
 
 \textsc{Execute:}
 First we consider $\tau_{1}$ the time left on 4 August 1961 until
-midnight, so 
+midnight, so
 \begin{equation}
 T_{1} = \tau_{1} + (12\si{hrs}).
 \end{equation}
@@ -213,7 +260,7 @@ Now we need to convert units, so we can add $T_1+T_2$, then
 change units to seconds. We see
 \begin{equation}
 \begin{split}
-T_{2} &= 
+T_{2} &=
 (\SI{17681}{days})\left(24\frac{\si{hrs}}{\si{day}}\right)
 \left(60\frac{\si{\minute}}{\si{hr}}\right)\\
 &= \SI{25460640}{\minute}
@@ -240,7 +287,7 @@ Does this make sense? Well, it should be a little less than 50
 years in seconds. We find
 \begin{equation}
 \!(50\si{years})
-\!\!\left(365.25\frac{\si{day}}{\si{year}}\right) 
+\!\!\left(365.25\frac{\si{day}}{\si{year}}\right)
 \!\!\left(24\frac{\si{hrs}}{\si{day}}\right)
 \!\!\left(60\frac{\si{min}}{\si{hr}}\right)
 \!\!\left(60\frac{\si{sec}}{\si{min}}\right)
@@ -259,7 +306,7 @@ or \define{Error}\index{Measurement!Error}\index{Error!of a Measurement}. The \d
 how close it approximates the solution. We indicate uncertainty
 writing $y\pm x$ suggesting the final answer is unlikely to be
 outside of $y-x$ and $y+x$. For a measurement $123.456\pm0.00078$
-we sometimes use shorthand writing $123.456(78)$. 
+we sometimes use shorthand writing $123.456(78)$.
 
 Scientific notation rewrites any number using powers of ten.
 For example
@@ -278,13 +325,13 @@ of these symbols. We should really note that $\orderOf$, $\propto$, and
 $\approx$ are all rough forms of equality, and we expect (in practice)
 they obey the same rules (i.e., we should be able to ``add things to
 both sides'', so $x\orderOf y$ then $a+x\orderOf a+y$ for any $a$, etc.). So
-just remember: what is written down here is meant 
+just remember: what is written down here is meant
 \emph{only as an heuristic, not a rigorous definition!}
 \end{ddanger}
 
 \N{Order of Magnitude}
 Usually, it is useful to estimate quantities based on orders of
-magnitude (that is, as $10^{x}$ for some integer $x$). We will write 
+magnitude (that is, as $10^{x}$ for some integer $x$). We will write
 $q\orderOf r$ if nonzero quantities $q$ and $r$ have the same order of
 magnitude. As a rule of thumb, this means that $|\log(q/r)|< 1$. So
 \begin{equation}\label{eq:defn-of-order-magnitude-sim}
@@ -368,4 +415,3 @@ Are these estimates good to 2 digits? (Hint: these estimates are
 related, so you only have to prove a few of them, and that the rest are
 logical consequences of the few.)
 \end{xca}
-

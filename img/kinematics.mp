@@ -15,22 +15,22 @@ beginfig(0)
 
   numeric ta; ta := 0.6;
   pair a; a := point ta of p;
-  
+
   path tangent; tangent := (-4u, 0)--(4u, 0);
   tangent := tangent rotated (angle direction ta of p) shifted a;
-  
+
   draw tangent withcolor 0.5[black,white];
-  
-  z[0] = point 0.5 of tangent; 
+
+  z[0] = point 0.5 of tangent;
   z[1] = point 1.0 of tangent;
   z[2] = z[1] - z[0];
   numeric m; m := -1*(xpart z[2])/(ypart z[2]);
 
   path normal; normal := (z[0] + (-2u, -2u*m)) -- (z[0] + (2u, 2u*m));
-  
+
   draw normal withcolor 0.5[black,white];
 
-  path velocity; 
+  path velocity;
   velocity = (point 0.7 of tangent)--(point 0.9 of tangent);
   drawarrow velocity;
   path parallelAcceleration;
@@ -91,7 +91,7 @@ beginfig(2)
   path p[];
   numeric dt; dt:=2;
   p[0] = (-3u, 3u)--(0, 3u)--(0,0)--(3u,0);
-  
+
   draw (0, 3u-dt)--(-6,3u-dt-6) withcolor 0.8white;
   draw (dt, 0)--(dt-6,-6) withcolor 0.8white;
   for i = 2 upto 1+(3u/dt):
@@ -128,7 +128,7 @@ beginfig(3)
 
   p4 = quartercircle scaled 2u cutbefore p2 cutafter p3;
   draw p4;
-  
+
   p5 = (z0--z3) scaled 2 shifted z1;
   p6 = (z0--z4) scaled 2 shifted z2;
   drawarrow p5 withcolor 0.35[white,black];
@@ -142,7 +142,7 @@ beginfig(3)
   label.lft(btex $R$ etex, point 0.7 of p3);
   label.rt(btex $P_{1}$ etex, z1);
   label.top(btex $P_{2}$ etex, z2);
-  
+
   label.rt(btex $\vec{v}_{1}$ etex, point 1.0 of p5);
   label.top(btex $\vec{v}_{2}$ etex, point 1.0 of p6);
 
@@ -159,17 +159,17 @@ beginfig(4)
   z[2] = point 1.5 of p0;
   z[3] = direction(0.1) of p0;
   z[4] = direction(1.5) of p0;
-  
+
   p1 = (z0--z3) scaled sf; % v_1
   p2 = (z0--z4) scaled sf; % v_2
   p3 = (sf*z3)--(sf*z4);
   drawarrow p1 withcolor 0.35[white,black];
   drawarrow p2 withcolor 0.35[white,black];
   drawarrow p3;
-  
+
   p4 = halfcircle scaled u cutbefore p1 cutafter p2;
   draw p4;
-  
+
   label.rt(btex $\vec{v}_{1}$ etex, point 1.0 of p1);
   label.bot(btex $\vec{v}_{2}$ etex, point 1.0 of p2);
   label.ulft(btex $\Delta\vec{v}$ etex, point 0.5 of p3);

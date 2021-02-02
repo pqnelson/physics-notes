@@ -1,0 +1,109 @@
+
+
+\begin{ex}[{Irodov~\cite[1.3]{irodovProblems}}]
+A car starts moving rectilinearly, first with acceleration
+$w=\SI[per-mode=symbol]{5.0}{\meter\per\second\squared}$ (the initial
+velocity is equal to zero), then uniformly, and finally, decelerating at
+the same rate $w$, comes to a stop. The total time of motion equals
+$\tau=\SI{25}{\sec}$. The average during that time is equal to $\langle
+v\rangle=\SI[per-mode=symbol]{72}{\kilo\meter\per\hour}$. How long does
+the car move uniformly?
+\end{ex}
+\begin{soln}
+\textsc{Identify:} We have $w=\SI{5.0}{\meter\per\second\squared}$
+describe the acceleration and deceleration of the car. Let $\Delta t_{0}$
+be the time interval when the car is accelerating,
+$\Delta t_{1}$ be the interval when there is no acceleration (i.e., the
+car experiences ``uniform motion''), and $\Delta t_{2}$ be the time
+interval when the car is decelerating. These intervals are unknown but
+positive, and satisfy $\tau = \Delta t_{0} + \Delta t_{1} + \Delta t_{2}$
+for $\tau=\SI{25}{\sec}$.
+Symmetry suggests $\Delta t_{2}=\Delta t_{0}$. Last, let $v$ be the
+(unknown) velocity when the car is moving uniformly.
+
+\textsc{Set-up:}
+We have
+\begin{equation}
+\ell = \tau \langle v\rangle
+\end{equation}
+Uniform acceleration gives the velocity
+\begin{equation}
+v = w\Delta t_{0}
+\end{equation}
+The distance traveled while accelerating uniformly is
+\begin{equation}
+d_{0} = \frac{1}{2}w(\Delta t_{0})^{2}.
+\end{equation}
+Conversely, while decelerating, the distance traveled is $d_{2}=d_{0}$.
+The distance traveled under uniform velocity is
+\begin{equation}
+d_{1} = v\Delta t_{1}.
+\end{equation}
+The average velocity is then by definition
+\begin{equation}\label{eq:ir1.3:def-avg-velocity}
+\langle v\rangle = \frac{2d_{0} + d_{1}}{2\Delta t_{0} + \Delta t_{1}}
+\end{equation}
+
+\textsc{Execute:}
+We expand the definitions of $d_{0}$ and $d_{1}$ in Eq \eqref{eq:ir1.3:def-avg-velocity}
+to find
+\begin{subequations}
+\begin{align}
+\frac{2d_{0} + d_{1}}{2\Delta t_{0} + \Delta t_{1}}
+&= \frac{w (\Delta t_{0})^2 + w\Delta t_{0}\Delta t_{1}}{2\Delta t_{0} + \Delta t_{1}}\\
+&= \frac{(w \Delta t_{0}) (\Delta t_{0} + \Delta t_{1})}{2\Delta t_{0} + \Delta t_{1}}\\
+&= (w \Delta t_{0})\left(1 - \frac{\Delta t_{0}}{2\Delta t_{0} + \Delta t_{1}}\right)\\
+&= (w \Delta t_{0})\left(1 - \frac{\Delta t_{0}}{\tau}\right).
+\end{align}
+\end{subequations}
+This gives us a quadratic equation in $\Delta t_{0}$
+\begin{subequations}
+\begin{equation}
+\langle v\rangle = -(w/\tau)(\Delta t_{0})^{2} + w\Delta t_{0}
+\end{equation}
+Multiplying through by $-\tau/w$
+\begin{equation}
+-\frac{\tau\langle v\rangle}{w} = (\Delta t_{0})^{2} - \tau\Delta t_{0}
+\end{equation}
+then completing the square on the right hand side
+\begin{equation}
+-\frac{\tau\langle v\rangle}{w} = (\Delta t_{0} - \tau/2)^{2} - \tau^{2}/4.
+\end{equation}
+Rearranging terms yields
+\begin{equation}
+\frac{\tau^{2}}{4}-\frac{\tau\langle v\rangle}{w} = (\Delta t_{0} - \tau/2)^{2}
+\end{equation}
+and hence taking the squareroot of both sides
+\begin{equation}
+\Delta t_{0} - \frac{\tau}{2}=\pm\sqrt{\frac{\tau^{2}}{4}-\frac{\tau\langle v\rangle}{w}}.
+\end{equation}
+The left hand side is non-positive (since $\tau/2 = \Delta t_{1}/2 + \Delta t_{0} > \Delta t_{0}$),
+which means we must take the negative value of the squareroot
+\begin{equation}
+\Delta t_{0} - \frac{\tau}{2}=-\sqrt{\frac{\tau^{2}}{4}-\frac{\tau\langle v\rangle}{w}}.
+\end{equation}
+Hence (multiplying through by $-2$)
+\begin{equation}
+\tau - 2\Delta t_{0} = 2\sqrt{\frac{\tau^{2}}{4}-\frac{\tau\langle v\rangle}{w}}.
+\end{equation}
+\end{subequations}
+This is the solution for $\Delta t_{1}$
+\begin{equation}
+\begin{split}
+\Delta t_{1} &= 2\sqrt{\frac{\tau^{2}}{4}-\frac{\tau\langle v\rangle}{w}}\\
+&= \tau\sqrt{1-\frac{4\langle v\rangle}{w\tau}}.
+\end{split}
+\end{equation}
+
+\textsc{Evaluate:}
+We see when
+\begin{equation}
+\frac{\tau^{2}}{4}=\frac{\tau\langle v\rangle}{w}
+\end{equation}
+the time the car is moving uniformly is $\Delta t_{1}=0$.
+Also, as $w\to\infty$ or $\langle v\rangle\to0$, we have $\Delta t_{1}\to 0$. We also have a reality condition
+\begin{equation}
+\frac{w\tau}{4}\geq\langle v\rangle
+\end{equation}
+otherwise we end up with $\Delta t_{1}\in\I\RR$ which is unphysical.
+\end{soln}

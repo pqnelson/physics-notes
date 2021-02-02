@@ -8,21 +8,72 @@ motion (``dynamics'').
 \subsection{Force and Interaction}
 
 \begin{definition}
-A \define{Force}\index{Force|textbf} is a push or a pull (or \emph{any
-interaction which changes the motion of a body}). It describes the interaction
-between a body and its environment, or between two bodies. A force is a
-vectorial quantity involving its strength and direction.
+A \define{Force}\index{Force|textbf} is a push or a pull (or
+\emph{any interaction which changes the motion of a body}). It describes the
+interaction between a body and its environment, or between two bodies. A
+force is a vectorial quantity involving its strength and direction.
 \end{definition}
 
 \begin{definition}
 A \define{Contact Force}\index{Force!Contact} is a force that requires
 direct contact between two bodies, like a push, a pull, or friction.
 \end{definition}
+
+\begin{ex}[Tension]
+When a string, a cord, a rope is attached to an object, there is a force
+exerted on the object when pulling the rope \emph{and} the rope is taut.
+This is in the direction of the pull. Such a force is called
+\define{Tension}\index{Tension|textbf}.
+\end{ex}
+
+\begin{ex}[Normal Force]
+What prevents an object from falling through the ground? There is a
+force the ground exerts on objects, called the
+\define{Normal Force}\index{Normal Force|textbf}. More generally, if a
+body is in contact with some surface, that surface exerts a normal force
+on the body.
+\end{ex}
+
+\begin{ex}[Friction]
+Friction occurs when dragging an object against the ground (or some
+flooring). It is defined as $\vec{F}=\mu\vec{N}$ where $\mu$ is the
+coefficient of friction, $\vec{N}$ is the normal force acting on the
+object.
+\end{ex}
+
+\begin{ex}[Drag]
+When an object moves through a fluid, the fluid ``pushes back'' against
+the object. This exerts a force known as \define{Drag}. It is
+proportional to the square of the magnitude of the velocity of the
+moving body through the fluid, but it points in the opposite direction
+as the velocity
+\begin{equation}
+\vec{F}_{\text{drag}}\looksLike v^{2}(-\widehat{\vec{v}})
+\end{equation}
+modulo some proportionality constant.
+\end{ex}
+
+\begin{ex}[Spring]
+A spring connects two objects, and provides an oscillatory force between
+the objects. Since springs require direct contact with bodies, it is
+considered a contact force. Note: not all simple harmonic oscillators
+stem from contact forces. A pendulum uses gravitational force for its
+oscillatory movement, which is a long range force.
+\end{ex}
+
 \begin{definition}
 A \define{Long Range Force}\index{Force!Long-Range} acts on a body or
 bodies when separated by empty space. Gravity and electromagnetism are
 examples of long range forces.
 \end{definition}
+
+\begin{ex}[{Fictitious Forces}]
+In rotating or accelerating reference frames~\Mref{defn:newtonian-dynamics:inertial-reference-frame},
+it appears as though there are ``extra forces'' at play. Such forces
+(like the centrifugal force, Euler force, and the Coriolis effect) are
+``long range forces'', if only because there is no acting body in
+immediate contact with the recipient of the force.
+\end{ex}
 
 \N{Superposition}
 When two forces $\vec{F}_{1}$ and $\vec{F}_{2}$ act on the same body,
@@ -87,10 +138,10 @@ it vanishes
   \sum\vec{F} = \vec{0}.
 \end{equation}
 For this to be true, each component must vanish $\sum F_{x}=0$ and $\sum
-F_{y}=0$. 
+F_{y}=0$.
 \end{definition}
 
-\begin{definition}
+\begin{definition}\label{defn:newtonian-dynamics:inertial-reference-frame}
 A \define{Inertial Reference Frame} consists of a reference frame such
 that Newton's first law holds. A \define{Non-Inertial Reference Frame}
 is one where Newton's first law fails.
@@ -183,3 +234,24 @@ harness an infinite amount of energy from \emph{any} system if this
 relation were true.)
 
 \subsection{Newton's Third Law}
+\begin{corollary}
+From Newton's second and third laws, total linear momentum
+is a conserved quantity.
+\end{corollary}
+\begin{proof}
+To show something, $f$, is a conserved quantity, we
+need to show its time derivative vanishes. For two interacting
+bodies, the total momentum is
+\begin{equation}
+    \vec{p}_{\text{tot}} = \vec{p}_{1} + \vec{p}_{2}.
+\end{equation}
+Newton's third law tells us
+\begin{equation}
+    \vec{F}_{1}=-\vec{F}_{2}\implies\vec{F}_{1}+\vec{F}_{2}=0
+\end{equation}
+but using his second law, we find
+\begin{equation}
+    \frac{\D}{\D t}(\vec{p}_{1} + \vec{p}_{2}) =\vec{F}_{1}+\vec{F}_{2}=0
+\end{equation}
+which proves the claim.
+\end{proof}

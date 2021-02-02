@@ -1,4 +1,5 @@
 \makeatletter
+\RequirePackage{mathtools}
 % notation
 \ifsvmono\else
   \newcommand{\E}{\mathrm{e}}
@@ -27,12 +28,12 @@
 
 % qft specific notation
 \newcommand\vacuum{0}
-\@ifundefined{DeclarePairedDelimiter}{%
-  \newcommand\normalOrder[1]{\mathrel{:}\!#1\!\mathrel{:}}%
-}{%
-  \DeclarePairedDelimiter{\normalOrder}{\vcentcolon}{\vcentcolon}%
-}
-
+%% \@ifundefined{DeclarePairedDelimiter}{%
+%%   \newcommand\normalOrder[1]{{\mathrel{:}}\!#1\!{\mathrel{:}}}%
+%% }{%
+%%   \DeclarePairedDelimiter{\normalOrder}{\vcentcolon}{\vcentcolon}%
+%% }
+\newcommand\normalOrder[1]{{\mathrel{:}}\!#1\!{\mathrel{:}}}%\DeclarePairedDelimiter{\normalOrder}{\vcentcolon}{\vcentcolon}%
 % common sets
 \newcommand\CC{\mathbb{C}}
 \newcommand\NN{\mathbb{N}}
