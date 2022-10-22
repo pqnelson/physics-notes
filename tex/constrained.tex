@@ -1,6 +1,6 @@
 \N*{Sketch} We will basically follow Henneaux and Teitelboim's treatment
 of constrained systems~\cite[ch 1]{Henneaux:1992ig}, and supplement this
-with the more dated lectures Dirac gave in 1964~\cite[ch 1]{dirac1964}. 
+with the more dated lectures Dirac gave in 1964~\cite[ch 1]{dirac1964}.
 (Although it is self-evident Henneaux and Teitelboim based their work on
 Dirac's lectures.)
 
@@ -215,7 +215,7 @@ $(y_{m'},x_{n})$ where $y_{m'}=\phi_{m'}$. Then we just note we want to
 consider $G(0,x_{n})=0$. Using calculus, we see
 \begin{subequations}
 \begin{align}
-G(y,x) &= \int^{1}_{0}\frac{\D}{\D t}G(ty, x)\,\D t\\    
+G(y,x) &= \int^{1}_{0}\frac{\D}{\D t}G(ty, x)\,\D t\\
 &=\int^{1}_{0}y_{m'}\frac{\partial}{\partial y_{m'}}G(ty, x)\,\D t\\
 &=y_{m'}\int^{1}_{0}\frac{\partial}{\partial y_{m'}}G(ty, x)\,\D t
 \end{align}
@@ -237,7 +237,7 @@ surface, then
   \end{split}
 \end{equation}
 for some $u^{m}$. (The equalities here are equalities on the constraint
-surface.) 
+surface.)
 \end{theorem}
 \begin{proof}
 By the regularity conditions, the gradients $(\partial\phi_{m'}/\partial
@@ -293,13 +293,13 @@ proportional to $\delta p_{n}$ and $\delta q^{n}$. Observe
 \begin{subequations}
 \begin{align}
 \delta H &= \delta(\dot{q}^{n}p_{n} - L)\\
-&=\dot{q}^{n}p_{n}+p_{n}\dot{q}^{n}
+&=\dot{q}^{n}\delta p_{n}+p_{n}\delta \dot{q}^{n}
   -\left(\frac{\partial L}{\partial q^{n}}\delta q^{n}
          + \frac{\partial L}{\partial\dot{q}^{n}}\delta\dot{q}^{n}\right)\\
-&=\dot{q}^{n}p_{n}
-   +\left(p_{n}-\frac{\partial L}{\partial\dot{q}^{n}}\right)\dot{q}^{n}
+&=\dot{q}^{n}\delta p_{n}
+   +\left(p_{n}-\frac{\partial L}{\partial\dot{q}^{n}}\right)\delta\dot{q}^{n}
   -\frac{\partial L}{\partial q^{n}}\delta q^{n}\\
-&=\dot{q}^{n}p_{n} -\frac{\partial L}{\partial q^{n}}\delta q^{n}.
+&=\dot{q}^{n}\delta p_{n} -\frac{\partial L}{\partial q^{n}}\delta q^{n}.
 \end{align}
 \end{subequations}
 Observe here $\delta p_{n}$ is \emph{not} an independent variation, but
@@ -326,14 +326,14 @@ for arbitrary (smooth) phase-space functions $c^{m}(q,p)$.
 We can rewrite the variation of the Hamiltonian as
 \begin{subequations}
 \begin{equation}
-\delta H - \left(\dot{q}^{n}p_{n} -\frac{\partial L}{\partial q^{n}}\delta q^{n}\right) = 0
+\delta H - \left(\dot{q}^{n}\delta p_{n} -\frac{\partial L}{\partial q^{n}}\delta q^{n}\right) = 0
 \end{equation}
 then expand $\delta H$ as a linear combination of $\delta q$'s and
 $\delta p$'s
 \begin{equation}
 \left(\frac{\partial H}{\partial q^{n}}\delta q^{n}
       +\frac{\partial H}{\partial p_{n}}\delta p_{n}\right)
-- \dot{q}^{n}p_{n} + \frac{\partial L}{\partial q^{n}}\delta q^{n}=0
+- \dot{q}^{n}\delta p_{n} + \frac{\partial L}{\partial q^{n}}\delta q^{n}=0
 \end{equation}
 then gathering terms
 \begin{equation}
@@ -378,7 +378,7 @@ Take
 \begin{equation}
 \begin{split}
 \frac{\partial}{\partial\dot{q}^{n}}\phi_{m}\bigl(q, p(q, \dot{q})\bigr)
-&=\frac{\partial\phi_{m}}{\partial p_{n'}}\left(\frac{\partial p_{n'}}{\partial\dot{q}^{n}}\right)\\  
+&=\frac{\partial\phi_{m}}{\partial p_{n'}}\left(\frac{\partial p_{n'}}{\partial\dot{q}^{n}}\right)\\
 &=\frac{\partial\phi_{m}}{\partial p_{n'}}W_{nn'}
 \end{split}
 \end{equation}
@@ -503,7 +503,7 @@ change.)
 
 \N{Solving the Constraints before Varying}
 We may alternatively consider the good old fashioned action where we
-first solve the constrsaints then perform the variation
+first solve the constraints then perform the variation
 \begin{equation}
 \delta\int(p\dot{q}-H)\,\D t=0
 \end{equation}
@@ -690,7 +690,7 @@ Reducible constraints come about in, e.g., $p$-form gauge theories where
 the $p$-form fields are part of the constraints. (See, e.g., Henneaux
 and Teitelboim's paper~\cite{Henneaux:1986ht}, Henneaux and
 Bunster~\cite{Bunster:2011qp}, or Navarro and
-Sancho~\cite{Navarro:2012hv} on $p$-form electrodynamics.) 
+Sancho~\cite{Navarro:2012hv} on $p$-form electrodynamics.)
 
 \M
 We can always add redundant constraints to the theory without any
@@ -728,7 +728,7 @@ Hence
 \end{equation}
 and thus
 \begin{equation}
-\PoissonBracket{F}{\firstClassHamiltonian+v^{a}\phi_{a}}\weakEq\PoissonBracket{F}{H}+(U^{m}+v^{a}{V_{a}}^{m})\PoissonBracket{F}{\phi_{m}}  
+\PoissonBracket{F}{\firstClassHamiltonian+v^{a}\phi_{a}}\weakEq\PoissonBracket{F}{H}+(U^{m}+v^{a}{V_{a}}^{m})\PoissonBracket{F}{\phi_{m}}
 \end{equation}
 which is weakly the equations of motion.
 \end{proof}
@@ -835,7 +835,7 @@ is to say, we could pick a different solution $\widetilde{U}^{m}$ and
 get a diffferent split. By the completeness of $\phi_{a}$
 \Mref{thm:constrained:phi-a-complete-first-class-primary-constraints},
 we see this amounts to picking different arbitrary functions
-$\widetilde{v}^{a}\neq v^{a}$, giving us 
+$\widetilde{v}^{a}\neq v^{a}$, giving us
 \begin{equation}
 \totalHamiltonian = \widetilde\firstClassHamiltonian + \widetilde{v}^{a}\phi_{a}
 \end{equation}
@@ -904,11 +904,11 @@ for ``arbitrary infinitesimal'' $\delta v^{a}$.
 
 \N{Puzzles}
 How do we compose gauge transformations? More explicitly, suppose we
-have one gauge transformation 
+have one gauge transformation
 $F\to F + \varepsilon^{a}\PoissonBracket{F}{\phi_{a}}$
-and a second gauge transformation 
+and a second gauge transformation
 $F\to F + \eta^{a'}\PoissonBracket{F}{\phi_{a'}}$,
-what does the transformation of doing one then the other look like? 
+what does the transformation of doing one then the other look like?
 
 Is composing gauge transformations commutative? Associative? Invertible?
 
@@ -922,7 +922,7 @@ We see that $G\to G+\delta G$. So we plug in the Poisson brackets:
 \begin{equation}
 \delta G = \eta^{a'}\PoissonBracket{G}{\phi_{a'}}.
 \end{equation}
-Great. But now we plug in $G=F+\delta F$ for 
+Great. But now we plug in $G=F+\delta F$ for
 \begin{equation}
 \delta F = \varepsilon^{a}\PoissonBracket{F}{\phi_{a}}.
 \end{equation}
@@ -1004,7 +1004,7 @@ Hence the total transformation is just the sum of these guys
 \end{align}
 \end{subequations}
 by the Jacobi identity, discarding the $\bigO{\varepsilon^2}$ and
-$\bigO{\eta^2}$ terms. This shows more generally 
+$\bigO{\eta^2}$ terms. This shows more generally
 \begin{equation}
 \delta F = \varepsilon^{a}\eta^{a'}\PoissonBracket{F}{\PoissonBracket{\phi_{a}}{\phi_{a'}}}
 +\bigO{\varepsilon^{2}}+\bigO{\eta^{2}}
@@ -1027,7 +1027,7 @@ obtained by
   $\firstClassHamiltonian$, and
 \item the same operations in reverse order.
 \end{enumerate*}
-Their difference must be a gauge transformation. We see 
+Their difference must be a gauge transformation. We see
 \begin{subequations}
 \begin{align}
 \delta F_{1} &= \eta^{a}\PoissonBracket{F}{\phi_{a}}\\
@@ -1036,7 +1036,7 @@ Their difference must be a gauge transformation. We see
 &=\varepsilon\PoissonBracket{F}{\firstClassHamiltonian} + \varepsilon\eta^{a}\PoissonBracket{\PoissonBracket{F}{\phi_{a}}}{\firstClassHamiltonian}
 \end{align}
 \end{subequations}
-but if we first evolve, 
+but if we first evolve,
 \begin{subequations}
 \begin{align}
 \delta F_{1}' &= \varepsilon\PoissonBracket{F}{\firstClassHamiltonian}\\
@@ -1112,7 +1112,7 @@ generate transformations that do not alter the physical state, while implicitly
 assuming the time $t$ (the variable of integration in the action) is
 observable. That is, it's information brought in from the outside. We
 may take the perspective that some of the gauge arbitrariness indicates
-time itself is not observable. This is done in 
+time itself is not observable. This is done in
 \define{Generally Covariant} theories. One of the arbitrary functions is
 associated with reparametrization of time $t\to f(t)$. The choice of $f$
 requires additional information. We make ask and answer \emph{the same}
@@ -1245,7 +1245,7 @@ would consist of a single state.
 The literature on this subject (counter-examples to Dirac's conjecture)
 is rich. A few papers are worth mentioning: Allcock~\cite{allcock1975};
 Cawley~\cite{PhysRevLett.42.413}; Frenkel~\cite{Frenkel:1980nt};
-Sugano and Kimura~\cite{Sugano:1982sy}; Costa, Girotti and 
+Sugano and Kimura~\cite{Sugano:1982sy}; Costa, Girotti and
 Simoes~\cite{Costa:1985tt}; Cabo and Louis-Martinez~\cite{Cabo:1990jk};
 Lusanna~\cite{Lusanna:1991je,Lusanna:1991im};
 Wu~\cite{Wu:1994jd}; Miskovic and Zanelli~\cite{Miskovic:2003ex};
@@ -1262,11 +1262,11 @@ We arged, in the Hamiltonian setting, the first-class versus
 second-class divide was natural. But our equations of motion depended on
 the total Hamiltonian \Mref{defn:total-hamiltonian}, i.e., first-class primary
 constraints\dots which is not natural! We thus introduce a ``natural''
-generalization. 
+generalization.
 
 \begin{definition}\label{defn:extended-hamiltonian}
 The \define{Extended
-Hamiltonian}\index{Hamiltonian!Extended}\index{Extended Hamiltonian|textbf} is 
+Hamiltonian}\index{Hamiltonian!Extended}\index{Extended Hamiltonian|textbf} is
 \begin{equation*}
 \extendedHamiltonian\eqDef\firstClassHamiltonian+u^{a}\firstClassConstraint_{a}
 \end{equation*}
@@ -1437,7 +1437,7 @@ q^{n}}\frac{\partial G}{\partial p_{n}}
 -\frac{\partial G}{\partial q^{n}}\frac{\partial F}{\partial p_{n}}
 \end{equation}
 Observe we may set the second-class constraints to zero
-before working with our modified bracket $\DiracBracket{-}{-}$. 
+before working with our modified bracket $\DiracBracket{-}{-}$.
 
 The moral? We need some suitable generalization of the Poisson bracket
 when dealing with second-class constraints.
