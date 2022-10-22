@@ -41,13 +41,14 @@ sciences focuses on \emph{examples}, working out problems. We
 consider the structure of a worked problem (or an example)
 consisting of four steps used in problem--solving:
 \begin{enumerate}
-\item\textbf{Identify the relevant concepts:} Bring in the
-  relevant physical concepts. Also identify the \emph{target variable},
+\item\textbf{Identify the relevant concepts:} (a)~State explicitly the
+  relevant physical concepts. (b)~Identify the \emph{target variable},
   the quantity we're trying to solve. Are we looking for a
-  numeric value or an algebraic expression?
-\item\textbf{Set up the problem:} Draw a sketch if it
-  helps. Choose the equations based on the ``identify'' step,
-  decide how we'll use them.
+  numeric value or an algebraic expression? (c)~List all known and
+  unknown quantities, and their values (if known) or state it is unknown.
+\item\textbf{Set up the problem:} Choose the equations based on the
+  ``identify'' step, decide how we'll use them. Draw a sketch if it
+  helps.
 \item\textbf{Execute the Solution:} Do the math, preferably doing
   algebraic calculations first, then plug in the physical
   quantities.
@@ -83,13 +84,18 @@ $m$, $t$ are integers.
 
 \N{Four Constants of Nature}
 There are four constants of nature which the international system of
-units takes as ``primitive'':
+units takes as ``primitive'', in the sense of defined exactly by
+convention:
 \begin{enumerate}
-    \item Speed of Light in a vacuum $c$
-    \item Planck's constant $\hbar$
-    \item Boltzmann's constant $k_{B}$
-    \item the Avogadro number $N_{A}$
+    \item Elementary Charge $\si{\elementarycharge} = \SI{1.602176634e-19}{\coulomb}$
+    \item Planck's constant $h = \SI{6.62607015e-34}{\joule\second}$
+    \item Boltzmann's constant $k_{B}=\SI{1.380649e-23}{\joule\per\kelvin}$
+    \item the Avogadro number $N_{A} = \SI{6.02214076e23}{\per\mole}$
 \end{enumerate}
+There is \emph{nothing} physically significant about choosing these
+constants as opposed to any other of the two dozen physical constants.
+Further, the definition of the speed of light is fixed by convention to
+be exactly $\si{\clight} = \SI{299792458}{\meter\per\second}$.
 
 \N{Standards and Units}\label{M:intro:standards-and-units}
 We measure phenomena experimentally, and use numbers  for
@@ -116,17 +122,26 @@ quantities:
 We hit a Cesium atom\index{Cesium} in its ground state with radiation at the
 frequency necessary to energize the valence electron to the next
 energy state. We define one \define{Second}\index{Second|textbf} to be 9,192,631,770
-cycles of this radiation.
+cycles of this radiation, or equivalently $\Delta\nu_{\mathrm{Cs}}=\SI{9192631770}{\per\second}$.
 \begin{center}
 \includegraphics{img/intro.0}
 \end{center}
 \textbf{Distance:\quad}\ignorespaces%
 We define one \define{Meter} to be the distance a photon travels
-in a vacuum in $\SI{1/299792458}{\second}$.
+in a vacuum in $\SI{1/299792458}{\second}$. That is
+\begin{equation}
+\SI{1}{\meter} \eqDef \frac{\SI{9192631770}{\clight}}{299\,792\,458\Delta\nu_{\mathrm{Cs}}}
+\end{equation}
 
 \noindent\textbf{Mass:\quad}\ignorespaces%
-We keep a particular cylinder of platinum--iridium alloy in
-Paris, and its mass we define as one \define{Kilogram}\index{Kilogram|textbf}.
+We used to keep a particular cylinder of platinum--iridium alloy in
+Paris, and its mass we define as one
+\define{Kilogram}\index{Kilogram|textbf}. Then we found out it slowly
+decays over time. So now we define a kilogram to be such that Planck's
+constant is exactly $\SI{6.62607015e-34}{\joule\second}$, so
+\begin{equation}
+\SI{1}{\kilogram} \eqDef \frac{(299\,792\,458)^{2}}{(6.626\,070\,15\times10^{-34})(9\,192\,631\,770)}\frac{h\,\Delta\nu_{\mathrm{Cs}}}{\si{\clight}^{2}}
+\end{equation}
 
 \medbreak
 Note that these are the fundamental physical quantities. We use
@@ -175,7 +190,7 @@ dimensionally consistent. We cannot add oranges to orangutans!
 For example: $d = rt$, so we have
 \begin{equation}
 \SI{12}{\meter} =
-\left(3\frac{\si{\meter}}{\si{\highlight{red}\cancel\second}}\right)(4\si{\highlight{red}\cancel\second})
+\left(3\frac{\si{\meter}}{\si{\highlight{red}\cancel{\second}}}\right)(4\si{\highlight{red}\cancel{\second}})
 \end{equation}
 Huzzah, we have consistency!
 
@@ -187,11 +202,11 @@ inconsistencies.
 United States President Barack Obama\index{Obama!President Barack} was born August 4, 1961 at
 7:24 \textsc{pm}. How old is he on January 1, 2010 at noon?
 
-\textsc{Identify:}
+\IDENTIFY
 We need to compute $T$, the time interval from 4 August 1961 at
 7:24 \textsc{pm} until 1 January 2010 at noon.
 
-\textsc{Set Up:}
+\SETUP
 We recall there are $365.25$ days per year, 24 hours per day, 60
 minutes per hour, and 60 seconds per minute. Furthermore, let
 \begin{subequations}
@@ -204,7 +219,7 @@ T &= T_{1}+T_{2}
 \end{align}
 \end{subequations}
 
-\textsc{Execute:}
+\EXECUTE:
 First we consider $\tau_{1}$ the time left on 4 August 1961 until
 midnight, so
 \begin{equation}
@@ -282,7 +297,7 @@ T &= (\SI{25461316}{\minute})\left(60\frac{\si{sec}}{\si{\minute}}\right)\\
 \end{equation}
 This is our answer.
 
-\textsc{Evaluate:}
+\EVALUATE
 Does this make sense? Well, it should be a little less than 50
 years in seconds. We find
 \begin{equation}
@@ -344,6 +359,18 @@ q\orderOf r\quad\mbox{if and only if}\quad \left|\log\left(\frac{\max(1,
 |q|)}{\max(1, |r|)}\right)\right| < 1,
 \end{equation}
 which is ungodly to write out or look at.
+
+\N{Interval Estimate}
+Another way to consider the order of magnitude is, given some number
+$x$, by constructing the interval
+\begin{equation}
+[x\times 10^{-1/2}, x\times 10^{1/2}]
+\end{equation}
+Two numbers $x$ and $y$ have ``the same'' order of magnitude if these
+intervals are not disjoint, i.e.,
+\begin{equation}
+x\times 10^{-1/2}\leq y\leq x\times 10^{1/2}.
+\end{equation}
 
 \N*{Exercise} (For mathematicians) Is Eq \eqref{eq:defn-of-order-magnitude-sim}
 an equivalence relation?
@@ -415,3 +442,53 @@ Are these estimates good to 2 digits? (Hint: these estimates are
 related, so you only have to prove a few of them, and that the rest are
 logical consequences of the few.)
 \end{xca}
+
+\begin{prop}
+The number of seconds in a year is approximately $\SI{\pi e7}{\second}$.
+\end{prop}
+\begin{proof}
+We can approximate the number of seconds in one year by $\pi\times 10^{7}$.
+The justification for this is straightforward calculation
+\begin{subequations}
+\begin{equation}
+\SI{1}{\day}
+\frac{\SI{24}{\hour}}{\SI{1}{\day}}
+\frac{\SI{60}{\minute}}{\SI{24}{\hour}}
+\frac{\SI{60}{\second}}{\SI{1}{\minute}} = \SI{86400}{\second}.
+\end{equation}
+And for a ``sidereal year'' (i.e., the time for one complete orbit of
+the Earth)\footnote{The estimate for days in one complete orbit of the
+Earth is from \url{https://hpiers.obspm.fr/eop-pc/models/constants.html}}
+\begin{equation}
+\SI{1}{\year}
+\frac{\SI{365.256363004}{\day}}{\SI{1}{\year}}
+\frac{\SI{86400}{\second}}{\SI{1}{\day}}
+= \SI{31558149.7635456}{\second}.
+\end{equation}
+\end{subequations}
+Hence we find
+\begin{equation}
+t_{0} = \SI{31558149.7635456}{\second},
+\end{equation}
+and the absolute error for the approximation is
+\begin{equation}
+|t_{0} - \SI{\pi e7}{\second}| = \SI{142223.2276476659}{\second} = \SI{1.646102171847985}{\day}
+\end{equation}
+with a relative error of
+\begin{equation}
+\left|\frac{t_{0} - \SI{\pi e7}{\second}}{t_{0}}\right| = \SI{0.4506703615810679}{\percent}.
+\end{equation}
+Less than half a percent error, not terrible.
+\end{proof}
+
+\begin{prop}
+We have $\sqrt{10}\approx\pi$, useful for order-of-magnitude estimates.
+\end{prop}
+\begin{proof}
+Observe $\sqrt{10}\approx\pi$. The absolute error for this approximation
+is given by
+\begin{equation}
+\left|\frac{\sqrt{10}-\pi}{\sqrt{10}}\right|\approx 0.00654
+\end{equation}
+which is less than 1\%.
+\end{proof}

@@ -1,6 +1,6 @@
 # ignore the references
-/ref/*
-/ref
+/refs/*
+/refs/
 
 # ignore the images, but not the metapost source files
 /img/*

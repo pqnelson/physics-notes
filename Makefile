@@ -2,7 +2,7 @@ TEX=pdflatex
 FILE=physics
 BIB=biber
 
-all:
+all: images
 	$(TEX) $(FILE)
 	$(BIB) $(FILE)
 	$(TEX) $(FILE)
@@ -12,3 +12,6 @@ index:
 
 compress:
 	 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$(FILE)-compressed.pdf $(FILE).pdf
+
+images:
+	cd img && make

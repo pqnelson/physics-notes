@@ -127,6 +127,20 @@ and $\Delta\vec{v}$ becomes perpendicular to \emph{both} $\vec{v}_1$ and
 $\vec{v}_2$. So, in other words, the speed (magnitude of velocity)
 remains the same but the direction of the paths change.
 
+\begin{thm}
+Let $\vec{v}$ be the velocity vector and $\vec{a}$ the acceleration
+vector. Then the parallel acceleration is
+\begin{subequations}
+\begin{equation}
+  \vec{a}_{\parallel} = \frac{\vec{v}\cdot\vec{a}}{\vec{v}\cdot\vec{v}}\vec{v}
+\end{equation}
+and the perpendicular acceleration is
+\begin{equation}
+  \vec{a}_{\perp} = \vec{a} - \vec{a}_{\parallel}.
+\end{equation}
+\end{subequations}
+\end{thm}
+
 \N*{Summary}
 When the magnitude of velocity changes but the path remains the same,
 this is parallel acceleration. When the magnitude of velocity stays
@@ -258,11 +272,12 @@ leaning Tower of Pisa (at $\SI{56.0}{\meter}$ from the ground). How
 long until the coin hits the ground?
 
 \begin{soln}
-\textsc{Identify.} We need to use
+\IDENTIFY
+We need to use
 $x(t)=x_{0}+v_{0}t+\frac{1}{2}at^{2}$, assuming $a=-g$ is
 constant.
 
-\textsc{Set-Up.}
+\SETUP
 We first doodle the tower
 \begin{center}
   \includegraphics{img/pisa.0}
@@ -276,7 +291,7 @@ want\footnote{This was also chosen because if this problem were
 they're the same, but one works ``out of the box'' while the other
 requires us to fiddle around with algebra.} to find $t_{1}$ such that $y(t_{1})=0.0$.
 
-\textsc{Execute.}
+\EXECUTE
 We have
 \begin{equation}
 \begin{split}
@@ -296,7 +311,7 @@ t_{1} &= \sqrt{\frac{2\cdot\SI{56.0}{\meter}}{\SI{9.8}{\meter\per\second\squared
 \end{split}
 \end{equation}
 
-\textsc{Evaluate.}
+\EVALUATE
 We see that the coin, after $\SI{3.0}{\second}$, travels a distance
 of approximately $\Delta y\approx \SI{45}{\meter}$. Why? Well,
 since $g/2\approx \SI{5}{\meter/\second\squared}$ and
@@ -318,7 +333,7 @@ $\SI{0.35}{\second}$. Ignore air resistance.
 \end{enumerate}
 
 \begin{soln}
-\textsc{Identify and Set Up.}
+  \IDandSETUP
 We first doodle the situation
 \begin{center}
 \includegraphics{img/kinematics.2}
@@ -336,7 +351,8 @@ x &= x_{0} + v_{0}t.
 \end{split}
 \end{equation*}
 
-\textsc{Execute.} (1) Given the time it takes for the book to fall on the
+\EXECUTE
+(1) Given the time it takes for the book to fall on the
 ground, we can algebraically solve for the height writing
 \begin{equation}
 y(t_{1})=0\implies y_{0}=\frac{1}{2}gt^{2}
@@ -354,7 +370,7 @@ x(t_{1}) &= v_{0}t\\
 \end{split}
 \end{equation}
 
-\textsc{Evaluate.}
+\EVALUATE
 We see for subproblem (1) as $t\to0$ we expect $y_{0}\to0$, which
 happens with our algebraic solution. Furthermore, rearranging this
 algebraically gives us the correct expression for the time until a body
@@ -377,7 +393,8 @@ that the Napoleon 12-pounder canon had a muzzle velocity of
 measured when it left the muzzle). What is the range at \ang{5} elevation?
 
 \begin{soln}
-\textsc{Identify and Setup.} We see this is a projectile motion
+\IDandSETUP
+We see this is a projectile motion
 problem. We're given $\alpha=\ang{5}$, and
 $v_{0}=\SI{439}{\meter/\second}$. We estimate the muzzle is
 $\SI{1}{\meter}$ from the ground. So we pick coordinates such that the
@@ -395,7 +412,7 @@ y(t) &= y_{0} + v_{0}\sin(\alpha)t - \frac{1}{2}gt^{2}
 \end{equation*}
 This gives us enough to start plugging away.
 
-\textsc{Execute.}
+\EXECUTE
 We want to consider the value of $x(t)$ at the time $t_{1}$ when the
 canonball has hit the ground $y(t_{1})=0$. We see that $y(t)=0$ when
 \begin{equation}
@@ -423,7 +440,8 @@ x(t_{1})=\SI{3424}{\meter}.
 \end{equation}
 \end{subequations}
 
-\textsc{Evaluate.} Was this reasonable? Well, we see that for $t_{1}$,
+\EVALUATE
+Was this reasonable? Well, we see that for $t_{1}$,
 we can estimate it as
 \begin{equation}
 t_{1}\approx \frac{2v_{0}\sin(\alpha)}{10}
@@ -561,7 +579,7 @@ $\SI{6371}{\kilo\meter}$.
 \end{enumerate}
 
 \begin{soln}
-\textsc{Identify and Set-up.}
+\IDandSETUP
 We see this is just finding the radial acceleration
 \begin{equation*}
 a = \frac{4\pi^{2}R}{T^{2}}
@@ -582,7 +600,7 @@ T_{\oplus} = \SI{24}{\hour} = \SI{86400}{\second}
 where the subscript $\oplus$ is the symbol for the Earth. We just have
 to plug these into the given equations to get our solutions.
 
-\textsc{Execute.}
+\EXECUTE
 (1) We find
 \begin{equation}
 \begin{split}
@@ -595,7 +613,8 @@ a &= \frac{4\pi^{2}\times\SI{6.371}{\meter}}{(\SI{86.4}{\second})^{2}}\\
 T\leq\SI{5064}{\second}=\SI{1.407}{\hour}.
 \end{equation}
 
-\textsc{Evaluate.} We see that
+\EVALUATE
+We see that
 \begin{equation}
 a=\frac{4\pi^{2}R_{\oplus}}{T^{2}}\orderOf3\times10^{-3}g
 \end{equation}
@@ -623,8 +642,8 @@ When a particle moves in a circle with varying speed, we have
 We see that the derivation of acceleration in uniform circular motion
 \Mref{M:kinematics:uniform-circular-motion:derivation-of-acceleration}
 carries over cleanly, but the acceleration describes the
-\emph{perpendicular} acceleration. Furthermore, it need not be
-constrant. So we have the magnitude of acceleration be
+\emph{perpendicular} acceleration. Furthermore, it need not to be
+constrained. So we have the magnitude of acceleration be
 \begin{equation}
   \|\vec{a}_{\perp}\| = \frac{v^{2}}{R}.
 \end{equation}

@@ -17,7 +17,8 @@
 \usepackage[12hr,us]{datetime}
 \usepackage[inline]{enumitem}
 \usepackage{blkarray}
-\usepackage{amsthm,corollaries}
+%\usepackage{amsthm,corollaries}
+\usepackage{amsthm}
 \usepackage{amsmath,amssymb}
 \usepackage{mathtools}
 \usepackage{textcomp} % fixes odd symbols siunitx uses...
@@ -27,14 +28,26 @@
 \usepackage[final]{graphicx}
 \usepackage{titlesec}
 \ifpdf
-  \usepackage{microtype}
+  %\usepackage{microtype}
   \DeclareGraphicsRule{*}{mps}{*}{}
 \fi
 \usepackage{makeidx}
-\usepackage{tocbibind}
+\usepackage[chapter]{tocbibind}
 \usepackage[hidelinks,plainpages=false]{hyperref}
 
 \numberwithin{equation}{chapter}
+
+\ifpdf
+\hypersetup{pageanchor=false,
+pdfinfo={
+Author={Alex Nelson},
+Title={Notes on Physics},
+CreationDate={D:20140421183832}
+}}
+
+\fi
+
+\sisetup{parse-numbers=false}
 
 
 \newcommand\svcr{\ifsvmono\\\else\fi}
@@ -181,6 +194,9 @@
 \newtheorem{corollary}[chunk@ctr]{Corollary}
 \let\thm\theorem
 \let\endthm\endtheorem
+\let\prop\proposition
+\let\endprop\endproposition
+
 
 \theoremstyle{defnstyle}
 \newtheorem{xca}[chunk@ctr]{Exercise}
@@ -190,7 +206,8 @@
 \let\enddefn\enddefinition
 
 \theoremstyle{rmkstyle}
-\newcorollary{remark}{Remark}[chunk@ctr]
+%\newcorollary{remark}{Remark}[chunk@ctr]
+\newtheorem{remark}{Remark}[chunk@ctr]
 \let\rmk\remark
 \let\endrmk\endremark
 \renewcommand\theremark{\thechunk@ctr.\oldstylenums{\arabic{remark}}}
@@ -240,5 +257,10 @@
 
 \ifsvmono\else\def\preface{\chapter{Preface}}\fi
 
+\newcommand\IDENTIFY{\textsc{Identify:}\ }
+\newcommand\IDandSETUP{\textsc{Identify and Set Up:}\ }
+\newcommand\SETUP{\textsc{Set Up:}\ }
+\newcommand\EXECUTE{\textsc{Execute:}\ }
+\newcommand\EVALUATE{\textsc{Evaluate:}\ }
 
 \makeatother
