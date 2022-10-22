@@ -128,7 +128,7 @@ cycles of this radiation, or equivalently $\Delta\nu_{\mathrm{Cs}}=\SI{919263177
 \end{center}
 \textbf{Distance:\quad}\ignorespaces%
 We define one \define{Meter} to be the distance a photon travels
-in a vacuum in $\SI{1/299792458}{\second}$. That is
+in a vacuum in $\SI[parse-numbers = false]{1/299792458}{\second}$. That is
 \begin{equation}
 \SI{1}{\meter} \eqDef \frac{\SI{9192631770}{\clight}}{299\,792\,458\Delta\nu_{\mathrm{Cs}}}
 \end{equation}
@@ -383,9 +383,9 @@ If so, how could we improve our heuristic definition?
 Physicists are notorious for writing situations like $v\ll c$ (for ``A
 body's velocity is far smaller than the speed of light'') or more
 generally $x\ll y$ for ``$x$ is much smaller than $y$''. This is never
-rigorously defined. Typically it is taken to mean
+rigorously defined. Typically it is taken to mean:
 \begin{equation}
-x\ll y\quad\mbox{if and only if}\quad \infty>|\log(y)-\log(x)|\geq2.
+x\ll y\quad\mbox{if and only if}\quad \infty>|\log_{10}(y)-\log_{10}(x)|\geq2.
 \end{equation}
 The factor 2 is taken arbitrarily. We do not take this rigorously, but
 merely for intuition.
